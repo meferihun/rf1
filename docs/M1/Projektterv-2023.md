@@ -70,6 +70,7 @@ A projekt a következő munkaállomásokat fogja használni a munka során:
  - `PC (CPU: AMD Ryzen 5 5600x, RAM: 16GB, GPU: RX 6700XT)`
  - `ASUS ROG STRIX (CPU: AMD Ryzen 5600h, RAM: 16GB, GPU: RTX 3050 TI)`
  - `PC (CPU: Intel(R) Core(TM) i3-4160, RAM: 10GB, GPU: NVIDIA GeForce GT 740)`
+ - `HUAWEI MATEBOOK D15 (CPU: Intel(R) Core(TM) i3-10110U, RAM: 8GB, GPU: Intel UHD Graphics)`
 
 A projekt a következő technológiákat/szoftvereket fogja használni a munka során: 
 
