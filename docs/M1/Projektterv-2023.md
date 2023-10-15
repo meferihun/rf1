@@ -71,8 +71,7 @@ A projekt a következő munkaállomásokat fogja használni a munka során:
 
 A projekt a következő technológiákat/szoftvereket fogja használni a munka során: 
 
- - `Heroku platformszolgáltatás a webalkalmazás hosztolásához`
- - `Heroku által biztosított PostgreSQL adatbázisszerver`
+ - `SQLite`
  - `Spring Boot keretrendszer`
  - `Thymeleaf dinamikus tartalom megjelenítés a felhasználói felületen`
  - `Maven szoftverprojekt menedzselő szoftver`
@@ -85,19 +84,11 @@ Milyen gépet használnak a projekttagok, milyen operációs rendszeren fejleszt
 
 ### 5.2. Rizikómenedzsment
 
-| Kockázat                                    | Leírás                                                                                                                                                                                     | Valószínűség | Hatás  |
-|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|
-| `Betegség`                                  | `Súlyosságtól függően hátráltatja vagy bizonyos esetekben teljes mértékben korlátozza a munkavégzőt, így az egész projektre kihatással van. Megoldás: a feladatok átcsoportosítása`        | `nagy`       | `erős` |
-| `Kommunikációs fennakadás a csapattagokkal` | `A csapattagok között nem elégséges az információ áramlás, nem pontosan, esetleg késve vagy nem egyértelműen tájékoztatjuk egymást. Megoldás: még gyakoribb megbeszélések és ellenőrzések` | `kis`        | `erős` |
-
-```
-A rizikótényezők bemutatása, amely hátráltathatja a projekt befejezését. 
-Minden rizikót érdemes megemlíteni, részletezve, hogy mit jelent, 
-milyen valószínűséggel következhet be (kis, közepes és nagy), 
-mekkora a várható hatása (gyenge, közepes és erős) 
-és hogy milyen tervvel készültök, amennyiben egy ilyen esemény bekövetkezik. 
-Pl.: betegség, szoftver-hardver probléma, tag kiesése, extrém ZH időszak, pandémia, stb. 
-```
+| Kockázat                                    | Leírás                                                                                                                                                                                    | Valószínűség | Hatás     |
+|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|-----------|
+| `Betegség`                                  | `A projektből egyszerre több személy is kieshet, ami hátráltathatja annak haladását. A problémát úgy lehetne orvosolni, hogy az érintetlenül maradt résztvevők munkáját növeljük.`        | `közepes`    | `erős`    |
+| `Gyűlésen való hiányzás` | `Ezáltal a feladatkiosztás nem lesz egyértelmű, ami megnehezítheti a feladatok elvégzését, és előfordulhat, hogy egyesek több feladatot vállalnak, mint mások. Megoldásként érdemes értesíteni a meg nem jelent személyt, és szükség esetén átadni neki a feladatokat.` | `kis`        | `közepes` |
+| `ZH-k sokasága` | `A gyakori számonkérések miatt előfordulhat, hogy valaki nem tudja a elvégezni a neki kiszabott feladatokat egy adott időszakban. Megoldásként javasolt az ilyen időszakokra előre elkészíteni a feladatokat.`  | `közepes`    | `közepes` |
 
 ## 6. Jelentések
 
