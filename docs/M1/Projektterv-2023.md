@@ -30,39 +30,34 @@
 
 ## 3. Költség- és erőforrás-szükségletek
 
-Az erőforrásigényünk összesen `57` személynap, átlagosan `19` személynap/fő.
+Az erőforrásigényünk összesen `50` személynap, átlagosan `7` személynap/fő.
 
-A rendelkezésünkre áll összesen `3 * 70 = 210` pont.
-
-```
-Becsült sarokszámok, a rendelkezésre álló erőforrás fejenként általában 17-21 személynap, 
-a pontok száma = fejenként a projektre kapható maxpont * tagok száma.
-```
+A rendelkezésünkre áll összesen `7 * 70 = 490` pont.
 
 ## 4. Szervezeti felépítés és felelősségmegosztás
 
-A projekt megrendelője `Dr. Márkus András`. A `Szállítmányozás` projektet a projektcsapat fogja végrehajtani, amely `jelenleg három fejlesztőből áll. A csapatban található tapasztalt és pályakezdő webprogramozó is, A tapasztalt projekttagok több éve dolgoznak az iparban, számos sikeres projektten vannak túl.`
- - `Teszt Elek (3 év ipari tapasztalat a Számító Gép Kft.-nél)`
- - `Remek Elek (3 év egyetemi tapasztalat)`
- - `Lev Elek (<1 év tapasztalatő)`
-
-```
-Itt lehet részletezni pl. a tagok szakmai tapasztalatait, vagy akár a releváns gyakorlati helyeket, munkahelyeket megemlíteni.
-```
+A projekt megrendelője `Dr. Pflanzner Tamás`. A `Hír` projektet a projektcsapat fogja végrehajtani, amely `jelenleg hét fejlesztőből áll. A csapatban csak pályakezdő webprogramozó található.`
+ - `Somogyi László (<1 év tapasztalat)`
+ - `Bialkó Ádám Csaba (<1 év tapasztalat)`
+ - `György József (<1 év tapasztalat)`
+ - `Juhász Márk (<1 év tapasztalat)`
+ - `Megyesi Ferenc (<1 év tapasztalat)`
+ - `Szalai István (<1 év tapasztalat)`
+ - `Tóth-Andor Kristóf (<1 év tapasztalat)`
 
 ### 4.1 Projektcsapat
 
 A projekt a következő emberekből áll:
 
-| Név          | Pozíció          |   E-mail cím (stud-os)        |
-|--------------|------------------|-------------------------------|
-| `Teszt Elek` | Projektmenedzser | `h123456@stud.u-szeged.hu`    |
-| `Remek Elek` | Projekt tag      | `h654321@stud.u-szeged.hu`    |
-| `Lev Elek`   | Projekt tag      | `h000000@stud.u-szeged.hu`    |
-
-```
-Betölthető pozíciók: projektmenedzser, projekt tag.
-```
+| Név                 | Pozíció                |   E-mail cím (stud-os)        |
+|---------------------|------------------------|-------------------------------|
+| `Megyesi Ferenc`    | Projektmenedzser       | `h161513@stud.u-szeged.hu`    |
+| `Bialkó Ádám Csaba` | Projekt tag            | `h146841@stud.u-szeged.hu`    |
+| `György József`     | Projekt tag            | `h158121@stud.u-szeged.hu`    |
+| `Juhász Márk`       | Projekt tag            | `h263268@stud.u-szeged.hu`    |
+| `Szalai István`     | Projekt tag            | `h164312@stud.u-szeged.hu`    |
+| `Tóth-Andor Kristóf`| Projekt tag            | `h165690@stud.u-szeged.hu`    |
+| `Somogyi László`    | Projekt tag            | `h163904@stud.u-szeged.hu`    |
 
 ## 5. A munka feltételei
 
