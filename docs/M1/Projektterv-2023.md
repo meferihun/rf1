@@ -79,10 +79,6 @@ A projekt a következő technológiákat/szoftvereket fogja használni a munka s
  - `Maven szoftverprojekt menedzselő szoftver`
  - `IntelliJ IDE fejlesztőkörnyezet`
  - `Git verziókövető (GitLab)`
- 
-```
-Milyen gépet használnak a projekttagok, milyen operációs rendszeren fejlesztenek, milyen szoftverkörnyezetben, stb.
-```
 
 ### 5.2. Rizikómenedzsment
 
@@ -242,9 +238,9 @@ Részfeladatai a következők:
 
 Felelős: `Szalai István`
 
-Tartam:  `5 nap`
+Tartam:  `3 nap`
 
-Erőforrásigény:  `2 személynap`
+Erőforrásigény:  `1.5 személynap`
 
 #### `8.3.2. Felhasználók kezelése (admin, szerkesztő, regisztrált felhasználó) (UD)`
 
@@ -292,7 +288,7 @@ Felelős: `Megyesi Ferenc`
 
 Tartam:  `4 nap`
 
-Erőforrásigény:  `2 személynap`
+Erőforrásigény:  `1 személynap`
 
 #### `8.3.8. Email-es értesítés válaszott kategóriás új hírek megjelenésénél`
 
@@ -308,7 +304,7 @@ Felelős: `Szalai István`
 
 Tartam:  `3 nap`
 
-Erőforrásigény:  `1 személynap`
+Erőforrásigény:  `0.5 személynap`
 
 #### 8.3.10. Tesztelési dokumentum az összes funkcióhoz (TP)
 
@@ -406,58 +402,47 @@ Erőforrásigény:  `0.5 személynap`
 
 ## 9. Részletes időbeosztás
 
-![image](./MINTA-gantt-diagram.png)
-
-```
-Ide kell berakni a Gantt diagramot, amely a 9. fejezetben található részfeladatokat tartalmazza felelős/tartam bontásban.
-```
+![image](./gantt-diagram.png)
 
 ## 10. Projekt költségvetés
-
-```
-Az egyes leadások alkalmával rögzített erőforrásigényt, az elvállalt feladatok számát 
-és az adott mérföldkőben végzett munkáért szerezhető pontszámot kell beírni minden emberre külön-külön.
-Figyeljünk arra, hogy mivel mindenkinek minden mérföldkövön dolgoznia kell, ezért a 10.3-as táblázat
-minden módosítható oszlopában legalább 1 pontnak szerepelni kell.
-```
 
 ### 10.1. Részletes erőforrásigény (személynap)
 
 
-| Név          |   M1  |   M2  |   M3 |   M4  | Összesen |
-|--------------|-------|-------|------|-------|----------|
-| `Megyesi Ferenc` | `1.5` | `1` | `11` | `5`   | `19`     |
-| `Bialkó Ádám Csaba` | `1`   | `2`   | `13` | `3`   | `21`     |
-| `Szalai István`   | `1`   | `2` | `10` | `3.5` | `17`     |
-| `György József`   | `1`   | `2` | `10` | `3.5` | `17`     |
-| `Tóth-Andor Kristóf`   | `1`   | `1` | `10` | `3.5` | `17`     |
-| `Juhász Márk`   | `1`   | `2` | `10` | `3.5` | `17`     |
-| `Somogyi László`   | `1`   | `2` | `10` | `3.5` | `17`     |
+| Név          |   M1  |   M2  | M3  | M4    | Összesen |
+|--------------|-------|-------|-----|-------|----------|
+| `Megyesi Ferenc` | `1.5` | `1` | `2` | `3`   | `7.5`    |
+| `Bialkó Ádám Csaba` | `1`   | `2`   | `3` | `1`   | `7`      |
+| `Szalai István`   | `1`   | `2` | `4` | `1`   | `8`      |
+| `György József`   | `1`   | `2` | `3` | `0.5` | `6.5`    |
+| `Tóth-Andor Kristóf`   | `1`   | `1` | `3` | `2`   | `7`      |
+| `Juhász Márk`   | `1`   | `2` | `3` | `1.5` | `7.5`    |
+| `Somogyi László`   | `1`   | `2` | `3` | `0.5` | `6.5`    |
 
 
 ### 10.2. Részletes feladatszámok
 
-| Név          |   M1  |   M2  |   M3 |   M4 | Összesen |
-|--------------|-------|-------|------|------|----------|
-| `Megyesi Ferenc` | `2`   | `1`   | `7`  | `4`  | `15`     |
-| `Bialkó Ádám Csaba` | `1`   | `1`   | `7`  | `4`  | `14`     |
-| `Szalai István`   | `1`   | `1`   | `7`  | `4`  | `14`     |
-| `György József`   | `1`   | `1`   | `7`  | `4`  | `14`     |
-| `Tóth-Andor Kristóf`   | `1`   | `1`   | `7`  | `4`  | `14`     |
-| `Juhász Márk`   | `1`   | `1`   | `7`  | `4`  | `14`     |
-| `Somogyi László`   | `1`   | `1`   | `7`  | `4`  | `14`     |
+| Név          |   M1  |   M2  | M3  | M4  | Összesen |
+|--------------|-------|-------|-----|-----|----------|
+| `Megyesi Ferenc` | `2`   | `1`   | `2` | `1` | `6`      |
+| `Bialkó Ádám Csaba` | `1`   | `1`   | `2` | `1` | `5`      |
+| `Szalai István`   | `1`   | `1`   | `4` | `1` | `7`      |
+| `György József`   | `1`   | `1`   | `3` | `1` | `6`      |
+| `Tóth-Andor Kristóf`   | `1`   | `1`   | `2` | `1` | `5`      |
+| `Juhász Márk`   | `1`   | `1`   | `2` | `1` | `5`      |
+| `Somogyi László`   | `1`   | `1`   | `3` | `1` | `6`      |
 
 ### 10.3. Részletes költségvetés
 
-| Név                                 | M1      | M2       | M3       | M4       | Összesen  |
-|-------------------------------------|---------|----------|----------|----------|-----------|
-| Maximálisan megszerezhető pontszám  |  (7)    | (20)     | (35)     |  (28)    | 100% (70) |
-| `Megyesi Ferenc`                        | `7`     | `10`     | `28`     |  `25`    | 70        |
-| `Bialkó Ádám Csaba`                        | `6`     | `20`     | `35`     |  `16`    | 70        |
-| `Szalai István`                          | `6`     | `20`     | `30`     |  `24`    | 70        |
-| `György József`                          | `6`     | `20`     | `30`     |  `24`    | 70        |
-| `Tóth-Andor Kristóf`                          | `6`     | `10`     | `30`     |  `24`    | 70        |
-| `Juhász Márk`                          | `6`     | `20`     | `30`     |  `24`    | 70        |
-| `Somogyi László`                          | `6`     | `20`     | `30`     |  `24`    | 70        |
+| Név                                 | M1      | M2   | M3   | M4   | Összesen  |
+|-------------------------------------|---------|------|------|------|-----------|
+| Maximálisan megszerezhető pontszám  |  (7)    | (20) | (35) | (28) | 100% (70) |
+| `Megyesi Ferenc`                        | `7`     | `16` | `28` | `19` | 70        | 
+| `Bialkó Ádám Csaba`                        | `6`     | `18` | `25` | `21` | 70        |   
+| `Szalai István`                          | `6`     | `17` | `35` | `12` | 70        |
+| `György József`                          | `6`     | `20` | `22` | `22` | 70        |
+| `Tóth-Andor Kristóf`                          | `6`     | `14` | `32` | `18` | 70        |       
+| `Juhász Márk`                          | `6`     | `16` | `33` | `15` | 70        | 
+| `Somogyi László`                          | `6`     | `19` | `26` | `19` | 70        |     
 
 Szeged, `2023-10-15`.
