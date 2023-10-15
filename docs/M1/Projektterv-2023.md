@@ -65,9 +65,10 @@ A projekt a következő emberekből áll:
 
 A projekt a következő munkaállomásokat fogja használni a munka során:
 
- - `Munkaállomások: 6 db, Windows 10-es operációs rendszerrel, 2 Windows 11-es operációs rendszerrel`
+ - `Munkaállomások: 2 db, Windows 10-es operációs rendszerrel, 1 Windows 11-es operációs rendszerrel`
  - `ASUS Rog Zephyrus 2021 (CPU: AMD Ryzen 9 4900HS, RAM: 16GB, GPU: NVIDIA GeForce RTX 2060)`
- - 
+ - `PC (CPU: AMD Ryzen 5 5600x, RAM: 16GB, GPU: RX 6700XT)`
+ - `ASUS ROG STRIX (CPU: AMD Ryzen 5600h, RAM: 16GB, GPU: RTX 3050 TI)`
 
 A projekt a következő technológiákat/szoftvereket fogja használni a munka során: 
 
