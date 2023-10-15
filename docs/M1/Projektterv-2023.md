@@ -166,9 +166,9 @@ Erőforrásigény:  `1 személynap/fő`
 
 Felelős: `Megyesi Ferenc`
 
-Tartam:  `1 nap`
+Tartam:  `0.5 nap`
 
-Erőforrásigény:  `1 személynap`
+Erőforrásigény:  `0.5 személynap`
 
 ### 8.2. UML és adatbázis- és képernyőtervek (2. mérföldkő)
 
@@ -182,7 +182,7 @@ Felelős: `György József`
 
 Tartam:  `3 nap`
 
-Erőforrásigény:  `1 személynap`
+Erőforrásigény:  `2 személynap`
 
 #### 8.2.2. Class diagram
 
@@ -214,7 +214,7 @@ Felelős: `Somogyi László`
 
 Tartam:  `3 nap`
 
-Erőforrásigény:  `0.5 személynap`
+Erőforrásigény:  `2 személynap`
 
 #### 8.2.6. Képernyőtervek
 
@@ -230,7 +230,7 @@ Felelős: `Megyesi Ferenc`
 
 Tartam:  `1 nap`
 
-Erőforrásigény:  `0.5 személynap`
+Erőforrásigény:  `1 személynap`
 
 ### 8.3. Prototípus I. (3. mérföldkő)
 
@@ -285,7 +285,6 @@ Felelős: `Somogyi László`
 Tartam:  `3 nap`
 
 Erőforrásigény:  `1 személynap`
-
 
 #### `8.3.7. Hírek kezeléséhez szükséges adatok létrehozása az adatbázisban`
 
@@ -427,26 +426,38 @@ minden módosítható oszlopában legalább 1 pontnak szerepelni kell.
 
 | Név          |   M1  |   M2  |   M3 |   M4  | Összesen |
 |--------------|-------|-------|------|-------|----------|
-| `Teszt Elek` | `1.5` | `1.5` | `11` | `5`   | `19`     |
-| `Remek Elek` | `1`   | `4`   | `13` | `3`   | `21`     |
-| `Lev Elek`   | `1`   | `2.5` | `10` | `3.5` | `17`     |
+| `Megyesi Ferenc` | `1.5` | `1` | `11` | `5`   | `19`     |
+| `Bialkó Ádám Csaba` | `1`   | `2`   | `13` | `3`   | `21`     |
+| `Szalai István`   | `1`   | `2` | `10` | `3.5` | `17`     |
+| `György József`   | `1`   | `2` | `10` | `3.5` | `17`     |
+| `Tóth-Andor Kristóf`   | `1`   | `1` | `10` | `3.5` | `17`     |
+| `Juhász Márk`   | `1`   | `2` | `10` | `3.5` | `17`     |
+| `Somogyi László`   | `1`   | `2` | `10` | `3.5` | `17`     |
 
 
 ### 10.2. Részletes feladatszámok
 
 | Név          |   M1  |   M2  |   M3 |   M4 | Összesen |
 |--------------|-------|-------|------|------|----------|
-| `Teszt Elek` | `2`   | `2`   | `7`  | `4`  | `15`     |
-| `Remek Elek` | `1`   | `2`   | `7`  | `4`  | `14`     |
-| `Lev Elek`   | `1`   | `2`   | `7`  | `4`  | `14`     |
+| `Megyesi Ferenc` | `2`   | `1`   | `7`  | `4`  | `15`     |
+| `Bialkó Ádám Csaba` | `1`   | `1`   | `7`  | `4`  | `14`     |
+| `Szalai István`   | `1`   | `1`   | `7`  | `4`  | `14`     |
+| `György József`   | `1`   | `1`   | `7`  | `4`  | `14`     |
+| `Tóth-Andor Kristóf`   | `1`   | `1`   | `7`  | `4`  | `14`     |
+| `Juhász Márk`   | `1`   | `1`   | `7`  | `4`  | `14`     |
+| `Somogyi László`   | `1`   | `1`   | `7`  | `4`  | `14`     |
 
 ### 10.3. Részletes költségvetés
 
 | Név                                 | M1      | M2       | M3       | M4       | Összesen  |
 |-------------------------------------|---------|----------|----------|----------|-----------|
 | Maximálisan megszerezhető pontszám  |  (7)    | (20)     | (35)     |  (28)    | 100% (70) |
-| `Teszt Elek`                        | `7`     | `10`     | `28`     |  `25`    | 70        |
-| `Remek Elek`                        | `4`     | `15`     | `35`     |  `16`    | 70        |
-| `Lev Elek`                          | `4`     | `12`     | `30`     |  `24`    | 70        |
+| `Megyesi Ferenc`                        | `7`     | `10`     | `28`     |  `25`    | 70        |
+| `Bialkó Ádám Csaba`                        | `6`     | `20`     | `35`     |  `16`    | 70        |
+| `Szalai István`                          | `6`     | `20`     | `30`     |  `24`    | 70        |
+| `György József`                          | `6`     | `20`     | `30`     |  `24`    | 70        |
+| `Tóth-Andor Kristóf`                          | `6`     | `10`     | `30`     |  `24`    | 70        |
+| `Juhász Márk`                          | `6`     | `20`     | `30`     |  `24`    | 70        |
+| `Somogyi László`                          | `6`     | `20`     | `30`     |  `24`    | 70        |
 
 Szeged, `2023-10-15`.
