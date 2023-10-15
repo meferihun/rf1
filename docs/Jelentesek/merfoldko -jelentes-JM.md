@@ -5,7 +5,8 @@
 ___
 
 #### Vállalásaim a mérföldkőben: 
- - Projektterv minta feltöltése
+ - Projekttervhez PC hozzáadása és dátum módosítása
+ - Gantt-diagram minta feltöltése
  - Gantt-diagram részleges feltöltése
  - Segítség és jelenlét a mérföldkőnél
 
