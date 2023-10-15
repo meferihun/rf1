@@ -1,71 +1,32 @@
-# `Szallítmányozás` Projektterv `2021`
+# `Hír` Projektterv `2023`
 
 ## 1. Összefoglaló 
 
-`A hatékony szállítmányozás lényege, hogy a küldemény a lehető legkisebb költséggel, legbiztonságosabban, és legoptimálisabb időben jusson el a rendeltetési helyére. Ez tipikusan megkövetel egy online is elérhető nyilvántartást, ahol rugalmasan és egyszerűen lehet kezelni a kapcsolódó feladatokat. Éppen ezért ennek a projektnek a célja, hogy a szállítmányozással foglalkozó cégek számára egy webalkalmazást fejlesszünk, amely képes leváltani a hagyományos, papír alapú nyilvántartásokat. Legyen szó árukészletről, sofőrökről vagy útvonalakról, a cél, hogy a kapcsolódó funkciókat egy letisztult felületen keresztül tudja elérni a szállítmányozással foglalkozó cég adminisztrátorai.`
+`A friss hír elolvasása mindenki számára fontos, ezért létrehozunk egy weblapot, hogy a lehető leghatékonyabban juthasson el ez mindenkihez, hogy ne kelljen nyomtatott sajtóból értesülni, hanem naprakészen tudjon mindenki tájékozódni a világ történéseiről. A weboldal célja, hogy összegyűjtse a különböző hírportálok cikkeit és azok között lehessen keresni érdeklődéstől függően. Gyors és hatékony módja a hírolvasásnak és nem kell várni az új újságra reggelente, mivel mindig megkapjuk frissen a legújabb érdekességeket. Egyre több megbízhatatlan, hamis hír kering az interneten és azok kiszűrésére talál megoldást. `
 
-```
-Ide írj egy tömör és általános leírást (4-6 mondatban), hogy miről szól a projekt és miért van a weboldalra szükség. 
-Itt konkrét funkciót még nem kell megemlíteni.
+### 2. A projekt bemutatása
 
-A dokumentumban a szürke háttérrel rendelkező szövegnek illetve a blokkokkal (keretben) kiemelt szövegeknek két jelentése van: 
-(a) minta/sablon szöveg, amit le kell cserélni (pl. gyakorlatvezető neve).
-(b) segítő/magyarázó szöveg. 
-
-Az átadott (beadott) dokumentumban már nem szerepelhetnek se szürke hátterű, se blokkban szereplő részek!
-Azaz a dokumentum kitöltése közben ezeket formázás nélküli szövegre kell cserélni.
-Az eredetileg is feketével írt részek törlése tilos, azok közösek.
-```
-
-## 2. A projekt bemutatása
-
-`Ez a projektterv a Szallítmányozás projektet mutatja be, amely 2021-09-20-től 2021-11-27-ig tart, azaz összesen 68 napon keresztül fog futni. A projekten három fejlesztő fog dolgozni, az elvégzett feladatokat pedig négy alkalommal fogjuk prezentálni a megrendelőnek, annak érdekében, hogy biztosítsuk a projekt folyamatos előrehaladását.`
-
-```
-A megvalósítás további általános leírása, pl. mennyi ideig tart a projekt, mennyi főből áll a csapat, 
-mennyi átadandó lesz a megrendelőnek átadva a félév során (szintén 2-3 mondattal leírva).
-```
+`Ez a projektterv a Hír projektet mutatja be, amely 2023-10-15-től 2023-12-04-ig tart, azaz összesen 50 napon keresztül fog futni. A projekten hét fejlesztő fog dolgozni, az elvégzett feladatokat pedig négy alkalommal fogjuk prezentálni a megrendelőnek, annak érdekében, hogy biztosítsuk a projekt folyamatos előrehaladását. `
 
 ### 2.1. Rendszerspecifikáció
 
-`A rendszernek képesnek kell lennie arra, hogy egy adott szállítmányozó cég raktárait illetve a raktárak állapotát (telítettség, fizikai pozíció, speciális tulajdonság pl. veszélyes anyag tárolás) nyilvántartsa annak érdekében, hogy az adminisztrátorok képesek legyenek egy-egy bejövő szállítmányozási kérést kiszolgálni a raktárak vagy külső helyszín között. Ezenkívül a szállítmányozó cég alkalmazásában álló sofőröket, illetve a cég kamionjait is kezelnie kell (pl. van-e képzettsége veszélyes anyag szállítására, elérhető-e éppen a megfelelő pótkocsi a szállításhoz). A bejövő szállítmányozási kérés alapján az alkalmazás számolja ki leghamarabb mikor teljesíthető a kérés, majd jelenítsük meg grafikusan egy útvonalat, amely alapján - akár több raktár érintésével - a külső helyszínre szállítja az anyagot. Minden funkció a megfelelő felhasználói jogosultság mellett használható, annak függvényében írható, olvasható vagy nem megtekinthető az adat.`
-
-```
-Itt már specifikusabban, részletesebben írd le, hogy mik a fő célok, mit fog tudni a rendszer (4-6 mondatban), 
-ami a projekt keretében kerül megvalósításra. Mik a megrendelő és a felhasználók igényei?
-```
+`A rendszernek képesnek kell lennie arra, hogy mindig elérhető cikkeket nyújtson. A felhasználok regisztrálhatnak, hogy saját érdeklődés szűrőt állítsanak be. A adminok jóváhagyhatnak híreket. A szerkesztők írhatnak új, saját cikkeket az oldalra. A felhasználók kaphatnak értesítést az új cikkekről a weboldalon. Hírlevélre íratkozhatnak fel, amiben az érdeklődésük alapján kapnak cikkeket. Keresni tudnak a hírek között. A felhasználó külön blokk-ban látja a legfrissebb híreket.`
 
 ### 2.2. Funkcionális követelmények
 
- - `Felhasználók kezelése (admin, raktáros, sofőr) (CRUD)`
+ - `Felhasználók kezelése (admin, szerkesztő, regisztrált felhasználó) (CRUD)`
  - `Felhasználói munkamenet megvalósítása több jogosultsági szinttel `
- - `Raktárak kezelése (CRUD)`
- - `Árukészletek kezelése (CRUD)`
- - `Járművek kezelése (CRUD)`
- - `Fuvarok/szállítmányok kezelése (CRUD)`
- - `Email-es kiértesítés új szállítmány esetén az adott raktárosnak és sofőrnek`
- - `Fuvar útvonalának megjelenítése térképen a kezdő és a végponttal együtt`
- - `Biztonsági mentés automatikus létrehozása`
-
-```
-Itt lehet pontosan felsorolni a rendszerrel szemben támasztott funkcionális igényeket, azaz amit a rendszernek tudnia kell. 
-Ezeket a feladatokat kell majd a csapattagok között szétosztani a 8-as fejezetben.
-
-A CRUD rövidítés a következőt jelenti: Create, Read, Update, Delete.
-Azaz a funkcióhoz tartozó adat létrehozása, olvasása, frissítése, törlése.
-```
+ - `Hírek kezelése (CRUD)`
+ - `Email-es értesítés válaszott kategóriás új hírek megjelenésénél`
+ - `Keresési lehetőség a hírek között`
 
 ### 2.3. Nem funkcionális követelmények
 
- - `A kliens oldal böngészőfüggetlen legyen`
  - `Reszponzív megjelenés`
- - `Az érzékeny adatokat biztonságosan tároljuk`
- - `A legfrissebb technológiákat használja a rendszer`
-
-```
-A rendszer nem funkcionális követelményei, pl.: milyen környezetben fusson, milyen teljesítményt kell produkálnia, 
-milyen megjelenéssel kell rendelkeznie. Ha lehetséges, akkor ezeket a feladatokat is ki kell osztani a csapattagok között.
-```
+ - `Friss technológiák használata`
+ - `Böngészőfüggetlen kliensoldal`
+ - `Érzékeny adatok biztonságosan tárolása`
+ - `Dinamikus működés`
 
 ## 3. Költség- és erőforrás-szükségletek
 
