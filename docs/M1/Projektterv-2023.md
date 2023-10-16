@@ -65,7 +65,7 @@ A projekt a következő emberekből áll:
 
 A projekt a következő munkaállomásokat fogja használni a munka során:
 
- - `Munkaállomások: 5 db, Windows 10-es operációs rendszerrel, 2 Windows 11-es operációs rendszerrel`
+ - `Munkaállomások: 5 db, Windows 10-es operációs rendszerrel, 2 Windows 11-es operációs rendszerrel, 1 Linux Mint 20.3 Cinnamon operációs rendszerrel`
  - `ASUS Rog Zephyrus 2021 (CPU: AMD Ryzen 9 4900HS, RAM: 16GB, GPU: NVIDIA GeForce RTX 2060)`
  - `PC (CPU: AMD Ryzen 5 5600x, RAM: 16GB, GPU: RX 6700XT)`
  - `ASUS ROG STRIX (CPU: AMD Ryzen 5600h, RAM: 16GB, GPU: RTX 3050 TI)`
@@ -73,6 +73,7 @@ A projekt a következő munkaállomásokat fogja használni a munka során:
  - `HUAWEI MATEBOOK D15 (CPU: Intel(R) Core(TM) i3-10110U, RAM: 8GB, GPU: Intel UHD Graphics)`
  - `PC (CPU: AMD Ryzen 5 2600, RAM: 16GB, GPU: GTX 1050TI`
  - `Lenovo Legion 5 (CPU: i7 10750H, RAM: 16GB, GPU: 1650TI)`
+ - `HP ProBook 445G8 (CPU: AMD Ryzen 7 5800U, RAM: 32GB, GPU: Radeon Graphics 8)`
 
 
 A projekt a következő technológiákat/szoftvereket fogja használni a munka során: 
