@@ -65,7 +65,7 @@ A projekt a következő emberekből áll:
 
 A projekt a következő munkaállomásokat fogja használni a munka során:
 
- - `Munkaállomások: 5 db, Windows 10-es operációs rendszerrel, 2 Windows 11-es operációs rendszerrel, 1 Linux Mint 20.3 Cinnamon operációs rendszerrel`
+ - `Munkaállomások: 6 db, Windows 10-es operációs rendszerrel, 2 Windows 11-es operációs rendszerrel, 1 Linux Mint 20.3 Cinnamon operációs rendszerrel`
  - `ASUS Rog Zephyrus 2021 (CPU: AMD Ryzen 9 4900HS, RAM: 16GB, GPU: NVIDIA GeForce RTX 2060)`
  - `PC (CPU: AMD Ryzen 5 5600x, RAM: 16GB, GPU: RX 6700XT)`
  - `ASUS ROG STRIX (CPU: AMD Ryzen 5600h, RAM: 16GB, GPU: RTX 3050 TI)`
@@ -74,11 +74,11 @@ A projekt a következő munkaállomásokat fogja használni a munka során:
  - `PC (CPU: AMD Ryzen 5 2600, RAM: 16GB, GPU: GTX 1050TI`
  - `Lenovo Legion 5 (CPU: i7 10750H, RAM: 16GB, GPU: 1650TI)`
  - `HP ProBook 445G8 (CPU: AMD Ryzen 7 5800U, RAM: 32GB, GPU: Radeon Graphics 8)`
-
+ - `PC (CPU: AMD Ryzen 5 2600x, RAM: 16GB, GPU: NVIDIA GeForce GTX 1660 SUPER)`
 
 A projekt a következő technológiákat/szoftvereket fogja használni a munka során: 
 
- - `SQLite`
+ - `PostgreSQL adatbázis-kezelő rendszer`
  - `Spring Boot keretrendszer`
  - `Thymeleaf dinamikus tartalom megjelenítés a felhasználói felületen`
  - `Maven szoftverprojekt menedzselő szoftver`
@@ -87,11 +87,11 @@ A projekt a következő technológiákat/szoftvereket fogja használni a munka s
 
 ### 5.2. Rizikómenedzsment
 
-| Kockázat                                    | Leírás                                                                                                                                                                                    | Valószínűség | Hatás     |
-|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|-----------|
-| `Betegség`                                  | `A projektből egyszerre több személy is kieshet, ami hátráltathatja annak haladását. A problémát úgy lehetne orvosolni, hogy az érintetlenül maradt résztvevők munkáját növeljük.`        | `közepes`    | `erős`    |
-| `Gyűlésen való hiányzás` | `Ezáltal a feladatkiosztás nem lesz egyértelmű, ami megnehezítheti a feladatok elvégzését, és előfordulhat, hogy egyesek több feladatot vállalnak, mint mások. Megoldásként érdemes értesíteni a meg nem jelent személyt, és szükség esetén átadni neki a feladatokat.` | `kis`        | `közepes` |
-| `ZH-k sokasága` | `A gyakori számonkérések miatt előfordulhat, hogy valaki nem tudja a elvégezni a neki kiszabott feladatokat egy adott időszakban. Megoldásként javasolt az ilyen időszakokra előre elkészíteni a feladatokat.`  | `közepes`    | `közepes` |
+| Kockázat                  | Leírás                                                                                                                                                                                                                                                                  | Valószínűség | Hatás     |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|-----------|
+| `Betegség`                | `A projektből egyszerre több személy is kieshet, ami hátráltathatja annak haladását. A problémát úgy lehetne orvosolni, hogy az érintetlenül maradt résztvevők munkáját növeljük.`                                                                                      | `közepes`    | `erős`    |
+| `Gyűlésen való hiányzás`  | `Ezáltal a feladatkiosztás nem lesz egyértelmű, ami megnehezítheti a feladatok elvégzését, és előfordulhat, hogy egyesek több feladatot vállalnak, mint mások. Megoldásként érdemes értesíteni a meg nem jelent személyt, és szükség esetén átadni neki a feladatokat.` | `kis`        | `közepes` |
+| `ZH-k sokasága`           | `A gyakori számonkérések miatt előfordulhat, hogy valaki nem tudja a elvégezni a neki kiszabott feladatokat egy adott időszakban. Megoldásként javasolt az ilyen időszakokra előre elkészíteni a feladatokat.`                                                          | `közepes`    | `közepes` |
 
 ## 6. Jelentések
 
@@ -129,7 +129,7 @@ Minden mérföldkő leadásnál a projekten dolgozók jelentést tesznek a mérf
 
 ### 7.1. Tervezett szoftverfolyamat modell és architektúra
 
-`A szoftver fejlesztése során az agilis fejlesztési modellt alkalmazzuk, mivel a fejlesztés során nagy hangsúlyt fektetünk a folyamatos kommunikcióra. A fejlesztés során a szoftver specifikációi rugalmasan vátozhatnak, és ezzel a módszertannal tudunk a leggyorsabban alkalmazkodni az új elvárásokhoz.`
+`A szoftver fejlesztése során az agilis fejlesztési modellt alkalmazzuk, mivel a fejlesztés során nagy hangsúlyt fektetünk a folyamatos kommunikációra. A fejlesztés során a szoftver specifikációi rugalmasan vátozhatnak, és ezzel a módszertannal tudunk a leggyorsabban alkalmazkodni az új elvárásokhoz.`
 
 `A webalkalmazás az MVC (modell-view-controller) felépítést követi, a szerver és a kliens függetlenek, csupán API végpontok segítségével kommunikálnak.`
 
@@ -414,40 +414,40 @@ Erőforrásigény:  `0.5 személynap`
 ### 10.1. Részletes erőforrásigény (személynap)
 
 
-| Név          |   M1  |   M2  | M3  | M4    | Összesen |
-|--------------|-------|-------|-----|-------|----------|
-| `Megyesi Ferenc` | `1.5` | `1` | `2` | `3`   | `7.5`    |
+| Név                 |   M1  |   M2  | M3  | M4    | Összesen |
+|---------------------|-------|-------|-----|-------|----------|
+| `Megyesi Ferenc`    | `1.5` | `1`   | `2` | `3`   | `7.5`    |
 | `Bialkó Ádám Csaba` | `1`   | `2`   | `3` | `1`   | `7`      |
-| `Szalai István`   | `1`   | `2` | `4` | `1`   | `8`      |
-| `György József`   | `1`   | `2` | `3` | `0.5` | `6.5`    |
-| `Tóth-Andor Kristóf`   | `1`   | `1` | `3` | `2`   | `7`      |
-| `Juhász Márk`   | `1`   | `2` | `3` | `1.5` | `7.5`    |
-| `Somogyi László`   | `1`   | `2` | `3` | `0.5` | `6.5`    |
+| `Szalai István`     | `1`   | `2`   | `4` | `1`   | `8`      |
+| `György József`     | `1`   | `2`   | `3` | `0.5` | `6.5`    |
+| `Tóth-Andor Kristóf`| `1`   | `1`   | `3` | `2`   | `7`      |
+| `Juhász Márk`       | `1`   | `2`   | `3` | `1.5` | `7.5`    |
+| `Somogyi László`    | `1`   | `2`   | `3` | `0.5` | `6.5`    |
 
 
 ### 10.2. Részletes feladatszámok
 
-| Név          |   M1  |   M2  | M3  | M4  | Összesen |
-|--------------|-------|-------|-----|-----|----------|
-| `Megyesi Ferenc` | `2`   | `1`   | `2` | `1` | `6`      |
+| Név                 |   M1  |   M2  | M3  | M4  | Összesen |
+|---------------------|-------|-------|-----|-----|----------|
+| `Megyesi Ferenc`    | `2`   | `1`   | `2` | `1` | `6`      |
 | `Bialkó Ádám Csaba` | `1`   | `1`   | `2` | `1` | `5`      |
-| `Szalai István`   | `1`   | `1`   | `4` | `1` | `7`      |
-| `György József`   | `1`   | `1`   | `3` | `1` | `6`      |
-| `Tóth-Andor Kristóf`   | `1`   | `1`   | `2` | `1` | `5`      |
-| `Juhász Márk`   | `1`   | `1`   | `2` | `1` | `5`      |
-| `Somogyi László`   | `1`   | `1`   | `3` | `1` | `6`      |
+| `Szalai István`     | `1`   | `1`   | `4` | `1` | `7`      |
+| `György József`     | `1`   | `1`   | `3` | `1` | `6`      |
+| `Tóth-Andor Kristóf`| `1`   | `1`   | `2` | `1` | `5`      |
+| `Juhász Márk`       | `1`   | `1`   | `2` | `1` | `5`      |
+| `Somogyi László`    | `1`   | `1`   | `3` | `1` | `6`      |
 
 ### 10.3. Részletes költségvetés
 
 | Név                                 | M1      | M2   | M3   | M4   | Összesen  |
 |-------------------------------------|---------|------|------|------|-----------|
 | Maximálisan megszerezhető pontszám  |  (7)    | (20) | (35) | (28) | 100% (70) |
-| `Megyesi Ferenc`                        | `7`     | `16` | `28` | `19` | 70        | 
-| `Bialkó Ádám Csaba`                        | `6`     | `18` | `25` | `21` | 70        |   
-| `Szalai István`                          | `6`     | `17` | `35` | `12` | 70        |
-| `György József`                          | `6`     | `20` | `22` | `22` | 70        |
-| `Tóth-Andor Kristóf`                          | `6`     | `14` | `32` | `18` | 70        |       
-| `Juhász Márk`                          | `6`     | `16` | `33` | `15` | 70        | 
-| `Somogyi László`                          | `6`     | `19` | `26` | `19` | 70        |     
+| `Megyesi Ferenc`                    | `7`     | `16` | `28` | `19` | 70        | 
+| `Bialkó Ádám Csaba`                 | `6`     | `18` | `25` | `21` | 70        |   
+| `Szalai István`                     | `6`     | `17` | `35` | `12` | 70        |
+| `György József`                     | `6`     | `20` | `22` | `22` | 70        |
+| `Tóth-Andor Kristóf`                | `6`     | `14` | `32` | `18` | 70        |       
+| `Juhász Márk`                       | `6`     | `16` | `33` | `15` | 70        | 
+| `Somogyi László`                    | `6`     | `19` | `26` | `19` | 70        |     
 
 Szeged, `2023-10-15`.
