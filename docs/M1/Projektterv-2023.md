@@ -6,19 +6,38 @@
 
 ### 2. A projekt bemutatása
 
-`Ez a projektterv a Hír projektet mutatja be, amely 2023-10-15-től 2023-12-04-ig tart, azaz összesen 50 napon keresztül fog futni. A projekten hét fejlesztő fog dolgozni, az elvégzett feladatokat pedig négy alkalommal fogjuk prezentálni a megrendelőnek, annak érdekében, hogy biztosítsuk a projekt folyamatos előrehaladását. `
+`Ez a projektterv a Hír projektet mutatja be, amely 2023-10-12-től 2023-12-04-ig tart, azaz összesen 53 napon keresztül fog futni. A projekten hét fejlesztő fog dolgozni, az elvégzett feladatokat pedig négy alkalommal fogjuk prezentálni a megrendelőnek, annak érdekében, hogy biztosítsuk a projekt folyamatos előrehaladását. `
 
 ### 2.1. Rendszerspecifikáció
 
-`A rendszernek képesnek kell lennie arra, hogy mindig elérhető cikkeket nyújtson. A felhasználok regisztrálhatnak, hogy saját érdeklődés szűrőt állítsanak be. A adminok jóváhagyhatnak híreket. A szerkesztők írhatnak új, saját cikkeket az oldalra. A felhasználók kaphatnak értesítést az új cikkekről a weboldalon. Hírlevélre íratkozhatnak fel, amiben az érdeklődésük alapján kapnak cikkeket. Keresni tudnak a hírek között. A felhasználó külön blokk-ban látja a legfrissebb híreket.`
+`A rendszernek képesnek kell lennie arra, hogy mindig elérhető cikkeket nyújtson. A felhasználok regisztrálhatnak, hogy saját érdeklődés szűrőt állítsanak be. A adminok törölhetnek híreket. A szerkesztők írhatnak új, saját cikkeket az oldalra, valamint hozzáadhatnak híreket. A felhasználók kaphatnak értesítést az új cikkekről a weboldalon. Hírlevélre íratkozhatnak fel, amiben az érdeklődésük alapján kapnak cikkeket. Keresni tudnak a hírek között. A felhasználó külön blokk-ban látja a legfrissebb híreket.`
 
 ### 2.2. Funkcionális követelmények
 
  - `Felhasználók kezelése (admin, szerkesztő, regisztrált felhasználó) (CRUD)`
- - `Felhasználói munkamenet megvalósítása több jogosultsági szinttel `
+ - `Regiszrációs űrlap (felhasználónév, email, jelszó, jelszó megerősítés, születési évszám)`
+ - `Bejelentkezés űrlap (felhasználónév / email, jelszó)`
+ - `Vendég jogosultságai`
+    - `Hírek olvasása`
+    - `Kommentek olvasása`
+    - `Keresési lehetőség a hírek között`
+ -  `Bejelentkezett felhasználó jogosultságai`
+    - `Felhasználói adatok módosítása (felhasználónév, email, jelszó)`
+    - `Kedvenc kategóriák beállítása`
+    - `Kijelentkezés`
+    - `Fiók törlése`
+    - `Kommentek írása`
+ - `Szerkesztő extra jogosultágai`
+    - `Hírek hozzáadása (cím, forrás, közzétevő neve)`
+    - `Saját hírek írása (cím, tartalom, kép, közzétevő neve, közzététel dátuma)`
+ - `Admin extra jogosultágai`
+    - `Fiókok tiltása / tiltás feloldása`
+    - `Kommentek törlése`
+    - `Már elfogadott cikkek módosítása`
+    - `Jogosultságok kiosztása`
+ - `Felhasználói munkamenet megvalósítása több jogosultsági szinttel`
  - `Hírek kezelése (CRUD)`
  - `Email-es értesítés válaszott kategóriás új hírek megjelenésénél`
- - `Keresési lehetőség a hírek között`
 
 ### 2.3. Nem funkcionális követelmények
 
@@ -108,6 +127,12 @@ A munkát `Megyesi Ferenc` koordinálja. `Fő feladata, hogy folyamatosan egyezt
  - `Résztvevők: Megyesi Ferenc, Bialkó Ádám Csaba, György József, Juhász Márk, Szalai István, Tóth-Andor Kristóf, Somogyi László`
  - `Érintett témák: Ismerkedés, projekttéma kiválasztása, projektterv és Gantt diagram elkészítése`
 
+`2. megbeszélés:`
+- `Időpont: 2023. 10. 30.`
+- `Hely: Online, Discord`
+- `Résztvevők: Megyesi Ferenc, Bialkó Ádám Csaba, György József, Juhász Márk, Szalai István, Tóth-Andor Kristóf, Somogyi László`
+- `Érintett témák: Projektterv kiegészítése, UML modellezés, adatbázistervek és képernyőtervek`
+
 ### 6.3. Minőségbiztosítás
 
 Az elkészült terveket a terveken nem dolgozó csapattársak közül átnézik, hogy megfelel-e a specifikációnak és az egyes diagramtípusok összhangban vannak-e egymással. A meglévő rendszerünk helyes működését a prototípusok bemutatása előtt a tesztelési dokumentumban leírtak végrehajtása alapján ellenőrizzük és összevetjük a specifikációval, hogy az elvárt eredményt kapjuk-e. További tesztelési lehetőségek: unit tesztek írása az egyes modulokhoz vagy a kód közös átnézése (code review) egy, a vizsgált modul programozásában nem résztvevő csapattaggal. Szoftverünk minőségét a végső leadás előtt javítani kell a rendszerünkre lefuttatott kódelemzés során kapott metrikaértékek és szabálysértések figyelembevételével.
@@ -157,7 +182,7 @@ Részfeladatai a következők:
 
 #### 8.1.1. Projektterv kitöltése
 
-Felelős: `Mindenki`
+Felelős: `Szalai István`
 
 Tartam:  `7 nap`
 
@@ -271,7 +296,31 @@ Tartam:  `10 nap`
 
 Erőforrásigény:  `2 személynap`
 
-#### `8.3.5. Hírek kezelése (CR)`
+#### `8.3.5. Bejelentkezett felhasználó jogosultságainak megvalósítása`
+
+Felelős: `György József`
+
+Tartam:  `3 nap`
+
+Erőforrásigény:  `1 személynap`
+
+#### `8.3.6. Szerkesztő extra jogosultágainak megvalósítása`
+
+Felelős: `Somogyi László`
+
+Tartam:  `3 nap`
+
+Erőforrásigény:  `1 személynap`
+
+#### `8.3.7. Admin extra jogosultágainak megvalósítása`
+
+Felelős: `Bialkó Ádám Csaba`
+
+Tartam:  `3 nap`
+
+Erőforrásigény:  `1 személynap`
+
+#### `8.3.. Hírek kezelése (CR)`
 
 Felelős: `Somogyi László`
 
@@ -417,12 +466,12 @@ Erőforrásigény:  `0.5 személynap`
 | Név                 |   M1  |   M2  | M3  | M4    | Összesen |
 |---------------------|-------|-------|-----|-------|----------|
 | `Megyesi Ferenc`    | `1.5` | `1`   | `2` | `3`   | `7.5`    |
-| `Bialkó Ádám Csaba` | `1`   | `2`   | `3` | `1`   | `7`      |
+| `Bialkó Ádám Csaba` | `1`   | `2`   | `4` | `1`   | `8`      |
 | `Szalai István`     | `1`   | `2`   | `4` | `1`   | `8`      |
-| `György József`     | `1`   | `2`   | `3` | `0.5` | `6.5`    |
+| `György József`     | `1`   | `2`   | `4` | `0.5` | `7.5`    |
 | `Tóth-Andor Kristóf`| `1`   | `1`   | `3` | `2`   | `7`      |
 | `Juhász Márk`       | `1`   | `2`   | `3` | `1.5` | `7.5`    |
-| `Somogyi László`    | `1`   | `2`   | `3` | `0.5` | `6.5`    |
+| `Somogyi László`    | `1`   | `2`   | `4` | `0.5` | `7.5`    |
 
 
 ### 10.2. Részletes feladatszámok
@@ -430,12 +479,12 @@ Erőforrásigény:  `0.5 személynap`
 | Név                 |   M1  |   M2  | M3  | M4  | Összesen |
 |---------------------|-------|-------|-----|-----|----------|
 | `Megyesi Ferenc`    | `2`   | `1`   | `2` | `1` | `6`      |
-| `Bialkó Ádám Csaba` | `1`   | `1`   | `2` | `1` | `5`      |
+| `Bialkó Ádám Csaba` | `1`   | `1`   | `3` | `1` | `6`      |
 | `Szalai István`     | `1`   | `1`   | `4` | `1` | `7`      |
-| `György József`     | `1`   | `1`   | `3` | `1` | `6`      |
+| `György József`     | `1`   | `1`   | `4` | `1` | `7`      |
 | `Tóth-Andor Kristóf`| `1`   | `1`   | `2` | `1` | `5`      |
 | `Juhász Márk`       | `1`   | `1`   | `2` | `1` | `5`      |
-| `Somogyi László`    | `1`   | `1`   | `3` | `1` | `6`      |
+| `Somogyi László`    | `1`   | `1`   | `4` | `1` | `7`      |
 
 ### 10.3. Részletes költségvetés
 
