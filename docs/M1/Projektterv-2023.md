@@ -320,7 +320,7 @@ Tartam:  `3 nap`
 
 Erőforrásigény:  `1 személynap`
 
-#### `8.3.. Hírek kezelése (CR)`
+#### `8.3.8. Hírek kezelése (CR)`
 
 Felelős: `Somogyi László`
 
@@ -328,7 +328,7 @@ Tartam:  `3 nap`
 
 Erőforrásigény:  `1 személynap`
 
-#### `8.3.6. Hírek kezelése (UD)`
+#### `8.3.9. Hírek kezelése (UD)`
 
 Felelős: `Somogyi László`
 
@@ -336,7 +336,7 @@ Tartam:  `3 nap`
 
 Erőforrásigény:  `1 személynap`
 
-#### `8.3.7. Hírek kezeléséhez szükséges adatok létrehozása az adatbázisban`
+#### `8.3.10. Hírek kezeléséhez szükséges adatok létrehozása az adatbázisban`
 
 Felelős: `Megyesi Ferenc`
 
@@ -344,7 +344,7 @@ Tartam:  `4 nap`
 
 Erőforrásigény:  `1 személynap`
 
-#### `8.3.8. Email-es értesítés válaszott kategóriás új hírek megjelenésénél`
+#### `8.3.11. Email-es értesítés válaszott kategóriás új hírek megjelenésénél`
 
 Felelős: `Tóth-Andor Kristóf`
 
@@ -352,7 +352,7 @@ Tartam:  `4 nap`
 
 Erőforrásigény:  `2 személynap`
 
-#### `8.3.9. Keresési lehetőség a hírek között`
+#### `8.3.12. Keresési lehetőség a hírek között`
 
 Felelős: `Szalai István`
 
@@ -360,7 +360,7 @@ Tartam:  `3 nap`
 
 Erőforrásigény:  `0.5 személynap`
 
-#### 8.3.10. Tesztelési dokumentum az összes funkcióhoz (TP)
+#### 8.3.13. Tesztelési dokumentum az összes funkcióhoz (TP)
 
 Felelős: `György József, Bialkó Ádám Csaba, Szalai István`
 
@@ -368,7 +368,7 @@ Tartam:  `7 nap`
 
 Erőforrásigény:  `1 személynap/fő`
 
-#### 8.3.11. Tesztelési dokumentum az összes funkcióhoz (TC)
+#### 8.3.14. Tesztelési dokumentum az összes funkcióhoz (TC)
 
 Felelős: `Tóth-Andor Kristóf, Megyesi Ferenc, Juhász Márk, Somogyi László`
 
@@ -376,7 +376,7 @@ Tartam:  `7 nap`
 
 Erőforrásigény:  `1 személynap/fő`
 
-#### `8.3.12. A prototípus kitelepítése éles környezetbe` 
+#### `8.3.15. A prototípus kitelepítése éles környezetbe` 
 
 Felelős: `György József`
 
