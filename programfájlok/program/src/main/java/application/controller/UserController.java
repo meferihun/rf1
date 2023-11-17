@@ -39,7 +39,6 @@ public class UserController {
     return "redirect:/";
   }
 
-<<<<<<< HEAD
   @GetMapping(value = "/update/{username}")
   public String editDog(@PathVariable("username") String username, Model model) {
     User user = userDAO.getUserByUsername(username);
@@ -48,13 +47,9 @@ public class UserController {
     return "update-user";
   }
 
-
-=======
   @PostMapping(value = "/loginuser")
   public String loginUser(@RequestParam("felhasznalonev") String felhasznalonev, @RequestParam("jelszo") String jelszo) {
     userDAO.loginUser(felhasznalonev, jelszo);
     return "redirect:/";
   }
-
->>>>>>> 565ecc86af76b0cc5b406f0f18702bab0f265a90
 }
