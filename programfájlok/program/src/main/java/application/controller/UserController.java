@@ -36,4 +36,10 @@ public class UserController {
     return "redirect:/";
   }
 
+  @PostMapping(value = "/loginuser")
+  public String loginUser(@RequestParam("felhasznalonev") String felhasznalonev, @RequestParam("jelszo") String jelszo) {
+    userDAO.loginUser(felhasznalonev, jelszo);
+    return "redirect:/";
+  }
+
 }

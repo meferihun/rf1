@@ -23,10 +23,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
       .antMatchers("/edit/*").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
       .anyRequest().permitAll()
       .and()
-      .formLogin()
+      .formLogin().loginPage("/login")
       .defaultSuccessUrl("/")
       .permitAll()
       .and()
+      .csrf().disable()
       .logout().logoutSuccessUrl("/").permitAll();
   }
 
