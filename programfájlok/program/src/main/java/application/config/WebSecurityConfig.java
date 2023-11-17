@@ -19,15 +19,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http
-      .authorizeRequests()
-      .antMatchers("/edit/*").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-      .anyRequest().permitAll()
-      .and()
-      .formLogin()
-      .defaultSuccessUrl("/")
-      .permitAll()
-      .and()
-      .logout().logoutSuccessUrl("/").permitAll();
+            .authorizeRequests()
+            .antMatchers("/edit/*").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+            .anyRequest().permitAll()
+            .and()
+            .formLogin().loginPage("/login")
+            .defaultSuccessUrl("/")
+            .permitAll()
+            .and()
+            .csrf().disable()
+            .logout().logoutSuccessUrl("/").permitAll();
   }
 
   @Autowired

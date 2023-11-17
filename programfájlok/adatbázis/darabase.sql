@@ -61,7 +61,7 @@ CREATE TABLE dogs (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     age INT NOT NULL,
-    owner_id INT REFERENCES usersdog(id)
+    owner_id INT NOT NULL
 );
 
 

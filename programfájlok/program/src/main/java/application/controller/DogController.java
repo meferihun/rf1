@@ -48,13 +48,13 @@ public class DogController {
 
   @PostMapping(value = "/add")
   public String addDog(@RequestParam("name") String name, @RequestParam("age") int age) {
-    /*
+
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     String currentPrincipalName = authentication.getName();
     User user = userDAO.getUserByEmail(currentPrincipalName);
-    Dog dog = new Dog(name, age, user.getId());
+    Dog dog = new Dog(name, age, 1);
     dogDAO.insertDog(dog);
-     */
+
     return "redirect:/";
   }
 

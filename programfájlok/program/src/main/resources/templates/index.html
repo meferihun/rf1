@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
    <head>
       <title>Spring Boot example</title>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -45,17 +45,15 @@
                   <th>ID</th>
                   <th>Name</th>
                   <th>Age</th>
-                  <th>Owner</th>
                </tr>
             </thead>
             <tbody>
                <!--span th:each="task,iter : ${foo.tasks}"-->
-               <tr th:each="dog,iter : ${dogs}">
+               <tr th:each="dog : ${dogs}">
                   <td th:text="${dog.id}"></td>
                   <td th:text="${dog.name}"></td>
                   <td th:text="${dog.age}"></td>
-                  <td th:text="${user_mails[iter.index]}"></td>
-                  <td th:if="${user_mails[iter.index]} == ${current_user.email} or ${current_user.role} == 'ROLE_ADMIN'"><a th:href="@{/edit/{id}(id=${dog.id})}">Update</a></td>
+                  <td sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/edit/{id}(id=${dog.id})}">Update</a></td>
                   <td sec:authorize="hasAuthority('ROLE_ADMIN')"><button data-toggle="modal" data-target="#modal-toTrash"
                      th:attr="data-target='#modal-toTrash'+${dog.id}" class="btn-sm btn-dark details">Delete
                      <span class="glyphicon glyphicon-trash" data-toggle="tooltip"
