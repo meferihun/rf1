@@ -1,6 +1,8 @@
 package application.model;
 
+import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,13 +18,13 @@ public class User implements UserDetails {
   String email;
   String jelszo;
   String jelszoUjra;
-  String szulDatum;
+  Date szulDatum;
   boolean tiltAllapot;
   String jogosultsag;
 
   public User() {}
 
-  public User(String felhasznalonev, String email, String jelszo, String jelszoUjra, String szulDatum, String jogosultsag) {
+  public User(String felhasznalonev, String email, String jelszo, String jelszoUjra, Date szulDatum, String jogosultsag) {
     this.felhasznalonev = felhasznalonev;
     this.email = email;
     this.jelszo = jelszo;
@@ -64,11 +66,11 @@ public class User implements UserDetails {
     this.jelszoUjra = jelszoUjra;
   }
 
-  public String getSzulDatum() {
+  public Date getSzulDatum() {
     return szulDatum;
   }
 
-  public void setSzulDatum(String szulDatum) {
+  public void setSzulDatum(Date szulDatum) {
     this.szulDatum = szulDatum;
   }
 

@@ -1,5 +1,6 @@
 package application.dao;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,14 +30,14 @@ public class UserDAO extends JdbcDaoSupport {
   }
 
   public void insertUser(User user) {
-    String sql = "INSERT INTO users(felhasznalonev, email, jelszo, szuldatum, tiltallapot, jogosultsag) VALUES (?, ?, ?, ?, ?, ?)";
+    String sql = "INSERT INTO felhasznalok(felhasznalonev, email, jelszo, szuldatum, tiltallapot, jogosultsag) VALUES (?, ?, ?, ?, ?, ?)";
     getJdbcTemplate().update(sql, new Object[] {
       user.getFelhasznalonev(), user.getEmail(), passwordEncoder.encode(user.getPassword()), user.getSzulDatum(), user.isTiltallapot(), user.getJogosultsag()
     });
   }
 
   public User getUserByUsername(String felhasznalonev) {
-    String sql = "SELECT * FROM users WHERE felhasznalonev=?";
+    String sql = "SELECT * FROM felhasznalok WHERE felhasznalonev=?";
     List < Map < String, Object >> rows = getJdbcTemplate().queryForList(sql, felhasznalonev);
 
     List < User > result = new ArrayList < User > ();
@@ -45,7 +46,7 @@ public class UserDAO extends JdbcDaoSupport {
       user.setFelhasznalonev((String) row.get("felhasznalonev"));
       user.setEmail((String) row.get("email"));
       user.setJelszo((String) row.get("jelszo"));
-      user.setSzulDatum((String) row.get("szuldatum"));
+      user.setSzulDatum((Date) row.get("szuldatum"));
       user.setTiltallapot((Boolean) row.get("tiltallapot"));
       user.setJogosultsag((String) row.get("jogosultsag"));
       result.add(user);
@@ -55,7 +56,7 @@ public class UserDAO extends JdbcDaoSupport {
   }
 
   public User getUserByEmail(String email) {
-    String sql = "SELECT * FROM users WHERE email=?";
+    String sql = "SELECT * FROM felhasznalok WHERE email=?";
     List < Map < String, Object >> rows = getJdbcTemplate().queryForList(sql, email);
 
     List < User > result = new ArrayList < User > ();
@@ -64,7 +65,7 @@ public class UserDAO extends JdbcDaoSupport {
       user.setFelhasznalonev((String) row.get("felhasznalonev"));
       user.setEmail((String) row.get("email"));
       user.setJelszo((String) row.get("jelszo"));
-      user.setSzulDatum((String) row.get("szuldatum"));
+      user.setSzulDatum((Date) row.get("szuldatum"));
       user.setTiltallapot((Boolean) row.get("tiltallapot"));
       user.setJogosultsag((String) row.get("jogosultsag"));
       result.add(user);
