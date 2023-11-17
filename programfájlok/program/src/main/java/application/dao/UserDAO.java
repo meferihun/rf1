@@ -31,9 +31,11 @@ public class UserDAO extends JdbcDaoSupport {
 
   public void insertUser(User user) {
     String sql = "INSERT INTO felhasznalok(felhasznalonev, email, jelszo, szuldatum, tiltallapot, jogosultsag) VALUES (?, ?, ?, ?, ?, ?)";
-    getJdbcTemplate().update(sql, new Object[] {
-      user.getFelhasznalonev(), user.getEmail(), passwordEncoder.encode(user.getPassword()), user.getSzulDatum(), user.isTiltallapot(), user.getJogosultsag()
-    });
+    if (user.getJelszo().equals(user.getJelszoUjra())) {
+      getJdbcTemplate().update(sql, new Object[] {
+              user.getFelhasznalonev(), user.getEmail(), passwordEncoder.encode(user.getPassword()), user.getSzulDatum(), user.isTiltallapot(), user.getJogosultsag()
+      });
+    }
   }
 
   public User getUserByUsername(String felhasznalonev) {
@@ -74,4 +76,7 @@ public class UserDAO extends JdbcDaoSupport {
     return result.get(0);
   }
 
+  public void loginUser(String felhasznalonev, String jelszo) {
+
+  }
 }
