@@ -1,0 +1,5 @@
+Felhasználó(Felhasználónév, Email, Jelszó, Születési dátum, Tiltási állapot, Jogosultsági szint)
+KedvencKategóriák(Felhasználónév, Kategória)
+Kommentek(KommentID, Közzétevés dátuma, Tartalom, HírID, Felhasználónév)
+Hírek(Cím, Közzétevés dátuma, Tartalom, HírID, Megtekintések száma, Fontos-e?, Forrás)
+HírKategóriák(HírID, Kategória)
