@@ -55,16 +55,18 @@ public class UserDAO extends JdbcDaoSupport {
   }
 
   public User getUserByEmail(String email) {
-    String sql = "SELECT * FROM usersdog WHERE email=?";
+    String sql = "SELECT * FROM users WHERE email=?";
     List < Map < String, Object >> rows = getJdbcTemplate().queryForList(sql, email);
 
     List < User > result = new ArrayList < User > ();
     for (Map < String, Object > row: rows) {
       User user = new User();
-      user.setId((Integer) row.get("id"));
+      user.setFelhasznalonev((String) row.get("felhasznalonev"));
       user.setEmail((String) row.get("email"));
-      user.setPassword((String) row.get("password"));
-      user.setRole((String) row.get("role"));
+      user.setJelszo((String) row.get("jelszo"));
+      user.setSzulDatum((String) row.get("szuldatum"));
+      user.setTiltallapot((Boolean) row.get("tiltallapot"));
+      user.setJogosultsag((String) row.get("jogosultsag"));
       result.add(user);
     }
 

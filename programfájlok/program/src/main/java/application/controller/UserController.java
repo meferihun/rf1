@@ -25,7 +25,7 @@ public class UserController {
   }
 
   @PostMapping(value = "/registeruser")
-  public String registerUser(@RequestParam("felhasznalonev") String felhasznalonev, @RequestParam("email") String email, @RequestParam("jelszo") String jelszo,  @RequestParam("jelszoUjra") String jelszoUjra, @RequestParam("szulDatum") String szulDatum, @RequestParam("jogosultsag") String jogosultsag) {
+  public String registerUser(@RequestParam("felhasznalonev") String felhasznalonev, @RequestParam("email") String email, @RequestParam("jelszo") String jelszo, @RequestParam("jelszoUjra") String jelszoUjra, @RequestParam("szulDatum") String szulDatum, @RequestParam("jogosultsag") String jogosultsag) {
     User user = new User(felhasznalonev, email, jelszo, jelszoUjra, szulDatum, jogosultsag);
     userDAO.insertUser(user);
     return "redirect:/";
