@@ -32,7 +32,7 @@ public class DogController {
     List < Dog > dogList = dogDAO.listDogs();
     model.addAttribute("dogs", dogList);
     for (Dog dog: dogList) {
-      user_mails.add(userDAO.getUserByUsername(dog.getOwner_id()).getEmail());
+      // user_mails.add(userDAO.getUserByUsername(dog.getOwner_id()).getEmail());
     }
     model.addAttribute("user_mails", user_mails);
 
@@ -48,12 +48,13 @@ public class DogController {
 
   @PostMapping(value = "/add")
   public String addDog(@RequestParam("name") String name, @RequestParam("age") int age) {
+    /*
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     String currentPrincipalName = authentication.getName();
     User user = userDAO.getUserByEmail(currentPrincipalName);
     Dog dog = new Dog(name, age, user.getId());
     dogDAO.insertDog(dog);
-
+     */
     return "redirect:/";
   }
 
