@@ -2,15 +2,18 @@ package application.controller;
 
 import application.model.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import application.dao.UserDAO;
 import application.model.User;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -39,17 +42,41 @@ public class UserController {
     return "redirect:/";
   }
 
-  @GetMapping(value = "/update/{username}")
-  public String editDog(@PathVariable("username") String username, Model model) {
-    User user = userDAO.getUserByUsername(username);
+  @GetMapping(value = "/profil/{email}")
+  public String editUser(@PathVariable("email") String email, Model model) {
+    User user = userDAO.getUserByEmail(email);
     model.addAttribute("user", user);
 
     return "update-user";
   }
 
-  @PostMapping(value = "/loginuser")
-  public String loginUser(@RequestParam("felhasznalonev") String felhasznalonev, @RequestParam("jelszo") String jelszo) {
-    userDAO.loginUser(felhasznalonev, jelszo);
+  @GetMapping (value = "/frissit/{name}")
+  public String updateUser(@PathVariable("name") String email, @RequestParam("email") String name, @RequestParam(required = false) Boolean tiltallapot, @RequestParam("szulDatum") String szulDatum) throws ParseException {
+    if(tiltallapot == null){
+      tiltallapot = false;
+    }
+    userDAO.updateUser(email, name, tiltallapot, new SimpleDateFormat("yyyy-MM-dd").parse(szulDatum));
+
     return "redirect:/";
   }
+
+  @PostMapping(value = "/torles/{username}")
+  public String deleteUser(@PathVariable("username") String username) {
+
+
+
+    userDAO.deleteUser(username);
+
+    return "redirect:/";
+  }
+
+
+  @GetMapping("/profil")
+  public String redirectToProfile(Principal principal) {
+    String username = principal.getName();
+    return "redirect:/profil/" + username;
+  }
+
+
+
 }

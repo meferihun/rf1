@@ -9,11 +9,11 @@ import java.util.Set;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 public class User implements UserDetails {
 
   private static final long serialVersionUID = 1L;
-
   String felhasznalonev;
   String email;
   String jelszo;

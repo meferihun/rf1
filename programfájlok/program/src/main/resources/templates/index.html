@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
    <head>
-      <title>Spring Boot example</title>
+      <title>Hírek</title>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,6 +18,9 @@
                <ul class="navbar-nav">
                   <li class="nav-item">
                      <a class="nav-link text-dark" href="/">Home</a>
+                  </li>
+                  <li sec:authorize="isAuthenticated()" class="nav-item">
+                     <a class="nav-link text-dark" href="/profil">Profil</a>
                   </li>
                   <li sec:authorize="!isAuthenticated()" class="nav-item">
                      <a class="nav-link text-dark" href="/login">Login</a>

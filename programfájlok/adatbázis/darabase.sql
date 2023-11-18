@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE felhasznalok (
-    	felhasznalonev VARCHAR(30) NOT NULL PRIMARY KEY,
-	email VARCHAR(30) NOT NULL UNIQUE,
+	nev VARCHAR(40) NOT NULL,
+	email VARCHAR(30) NOT NULL UNIQUE PRIMARY KEY,
 	jelszo VARCHAR(100) NOT NULL,
 	szuldatum DATE NOT NULL,
 	tiltallapot BOOLEAN NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE felhasznalok (
 DROP TABLE IF EXISTS kedvenckategoriak;
 
 CREATE TABLE kedvenckategoriak (
-	felhasznalonev VARCHAR(30) NOT NULL REFERENCES felhasznalok(felhasznalonev) ON DELETE CASCADE ON UPDATE CASCADE,
+	felhasznalonev VARCHAR(30) NOT NULL REFERENCES felhasznalok(email) ON DELETE CASCADE ON UPDATE CASCADE,
 	kategoria VARCHAR(30) NOT NULL,
 	PRIMARY KEY(felhasznalonev, kategoria)
 ); 
@@ -42,7 +42,7 @@ CREATE TABLE kommentek (
 	kommentid SERIAL PRIMARY KEY,
 	kozetevesdatuma DATE NOT NULL,
 	tartalom VARCHAR(500) NOT NULL,
-	kozzetevo VARCHAR(30) NOT NULL REFERENCES felhasznalok(felhasznalonev) ON DELETE CASCADE ON UPDATE CASCADE,
+	kozzetevo VARCHAR(30) NOT NULL REFERENCES felhasznalok(email) ON DELETE CASCADE ON UPDATE CASCADE,
 	hirid SMALLINT NOT NULL REFERENCES hirek(hirid) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -63,6 +63,4 @@ CREATE TABLE dogs (
     age INT NOT NULL,
     owner_id INT NOT NULL
 );
-
-
 

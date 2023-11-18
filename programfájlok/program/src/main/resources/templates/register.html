@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
    <head>
-      <title>Spring Boot example</title>
+      <title>Regisztráció</title>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,11 +19,17 @@
                   <li class="nav-item">
                      <a class="nav-link text-dark" href="/">Home</a>
                   </li>
+                  <li sec:authorize="isAuthenticated()" class="nav-item">
+                     <a class="nav-link text-dark" href="/profil">Profil</a>
+                  </li>
                   <li sec:authorize="!isAuthenticated()" class="nav-item">
                      <a class="nav-link text-dark" href="/login">Login</a>
                   </li>
                   <li sec:authorize="!isAuthenticated()" class="nav-item">
                      <a class="nav-link text-dark" href="/register">Register</a>
+                  </li>
+                  <li sec:authorize="hasAuthority('admin')">
+                     <a class="nav-link text-dark" href="/admin">ADMIN</a>
                   </li>
                   <li sec:authorize="isAuthenticated()" class="nav-item">
                      <a class="nav-link text-dark" href="/logout">Logout</a>
@@ -54,7 +60,7 @@
             </label><br/>
             <select name="jogosultsag" id="jogosultsag">
                <option value="ROLE_ADMIN">Admin</option>
-               <option value="ROLE_EDITO">Szerkesztő</option>
+               <option value="ROLE_EDITOR">Szerkesztő</option>
                <option value="ROLE_USER">Felhasználó</option>
             </select><br/>
             <input type="submit" value="Regisztráció" class="btn-sm btn-dark details"></input>

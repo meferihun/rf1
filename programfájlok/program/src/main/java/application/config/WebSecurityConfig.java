@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import application.service.CustomUserDetailsService;
+import org.springframework.security.web.context.NullSecurityContextRepository;
 
 
 @Configuration
@@ -20,7 +21,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http
             .authorizeRequests()
-            .antMatchers("/edit/*").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+            .antMatchers("/edit/*").access("hasRole('ROLE_USER') or hasRole('ROLE_EDITOR') or hasRole('ROLE_ADMIN')")
+            .antMatchers("/szerkesztes/*").access("hasRole('ROLE_USER') or hasRole('ROLE_EDITOR') or  hasRole('ROLE_ADMIN')")
+            .antMatchers("/torles/*").access("hasRole('ROLE_USER') or hasRole('ROLE_EDITOR') or hasRole('ROLE_ADMIN')")
             .anyRequest().permitAll()
             .and()
             .formLogin().loginPage("/login")

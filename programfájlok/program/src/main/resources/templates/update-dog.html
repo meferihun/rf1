@@ -19,6 +19,9 @@
                   <li class="nav-item">
                      <a class="nav-link text-dark" href="/">Home</a>
                   </li>
+                  <li sec:authorize="isAuthenticated()" class="nav-item">
+                     <a class="nav-link text-dark" href="/profil">Profil</a>
+                  </li>
                   <li sec:authorize="!isAuthenticated()" class="nav-item">
                      <a class="nav-link text-dark" href="/login">Login</a>
                   </li>

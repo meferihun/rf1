@@ -30,7 +30,7 @@ public class UserDAO extends JdbcDaoSupport {
   }
 
   public void insertUser(User user) {
-    String sql = "INSERT INTO felhasznalok(felhasznalonev, email, jelszo, szuldatum, tiltallapot, jogosultsag) VALUES (?, ?, ?, ?, ?, ?)";
+    String sql = "INSERT INTO felhasznalok(nev, email, jelszo, szuldatum, tiltallapot, jogosultsag) VALUES (?, ?, ?, ?, ?, ?)";
     if (user.getJelszo().equals(user.getJelszoUjra())) {
       getJdbcTemplate().update(sql, new Object[] {
               user.getFelhasznalonev(), user.getEmail(), passwordEncoder.encode(user.getPassword()), user.getSzulDatum(), user.isTiltallapot(), user.getJogosultsag()
@@ -38,14 +38,20 @@ public class UserDAO extends JdbcDaoSupport {
     }
   }
 
+  public String deleteUser(String username) {
+    String sql = "DELETE FROM felhasznalok WHERE nev='" + username + "'";
+    getJdbcTemplate().update(sql);
+    return "redirect:/logout.html";
+  }
+
   public User getUserByUsername(String felhasznalonev) {
-    String sql = "SELECT * FROM felhasznalok WHERE felhasznalonev=?";
+    String sql = "SELECT * FROM felhasznalok WHERE nev=?";
     List < Map < String, Object >> rows = getJdbcTemplate().queryForList(sql, felhasznalonev);
 
     List < User > result = new ArrayList < User > ();
     for (Map < String, Object > row: rows) {
       User user = new User();
-      user.setFelhasznalonev((String) row.get("felhasznalonev"));
+      user.setFelhasznalonev((String) row.get("nev"));
       user.setEmail((String) row.get("email"));
       user.setJelszo((String) row.get("jelszo"));
       user.setSzulDatum((Date) row.get("szuldatum"));
@@ -64,7 +70,7 @@ public class UserDAO extends JdbcDaoSupport {
     List < User > result = new ArrayList < User > ();
     for (Map < String, Object > row: rows) {
       User user = new User();
-      user.setFelhasznalonev((String) row.get("felhasznalonev"));
+      user.setFelhasznalonev((String) row.get("nev"));
       user.setEmail((String) row.get("email"));
       user.setJelszo((String) row.get("jelszo"));
       user.setSzulDatum((Date) row.get("szuldatum"));
@@ -76,7 +82,9 @@ public class UserDAO extends JdbcDaoSupport {
     return result.get(0);
   }
 
-  public void loginUser(String felhasznalonev, String jelszo) {
 
+  public void updateUser(String email, String name, Boolean tiltallapot, Date parse) {
+    String sql = "UPDATE felhasznalok SET nev='" + name + "', tiltallapot = '" + tiltallapot + "', szuldatum='" + parse + "' WHERE email='" + email + "'";
+    getJdbcTemplate().update(sql);
   }
 }
