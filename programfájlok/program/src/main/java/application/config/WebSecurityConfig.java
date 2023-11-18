@@ -24,6 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/edit/*").access("hasRole('ROLE_USER') or hasRole('ROLE_EDITOR') or hasRole('ROLE_ADMIN')")
             .antMatchers("/szerkesztes/*").access("hasRole('ROLE_USER') or hasRole('ROLE_EDITOR') or  hasRole('ROLE_ADMIN')")
             .antMatchers("/torles/*").access("hasRole('ROLE_USER') or hasRole('ROLE_EDITOR') or hasRole('ROLE_ADMIN')")
+            .antMatchers("/profil/style.css").permitAll()
             .anyRequest().permitAll()
             .and()
             .formLogin().loginPage("/login").failureUrl("/login?error=true")

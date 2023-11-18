@@ -40,7 +40,7 @@
       </nav>
    </header>
    <body>
-      <div>
+      <div id="register">
          <div th:if="${param.error}">
             <div class="alert alert-danger">
                <span th:text="#{register.error}"></span>
@@ -50,24 +50,24 @@
          <form action="#" th:action="@{/registeruser}" method="post">
             <label>Felhasználónév:
                <input type="text" name="felhasznalonev" id="felhasznalonev" required></input>
-            </label><br/>
+            </label>
             <label>E-Mail:
             <input type="text" name="email" id="email" required></input>
-            </label><br/>
+            </label>
             <label>Jelszó:
             <input type="password" name="jelszo" id="jelszo" required></input>
-            </label><br/>
+            </label>
             <label>Jelszó újra:
                <input type="password" name="jelszoUjra" id="jelszoUjra" required></input>
-            </label><br/>
+            </label>
             <label>Születési dátum:
                <input type="date" name="szulDatum" id="szulDatum" required></input>
-            </label><br/>
+            </label>
             <select name="jogosultsag" id="jogosultsag" required>
                <option value="ROLE_ADMIN">Admin</option>
                <option value="ROLE_EDITOR">Szerkesztő</option>
                <option value="ROLE_USER">Felhasználó</option>
-            </select><br/>
+            </select>
             <input type="submit" value="Regisztráció" class="btn-sm btn-dark details"></input>
          </form>
       </div>

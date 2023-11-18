@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel='stylesheet' href='style.css'>
+  <link href="style.css" th:href="@{/style.css}" rel="stylesheet" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -40,24 +40,24 @@
   </nav>
 </header>
 <body>
-<div>
+<div id="editprofile">
 <h2>Profil szerkesztése</h2>
   <form action="#" th:action="@{/frissit/{email}(email=${user.email})}" method="get">
     <input type="hidden" name="name" id="name" th:value="${user.email}" disabled></input>
     <label>Név:
       <input type="text" name="email" id="email" th:value="${user.felhasznalonev}"></input>
-    </label><br>
+    </label>
     <label>Születési dátum:
       <input type="date" name="szulDatum" id="szulDatum" th:value="${user.szulDatum}"></input>
-    </label><br>
-    <label sec:authorize="hasAuthority('ROLE_ADMIN')" >
-      <input type="checkbox" name="tiltallapot" th:checked="${user.tiltallapot ? 1 : 0}"/>A felhasználó ki van-e tiltva?</td>
-    </label><br>
+    </label>
+    <label sec:authorize="hasAuthority('ROLE_ADMIN')" id="tiltallapot">
+      <input type="checkbox" name="tiltallapot" id="tiltallapotinput" th:checked="${user.tiltallapot ? 1 : 0}"/>A felhasználó ki van-e tiltva?</td>
+    </label>
     <input type="submit" value="Módosítás" class="btn-sm btn-dark details"></input>
   </form>
 
   <td ><button data-toggle="modal" data-target="#modal-toTrash"
-                                                         th:attr="data-target='#modal-toTrash'+${user.felhasznalonev}" class="btn-sm btn-dark details">Delete
+                                                         th:attr="data-target='#modal-toTrash'+${user.felhasznalonev}" class="btn-sm btn-dark details">Törlés
     <span class="glyphicon glyphicon-trash" data-toggle="tooltip"
           data-placement="top" title="Sent to Trash Box"></span></button>
   </td>

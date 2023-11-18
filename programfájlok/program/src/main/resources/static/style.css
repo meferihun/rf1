@@ -57,3 +57,52 @@ a.navbar-brand {
      border: 1px solid black;
      padding: 1px;
 }
+
+#register, #login, #editprofile {
+    width: 400px;
+    margin: 0 auto;
+    border: 2px solid #ccc;
+    padding: 20px;
+    background-color: #eee
+}
+
+#register h2, #login h2, #editprofile h2 {
+    text-align: center;
+    color: #333;
+}
+
+#register label, #login label, #editprofile label {
+    display: block;
+    margin: 10px 0;
+}
+
+#register input, #login input, #editprofile input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+#editprofile #tiltallapot {
+    display: flex;
+    align-items: center;
+}
+
+#tiltallapotinput {
+    width: 20px !important;
+    margin-right: 10px;
+    height: 20px;
+}
+
+#register select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+#register .btn-sm, #login .btn-sm, #editprofile .btn-sm {
+    width: 150px;
+    margin: 10px auto;
+    display: block;
+}

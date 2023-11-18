@@ -40,7 +40,7 @@
     </nav>
 </header>
 <body>
-<div>
+<div id="login">
     <div th:if="${param.error}">
         <div class="alert alert-danger">
             <span th:text="#{login.error}"></span>
@@ -50,10 +50,10 @@
     <form action="#" th:action="@{/login}" method="post">
         <label>Email cím:
             <input type="text" name="username" id="felhasznalonev"></input>
-        </label><br/>
+        </label>
         <label>Jelszó:
             <input type="password" name="password" id="jelszo"></input>
-        </label><br/>
+        </label>
         <input type="submit" value="Belépés" class="btn-sm btn-dark details"></input>
     </form>
 </div>
