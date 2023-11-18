@@ -10,30 +10,29 @@
 
 ### 2.1. Rendszerspecifikáció
 
-`A rendszernek képesnek kell lennie arra, hogy mindig elérhető cikkeket nyújtson. A felhasználok regisztrálhatnak, hogy saját érdeklődés szűrőt állítsanak be. A adminok törölhetnek híreket. A szerkesztők írhatnak új, saját cikkeket az oldalra, valamint hozzáadhatnak híreket. A felhasználók kaphatnak értesítést az új cikkekről a weboldalon. Hírlevélre íratkozhatnak fel, amiben az érdeklődésük alapján kapnak cikkeket. Keresni tudnak a hírek között. A felhasználó külön blokk-ban látja a legfrissebb híreket.`
+`A rendszernek képesnek kell lennie arra, hogy mindig elérhető cikkeket nyújtson. A felhasználok regisztrálhatnak, hogy saját érdeklődés szűrőt állítsanak be. A adminok törölhetnek híreket és tilthatnak felhasználókat. A szerkesztők hozzáadhatnak híreket az oldalra különböző hírportálokról. A felhasználók kaphatnak értesítést az új cikkekről a weboldalon. Hírlevélre íratkozhatnak fel, amiben az érdeklődésük alapján kapnak cikkeket. Keresni tudnak a hírek között. A felhasználó külön blokk-ban látja a legfrissebb híreket.`
 
 ### 2.2. Funkcionális követelmények
 
  - `Felhasználók kezelése (admin, szerkesztő, regisztrált felhasználó) (CRUD)`
  - `Regiszrációs űrlap (felhasználónév, email, jelszó, jelszó megerősítés, születési évszám)`
- - `Bejelentkezés űrlap (felhasználónév / email, jelszó)`
+ - `Bejelentkezés űrlap (email, jelszó)`
  - `Vendég jogosultságai`
     - `Hírek olvasása`
     - `Kommentek olvasása`
     - `Keresési lehetőség a hírek között`
  -  `Bejelentkezett felhasználó jogosultságai`
-    - `Felhasználói adatok módosítása (felhasználónév, email, jelszó)`
+    - `Felhasználói adatok módosítása (felhasználónév, születési dátum, jelszó)`
     - `Kedvenc kategóriák beállítása`
     - `Kijelentkezés`
     - `Fiók törlése`
     - `Kommentek írása`
  - `Szerkesztő extra jogosultágai`
     - `Hírek hozzáadása (cím, forrás, közzétevő neve)`
-    - `Saját hírek írása (cím, tartalom, kép, közzétevő neve, közzététel dátuma)`
  - `Admin extra jogosultágai`
     - `Fiókok tiltása / tiltás feloldása`
     - `Kommentek törlése`
-    - `Már elfogadott cikkek módosítása`
+    - `Cikkek módosítása`
     - `Jogosultságok kiosztása`
  - `Felhasználói munkamenet megvalósítása több jogosultsági szinttel`
  - `Hírek kezelése (CRUD)`
@@ -132,6 +131,12 @@ A munkát `Megyesi Ferenc` koordinálja. `Fő feladata, hogy folyamatosan egyezt
 - `Hely: Online, Discord`
 - `Résztvevők: Megyesi Ferenc, Bialkó Ádám Csaba, György József, Juhász Márk, Szalai István, Tóth-Andor Kristóf, Somogyi László`
 - `Érintett témák: Projektterv kiegészítése, UML modellezés, adatbázistervek és képernyőtervek`
+
+`3. megbeszélés:`
+- `Időpont: 2023. 11. 17.`
+- `Hely: Online, Discord`
+- `Résztvevők: Bialkó Ádám Csaba, György József, Juhász Márk, Szalai István, Tóth-Andor Kristóf, Somogyi László`
+- `Érintett témák: Harmadik mérföldkő feladatainak átbeszélése, kiosztása, félreértések tárgyalása, projektterv pontosítása. Megismerkedés a PostgreSQL-vel, adatbázis csatlakoztatása a projekthez...`
 
 ### 6.3. Minőségbiztosítás
 
