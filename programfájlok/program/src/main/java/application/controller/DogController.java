@@ -61,7 +61,6 @@ public class DogController {
   @PostMapping(value = "/delete/{id}")
   public String deleteDog(@PathVariable("id") int id) {
     dogDAO.deleteDog(id);
-
     return "redirect:/";
   }
 
