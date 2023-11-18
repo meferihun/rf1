@@ -29,13 +29,19 @@ public class UserDAO extends JdbcDaoSupport {
     setDataSource(dataSource);
   }
 
-  public void insertUser(User user) {
+  public boolean insertUser(User user) {
     String sql = "INSERT INTO felhasznalok(nev, email, jelszo, szuldatum, tiltallapot, jogosultsag) VALUES (?, ?, ?, ?, ?, ?)";
     if (user.getJelszo().equals(user.getJelszoUjra())) {
-      getJdbcTemplate().update(sql, new Object[] {
+      int res = getJdbcTemplate().update(sql, new Object[] {
               user.getFelhasznalonev(), user.getEmail(), passwordEncoder.encode(user.getPassword()), user.getSzulDatum(), user.isTiltallapot(), user.getJogosultsag()
       });
+      if(res == 1){
+          return true;
+      } else{
+        return false;
+      }
     }
+    return false;
   }
 
   public String deleteUser(String username) {

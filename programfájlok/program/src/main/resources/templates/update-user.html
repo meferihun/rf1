@@ -17,22 +17,22 @@
       <div class="navbar-collapse collapse">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-dark" href="/">Home</a>
+            <a class="nav-link text-dark" href="/">Főoldal</a>
           </li>
           <li sec:authorize="isAuthenticated()" class="nav-item">
             <a class="nav-link text-dark" href="/profil">Profil</a>
           </li>
           <li sec:authorize="!isAuthenticated()" class="nav-item">
-            <a class="nav-link text-dark" href="/login">Login</a>
+            <a class="nav-link text-dark" href="/login">Bejelentkezés</a>
           </li>
           <li sec:authorize="!isAuthenticated()" class="nav-item">
-            <a class="nav-link text-dark" href="/register">Register</a>
+            <a class="nav-link text-dark" href="/register">Regisztráció</a>
           </li>
-          <li sec:authorize="hasAuthority('admin')">
+          <li sec:authorize="hasAuthority('ROLE_ADMIN')">
             <a class="nav-link text-dark" href="/admin">ADMIN</a>
           </li>
           <li sec:authorize="isAuthenticated()" class="nav-item">
-            <a class="nav-link text-dark" href="/logout">Logout</a>
+            <a class="nav-link text-dark" href="/logout">Kijelentkezés</a>
           </li>
         </ul>
       </div>
@@ -41,7 +41,7 @@
 </header>
 <body>
 <div>
-  <h2>Profil szerkesztése</h2>
+<h2>Profil szerkesztése</h2>
   <form action="#" th:action="@{/frissit/{email}(email=${user.email})}" method="get">
     <input type="hidden" name="name" id="name" th:value="${user.email}" disabled></input>
     <label>Név:
@@ -56,7 +56,7 @@
     <input type="submit" value="Módosítás" class="btn-sm btn-dark details"></input>
   </form>
 
-  <td sec:authorize="hasAuthority('ROLE_ADMIN')"><button data-toggle="modal" data-target="#modal-toTrash"
+  <td ><button data-toggle="modal" data-target="#modal-toTrash"
                                                          th:attr="data-target='#modal-toTrash'+${user.felhasznalonev}" class="btn-sm btn-dark details">Delete
     <span class="glyphicon glyphicon-trash" data-toggle="tooltip"
           data-placement="top" title="Sent to Trash Box"></span></button>
@@ -70,15 +70,15 @@
           </button>
         </div>
         <div class="modal-body">
-          <p class="error-text"><strong>Confirmation</strong></p>
+          <p class="error-text"><strong>Biztos ki szeretnéd törölni?</strong></p>
         </div>
         <div class="modal-footer">
           <button class="btn-sm btn-dark details" data-dismiss="modal" aria-hidden="true">
-            Cancel
+            Bezárás
           </button>
           <!--a th:href="@{/delete/{id}(id=${dog.id})}"-->
           <form th:action="@{/torles/{username}(username=${user.felhasznalonev})}" method="post">
-            <button class="btn-sm btn-dark details" type="submit" value="delete">Yes</button></a>
+            <button class="btn-sm btn-dark details" type="submit" value="delete">Igen</button></a>
           </form>
         </div>
       </div>

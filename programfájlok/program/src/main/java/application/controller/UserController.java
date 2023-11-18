@@ -2,6 +2,7 @@ package application.controller;
 
 import application.model.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -40,8 +41,11 @@ public class UserController {
   @PostMapping(value = "/registeruser")
   public String registerUser(@RequestParam("felhasznalonev") String felhasznalonev, @RequestParam("email") String email, @RequestParam("jelszo") String jelszo, @RequestParam("jelszoUjra") String jelszoUjra, @RequestParam("szulDatum") String szulDatum, @RequestParam("jogosultsag") String jogosultsag) throws ParseException {
     User user = new User(felhasznalonev, email, jelszo, jelszoUjra, new SimpleDateFormat("yyyy-MM-dd").parse(szulDatum), jogosultsag);
-    userDAO.insertUser(user);
-    return "redirect:/";
+    boolean res = userDAO.insertUser(user);
+    if(res){
+      return "redirect:/";
+    }
+    return "redirect:/register?error=true";
   }
 
   @GetMapping(value = "/profil/{email}")
@@ -76,7 +80,5 @@ public class UserController {
     String username = principal.getName();
     return "redirect:/profil/" + username;
   }
-
-
 
 }

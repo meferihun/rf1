@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/torles/*").access("hasRole('ROLE_USER') or hasRole('ROLE_EDITOR') or hasRole('ROLE_ADMIN')")
             .anyRequest().permitAll()
             .and()
-            .formLogin().loginPage("/login")
+            .formLogin().loginPage("/login").failureUrl("/login?error=true")
             .defaultSuccessUrl("/")
             .permitAll()
             .and()
