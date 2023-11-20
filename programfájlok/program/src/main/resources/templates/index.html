@@ -41,28 +41,34 @@
    </header>
    <body>
       <div>
-         <h2>Current Dogs</h2>
+         <h2>Jelenlegi hírek</h2>
          <table>
             <thead>
                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Age</th>
+                  <th>Hír ID</th>
+                  <th>Cím</th>
+                  <th>Közzétevés időpontja</th>
+                  <th>Megtekintések száma</th>
+                  <th>Fontos-e</th>
+                  <th>Forrás</th>
                </tr>
             </thead>
             <tbody>
                <!--span th:each="task,iter : ${foo.tasks}"-->
-               <tr th:each="dog : ${dogs}">
-                  <td th:text="${dog.id}"></td>
-                  <td th:text="${dog.name}"></td>
-                  <td th:text="${dog.age}"></td>
-                  <td sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/edit/{id}(id=${dog.id})}">Update</a></td>
+               <tr th:each="hir : ${hirek}">
+                  <td th:text="${hir.hirid}"></td>
+                  <td th:text="${hir.cim}"></td>
+                  <td th:text="${hir.kozetevesdatuma}"></td>
+                  <td th:text="${hir.megtekintesekszama}"></td>
+                  <td th:text="${hir.fontose} ? 'Igen' : 'Nem'"></td>
+                  <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.forras}"></a></td>
+                  <td sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/edit/{hirid}(hirid=${hir.hirid})}">Update</a></td>
                   <td sec:authorize="hasAuthority('ROLE_ADMIN')"><button data-toggle="modal" data-target="#modal-toTrash"
-                     th:attr="data-target='#modal-toTrash'+${dog.id}" class="btn-sm btn-dark details">Delete
+                     th:attr="data-target='#modal-toTrash'+${hir.hirid}" class="btn-sm btn-dark details">Delete
                      <span class="glyphicon glyphicon-trash" data-toggle="tooltip"
                         data-placement="top" title="Sent to Trash Box"></span></button>
                   </td>
-                  <div class="modal modal-toTrash" th:id="modal-toTrash+${dog.id}">
+                  <div class="modal modal-toTrash" th:id="modal-toTrash+${hir.hirid}">
                      <div class="modal-dialog">
                         <div class="modal-content">
                            <div class="modal-header">
@@ -77,8 +83,8 @@
                               <button class="btn-sm btn-dark details" data-dismiss="modal" aria-hidden="true">
                               Cancel
                               </button>
-                              <!--a th:href="@{/delete/{id}(id=${dog.id})}"-->
-                              <form th:action="@{/delete/{id}(id=${dog.id})}" method="post">
+                              <!--a th:href="@{/delete/{id}(id=${hir.id})}"-->
+                              <form th:action="@{/delete/{hirid}(hirid=${hir.hirid})}" method="post">
                                  <button class="btn-sm btn-dark details" type="submit" value="delete">Yes</button></a>
                               </form>
                            </div>
@@ -90,14 +96,19 @@
          </table>
       </div>
       <div sec:authorize="isAuthenticated()">
-         <h2>Add A Dog</h2>
+         <h2>Hír hozzáadása</h2>
          <form th:action="@{/add}" method="post">
-            <label>Name:
-            <input type="text" name="name" id="name"></input>
+            <input type="hidden" name="hirid" value="1">
+            <label>Cím:
+            <input type="text" name="cim" id="name"></input>
             </label>
-            <label>Age:
-            <input type="text" name="age" id="age"></input>
-            </label>
+            <label>Közzétevés dátuma:
+            <input type="date" name="kozetevesdatuma" id="age"></input>
+            <input type="hidden" name="megtekintesekszama" value="0"></input>
+            <label>Fontos-e:
+            <input type="checkbox" name="fontose"></input>
+            <label>Forrás:
+            <input type="text" name="forras"></input>
             <input type="submit" value="Submit" class="btn-sm btn-dark details"></input>
          </form>
       </div>

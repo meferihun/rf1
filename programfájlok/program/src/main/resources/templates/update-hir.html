@@ -41,13 +41,18 @@
    </header>
    <body>
       <div>
-         <h2>Edit A Dog</h2>
-         <form action="#" th:action="@{/update/{id}(id=${dog.id})}" method="post">
-            <label>Name:
-            <input type="text" name="name" id="name" th:value="${dog.name}"></input>
+         <h2>Hír módosítása</h2>
+         <form action="#" th:action="@{/update/{hirid}(hirid=${hir.hirid})}" method="post">
+            <label>Új cím:
+            <input type="text" name="cim" id="name" th:value="${hir.cim}"></input>
             </label>
-            <label>Age:
-            <input type="text" name="age" id="age" th:value="${dog.age}"></input>
+            <input type="hidden" name="kozetevesdatuma" id="age" th:value="${hir.kozetevesdatuma}"></input>
+               <input type="hidden" name="megtekintesekszama" th:value="${hir.megtekintesekszama}"></input>
+            <label>Fontos-e:
+               <input type="checkbox" name="fontose" th:checked="${hir.fontose}"></input>
+            </label>
+            <label>Forrás módosítása:
+               <input type="text" name="forras" th:value="${hir.forras}"></input>
             </label>
             <input type="submit" value="Submit" class="btn-sm btn-dark details"></input>
          </form>
