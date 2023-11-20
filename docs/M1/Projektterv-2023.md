@@ -367,7 +367,7 @@ Erőforrásigény:  `0.5 személynap`
 
 #### 8.3.13. Tesztelési dokumentum az összes funkcióhoz (TP)
 
-Felelős: `György József, Bialkó Ádám Csaba, Szalai István`
+Felelős: `György József`
 
 Tartam:  `7 nap`
 
@@ -383,7 +383,7 @@ Erőforrásigény:  `1 személynap/fő`
 
 #### `8.3.15. A prototípus kitelepítése éles környezetbe` 
 
-Felelős: `György József`
+Felelős: `Megyesi Ferenc`
 
 Tartam:  `1 nap`
 
@@ -470,10 +470,10 @@ Erőforrásigény:  `0.5 személynap`
 
 | Név                 |   M1  |   M2  | M3  | M4    | Összesen |
 |---------------------|-------|-------|-----|-------|----------|
-| `Megyesi Ferenc`    | `1.5` | `1`   | `2` | `3`   | `7.5`    |
+| `Megyesi Ferenc`    | `1.5` | `1`   |`2.5`| `3`   | `8`      |
 | `Bialkó Ádám Csaba` | `1`   | `2`   | `4` | `1`   | `8`      |
 | `Szalai István`     | `1`   | `2`   | `4` | `1`   | `8`      |
-| `György József`     | `1`   | `2`   | `4` | `0.5` | `7.5`    |
+| `György József`     | `1`   | `2`   |`3.5`| `0.5` | `7`      |
 | `Tóth-Andor Kristóf`| `1`   | `1`   | `3` | `2`   | `7`      |
 | `Juhász Márk`       | `1`   | `2`   | `3` | `1.5` | `7.5`    |
 | `Somogyi László`    | `1`   | `2`   | `4` | `0.5` | `7.5`    |
@@ -486,7 +486,7 @@ Erőforrásigény:  `0.5 személynap`
 | `Megyesi Ferenc`    | `2`   | `1`   | `2` | `1` | `6`      |
 | `Bialkó Ádám Csaba` | `1`   | `1`   | `3` | `1` | `6`      |
 | `Szalai István`     | `1`   | `1`   | `4` | `1` | `7`      |
-| `György József`     | `1`   | `1`   | `4` | `1` | `7`      |
+| `György József`     | `1`   | `1`   | `3` | `1` | `7`      |
 | `Tóth-Andor Kristóf`| `1`   | `1`   | `2` | `1` | `5`      |
 | `Juhász Márk`       | `1`   | `1`   | `2` | `1` | `5`      |
 | `Somogyi László`    | `1`   | `1`   | `4` | `1` | `7`      |
