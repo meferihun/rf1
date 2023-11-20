@@ -45,7 +45,10 @@ a.navbar-brand {
 }
  body {
      margin-bottom: 60px;
-}
+     background-color: rgb(46,48,62);
+     color: white;
+
+ }
  .footer {
      position: absolute;
      bottom: 0;
@@ -63,7 +66,7 @@ a.navbar-brand {
     margin: 0 auto;
     border: 2px solid #ccc;
     padding: 20px;
-    background-color: #eee
+    background-color: #eee;
 }
 
 #register h2, #login h2, #editprofile h2 {
@@ -106,3 +109,50 @@ a.navbar-brand {
     margin: 10px auto;
     display: block;
 }
+
+header{
+    float:left;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: dimgray;
+    text-align: center;
+}
+
+li a {
+    display: block;
+    color: white;
+    padding: 20px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+main{
+    float:left;
+    padding-left: 20px;
+}
+
+label {
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 20px;
+    margin: 0;
+}
+
+
+
+
