@@ -36,7 +36,7 @@
     - `Jogosultságok kiosztása`
  - `Felhasználói munkamenet megvalósítása több jogosultsági szinttel`
  - `Hírek kezelése (CRUD)`
- - `Email-es értesítés válaszott kategóriás új hírek megjelenésénél`
+ - `Email-es értesítés sikeres reigsztráció esetén`
 
 ### 2.3. Nem funkcionális követelmények
 
@@ -349,7 +349,7 @@ Tartam:  `4 nap`
 
 Erőforrásigény:  `1 személynap`
 
-#### `8.3.11. Email-es értesítés válaszott kategóriás új hírek megjelenésénél`
+#### `8.3.11. Email-es értesítés sikeres reigsztráció esetén`
 
 Felelős: `Tóth-Andor Kristóf`
 
