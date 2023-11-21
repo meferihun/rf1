@@ -1,6 +1,10 @@
 package application.controller;
 
+import application.Application;
+import application.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -23,6 +27,10 @@ public class UserController {
   @Autowired
   private UserDAO userDAO;
 
+  @Autowired
+  private EmailService emailService;
+
+
   @GetMapping("/register")
   public String register() {
     return "register";
@@ -38,6 +46,7 @@ public class UserController {
     User user = new User(felhasznalonev, email, jelszo, jelszoUjra, new SimpleDateFormat("yyyy-MM-dd").parse(szulDatum), jogosultsag);
     boolean res = userDAO.insertUser(user);
     if(res){
+      emailService.sendWelcomeMessage(email,felhasznalonev);
       return "redirect:/";
     }
     return "redirect:/register?error=true";
