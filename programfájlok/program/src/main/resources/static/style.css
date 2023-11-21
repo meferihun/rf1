@@ -69,7 +69,7 @@ a.navbar-brand {
     background-color: #eee;
 }
 
-#register h2, #login h2, #editprofile h2 {
+#register h2, #login h2, #editprofile h2, #editprofile h3, .error-text {
     text-align: center;
     color: #333;
 }
@@ -153,6 +153,15 @@ h1 {
     margin: 0;
 }
 
+.column {
+    float: left;
+    width: 50%;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
 
 
 

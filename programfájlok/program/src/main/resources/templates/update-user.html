@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Felhasználó módosítása</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -59,7 +59,46 @@
     <label sec:authorize="hasAuthority('ROLE_ADMIN')" id="tiltallapot">
       <input type="checkbox" name="tiltallapot" id="tiltallapotinput" th:checked="${user.tiltallapot ? 1 : 0}"/>A felhasználó ki van-e tiltva?</td>
     </label>
+    <h3>Hírlevél</h3>
+    <div class="column">
+      <div class="row">
+        <label>Belföld</label>
+        <input type="checkbox" name="belfold" value="Belföld" th:checked="${flag1}"/>
+      </div>
+      <div class="row">
+        <label>Külföld</label>
+        <input type="checkbox" name="kulfold" value="Külföld" th:checked="${flag2}"/>
+      </div>
+      <div class="row">
+        <label>Gazdaság</label>
+        <input type="checkbox" name="gazdasag" value="Gazdaság" th:checked="${flag3}"/>
+      </div>
+      <div class="row">
+        <label>Sport</label>
+        <input type="checkbox" name="sport" value="Sport" th:checked="${flag4}"/>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="row">
+        <label>Tech</label>
+        <input type="checkbox" name="tech" value="Tech" th:checked="${flag5}"/>
+      </div>
+      <div class="row">
+        <label>Bulvár</label>
+        <input type="checkbox" name="bulvar" value="Bulvár" th:checked="${flag6}"/>
+      </div>
+      <div class="row">
+        <label>Életmód</label>
+        <input type="checkbox" name="eletmod" value="Életmód" th:checked="${flag7}"/>
+      </div>
+      <div class="row">
+        <label>Autó</label>
+        <input type="checkbox" name="auto" value="Autó" th:checked="${flag8}"/>
+      </div>
+    </div>
     <input type="submit" value="Módosítás" class="btn-sm btn-dark details"></input>
+
   </form>
 
   <td ><button data-toggle="modal" data-target="#modal-toTrash"
