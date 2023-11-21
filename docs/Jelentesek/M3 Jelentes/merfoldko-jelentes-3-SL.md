@@ -22,6 +22,15 @@ ___
 
      - https://git-okt.sed.inf.szte.hu/2023_ib153i-13_d/2023_ib153i-13_d/-/commit/9ac978c892e3e92bcceae1f46e0f610c19a06a13
 
+      - https://git-okt.sed.inf.szte.hu/2023_ib153i-13_d/2023_ib153i-13_d/-/commit/2db92bd56cc4f7d6df25514ec70b66d887b16b9e
+
+      - https://git-okt.sed.inf.szte.hu/2023_ib153i-13_d/2023_ib153i-13_d/-/commit/0b36362605dbabf63f822cddce7ff156aea2403f
+___
+
+#### Megjegyzések
+
+A feladatot túlnyomó részét egy committal oldottam meg, majd később kisebb javításokkal valósítottam meg teljes egészében a feladatot.
+
 ```
 Csak az adott mérföldkő feladatait igazoló commit-okat másolj ide!
 Egy korábbi feladat teljesítését igazoló commit (csak azért mert ennek a mérföldkőnek az időszakába esik)
