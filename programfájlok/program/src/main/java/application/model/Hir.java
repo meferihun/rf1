@@ -12,16 +12,36 @@ public class Hir implements Serializable {
   int megtekintesekszama;
   boolean fontose;
   String forras;
+  String honnan;
+  String kategoria;
 
   public Hir() {}
 
-  public Hir(int hirid, String cim, String kozetevesdatuma, int megtekintesekszama, boolean fontose, String forras) {
+  public Hir(int hirid, String cim, String kozetevesdatuma, int megtekintesekszama, boolean fontose, String forras, String honnan, String kategoria) {
     this.hirid = hirid;
     this.cim = cim;
     this.kozetevesdatuma = kozetevesdatuma;
     this.megtekintesekszama = megtekintesekszama;
     this.fontose = fontose;
     this.forras = forras;
+    this.honnan = honnan;
+    this.kategoria = kategoria;
+  }
+
+  public String getKategoria() {
+    return kategoria;
+  }
+
+  public void setKategoria(String kategoria) {
+    this.kategoria = kategoria;
+  }
+
+  public String getHonnan() {
+    return honnan;
+  }
+
+  public void setHonnan(String honnan) {
+    this.honnan = honnan;
   }
 
   public int getHirid() {

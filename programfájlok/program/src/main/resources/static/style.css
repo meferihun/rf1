@@ -61,7 +61,7 @@ a.navbar-brand {
      padding: 1px;
 }
 
-#register, #login, #editprofile {
+#register, #login, #editprofile, #hirhozzadas {
     width: 400px;
     margin: 0 auto;
     border: 2px solid #ccc;
@@ -74,12 +74,12 @@ a.navbar-brand {
     color: #333;
 }
 
-#register label, #login label, #editprofile label {
+#register label, #login label, #editprofile label, #hirhozzadas label {
     display: block;
     margin: 10px 0;
 }
 
-#register input, #login input, #editprofile input {
+#register input, #login input, #editprofile input, #hirhozzadas input {
     width: 100%;
     padding: 5px;
     border: 1px solid #999;
@@ -97,14 +97,14 @@ a.navbar-brand {
     height: 20px;
 }
 
-#register select {
+#register select, #hirhozzadas select {
     width: 100%;
     padding: 5px;
     border: 1px solid #999;
     border-radius: 5px;
 }
 
-#register .btn-sm, #login .btn-sm, #editprofile .btn-sm {
+#register .btn-sm, #login .btn-sm, #editprofile .btn-sm, #hirhozzadas .btn-sm {
     width: 150px;
     margin: 10px auto;
     display: block;
@@ -193,3 +193,20 @@ h1 {
 
 .listazas  a { color: #0078d4; text-decoration: none; }
 
+#cikkek{
+    width: 100%;
+    background: antiquewhite;
+    font-size:20px;
+    border:0px;
+    padding:10px;
+}
+
+#cikkek td{
+    border:0px;
+    border-bottom: 1px solid black !important;
+}
+
+#cikkek a{
+    text-decoration: none;
+    color:black;
+}

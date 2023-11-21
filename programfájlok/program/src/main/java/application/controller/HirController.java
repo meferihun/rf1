@@ -29,8 +29,8 @@ public class HirController {
 
   @Autowired
   private UserDAO userDAO;
-  
-  
+
+
   @GetMapping(value = "/")
   public String listHir(Model model) {
     List < String > user_mails = new ArrayList < String > ();
@@ -79,14 +79,14 @@ public class HirController {
   }
 
   @PostMapping(value = "/add")
-  public String addHir(@RequestParam("cim") String cim, @RequestParam("kozetevesdatuma") String kozetevesdatuma, @RequestParam("megtekintesekszama") int megtekintesekszama, @RequestParam(value = "fontose", defaultValue = "false") boolean fontose, @RequestParam("forras") String forras) throws ParseException {
+  public String addHir(@RequestParam("cim") String cim, @RequestParam("kozetevesdatuma") String kozetevesdatuma, @RequestParam("megtekintesekszama") int megtekintesekszama, @RequestParam(value = "fontose", defaultValue = "false") boolean fontose, @RequestParam("forras") String forras, @RequestParam("honnan") String honnan, @RequestParam("kategoria") String kategoria) throws ParseException {
 
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     String currentPrincipalName = authentication.getName();
     User user = userDAO.getUserByEmail(currentPrincipalName);
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     Date kozetevesdatumaDate = formatter.parse(kozetevesdatuma);
-    Hir hir = new Hir(0, cim, kozetevesdatuma, megtekintesekszama, fontose, forras);
+    Hir hir = new Hir(0, cim, kozetevesdatuma, megtekintesekszama, fontose, forras, honnan, kategoria);
     hirDAO.insertHir(hir);
 
     return "redirect:/";
@@ -107,8 +107,8 @@ public class HirController {
   }
 
   @PostMapping(value = "/update/{hirid}")
-  public String updateHir(@PathVariable("hirid") int hirid, @RequestParam("cim") String cim, @RequestParam("kozetevesdatuma") String kozetevesdatuma, @RequestParam("megtekintesekszama") int megtekintesekszama, @RequestParam(value = "fontose", defaultValue = "false") boolean fontose, @RequestParam("forras") String forras) {
-    hirDAO.updateHir(hirid, cim, kozetevesdatuma, megtekintesekszama, fontose, forras);
+  public String updateHir(@PathVariable("hirid") int hirid, @RequestParam("cim") String cim, @RequestParam("kozetevesdatuma") String kozetevesdatuma, @RequestParam("megtekintesekszama") int megtekintesekszama, @RequestParam(value = "fontose", defaultValue = "false") boolean fontose, @RequestParam("forras") String forras, @RequestParam("honnan") String honnan, @RequestParam("kategoria") String kategoria) {
+    hirDAO.updateHir(hirid, cim, kozetevesdatuma, megtekintesekszama, fontose, forras, honnan, kategoria);
 
     return "redirect:/";
   }

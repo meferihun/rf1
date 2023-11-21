@@ -79,10 +79,12 @@
       <tr>
         <th>Hír ID</th>
         <th>Cím</th>
+        <th>Kategória</th>
         <th>Közzétéve</th>
         <th>Megtekintések száma</th>
         <th>Fontos-e</th>
         <th>Forrás</th>
+        <th>Honnan</th>
         <th colspan="2">Kezelés</th>
       </tr>
       </thead>
@@ -91,10 +93,12 @@
       <tr th:each="hir : ${hirek}">
         <td th:text="${hir.hirid}"></td>
         <td th:text="${hir.cim}"></td>
+        <td th:text="${hir.kategoria}"></td>
         <td th:text="${hir.kozetevesdatuma}"></td>
         <td th:text="${hir.megtekintesekszama}"></td>
         <td th:text="${hir.fontose} ? 'Igen' : 'Nem'"></td>
         <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.forras}"></a></td>
+        <td th:text="${hir.honnan}"></td>
         <td sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/edit/{hirid}(hirid=${hir.hirid})}">Szerkesztés</a></td>
         <td sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/delete/{hirid}(hirid=${hir.hirid})}">Törlés</a></td>
 

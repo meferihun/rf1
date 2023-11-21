@@ -73,87 +73,54 @@
 <main>
 
    <div>
-      <h2>Jelenlegi hírek</h2>
-      <table>
+      <h2>Legújabb cikkeink</h2>
+      <table id="cikkek">
          <thead>
          <tr>
-            <th>Hír ID</th>
-            <th>Cím</th>
-            <th>Közzétevés időpontja</th>
-            <th>Megtekintések száma</th>
-            <th>Fontos-e</th>
-            <th>Forrás</th>
          </tr>
          </thead>
          <tbody>
          <!--span th:each="task,iter : ${foo.tasks}"-->
          <tr th:each="hir : ${hirek}">
-            <td th:text="${hir.hirid}"></td>
-            <td th:text="${hir.cim}"></td>
-            <td th:text="${hir.kozetevesdatuma}"></td>
-            <td th:text="${hir.megtekintesekszama}"></td>
-            <td th:text="${hir.fontose} ? 'Igen' : 'Nem'"></td>
-            <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.forras}"></a></td>
-            <td sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/edit/{hirid}(hirid=${hir.hirid})}">Update</a></td>
-            <td sec:authorize="hasAuthority('ROLE_ADMIN')"><button data-toggle="modal" data-target="#modal-toTrash"
-                                                                   th:attr="data-target='#modal-toTrash'+${hir.hirid}" class="btn-sm btn-dark details">Delete
-               <span class="glyphicon glyphicon-trash" data-toggle="tooltip"
-                     data-placement="top" title="Sent to Trash Box"></span></button>
-            </td>
-            <div class="modal modal-toTrash" th:id="modal-toTrash+${hir.hirid}">
-               <div class="modal-dialog">
-                  <div class="modal-content">
-                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"
-                                aria-hidden="true">×
-                        </button>
-                     </div>
-                     <div class="modal-body">
-                        <p class="error-text"><strong>Confirmation</strong></p>
-                     </div>
-                     <div class="modal-footer">
-                        <button class="btn-sm btn-dark details" data-dismiss="modal" aria-hidden="true">
-                           Cancel
-                        </button>
-                        <!--a th:href="@{/delete/{id}(id=${hir.id})}"-->
-                        <form th:action="@{/delete/{hirid}(hirid=${hir.hirid})}" method="post">
-                           <button class="btn-sm btn-dark details" type="submit" value="delete">Yes</button></a>
-                        </form>
-                     </div>
-                  </div>
-               </div>
-            </div>
+            <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.cim}"></a></td>
          </tr>
          </tbody>
       </table>
    </div>
    <div sec:authorize="isAuthenticated()">
       <h2>Hír hozzáadása</h2>
-      <form th:action="@{/add}" method="post">
+      <form th:action="@{/add}" method="post" id="hirhozzadas">
          <input type="hidden" name="hirid" value="1">
          <label>Cím:
             <input type="text" name="cim" id="name" required></input>
          </label>
          <label>Közzétevés dátuma:
             <input type="date" name="kozetevesdatuma" id="age" required></input>
-            <input type="hidden" name="megtekintesekszama" value="0"></input>
-            <label>Fontos-e:
-               <input type="checkbox" name="fontose"></input>
-               <label>Forrás:
-                  <input type="text" name="forras" required></input>
-                  <input type="submit" value="Submit" class="btn-sm btn-dark details"></input>
+         </label>
+         <input type="hidden" name="megtekintesekszama" value="0"></input>
+         <label>Fontos-e:
+            <input type="checkbox" name="fontose"></input>
+         </label>
+         <label>Forrás:
+            <input type="text" name="forras" required></input>
+         </label>
+         <label>Honnan:
+            <input type="text" name="honnan" required></input>
+         </label>
+         <label>Válassz kategóriát
+            <select name="kategoria" required>
+               <option value="Autó">Autó</option>
+               <option value="Belföld">Belföld</option>
+               <option value="Bulvár">Bulvár</option>
+               <option value="Életmód">Életmód</option>
+               <option value="Gazdaság">Gazdaság</option>
+               <option value="Külföld">Külföld</option>
+               <option value="Sport">Sport</option>
+               <option value="Tech">Tech</option>
+            </select>
+         </label>
+         <input type="submit" value="Cikk beküldése" class="btn-sm btn-dark details"></input>
       </form>
-   </div>
-   <div sec:authorize="hasAuthority('ROLE_ADMIN')">
-      This content is only shown to administrators.
-   </div>
-   <div sec:authorize="hasAuthority('ROLE_USER')">
-      This content is only shown to users.
-   </div>
-   <div sec:authorize="isAuthenticated()">
-      This content is only shown to authenticated users.</br>
-      Logged in user: <span sec:authentication="name"></span> |
-      Roles: <span sec:authentication="principal.authorities"></span>
    </div>
 </main>
 </body>
