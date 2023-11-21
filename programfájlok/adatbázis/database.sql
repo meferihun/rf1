@@ -25,7 +25,8 @@ CREATE TABLE hirek (
 	kozetevesdatuma DATE NOT NULL,
 	megtekintesekszama INT NOT NULL,
 	fontose BOOLEAN NOT NULL,
-	forras VARCHAR(200) NOT NULL
+	forras VARCHAR(200) NOT NULL,
+	honnan VARCHAR(50) NOT NULL 
 );
 
 DROP TABLE IF EXISTS hirkategoriak;

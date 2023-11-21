@@ -132,15 +132,15 @@
       <form th:action="@{/add}" method="post">
          <input type="hidden" name="hirid" value="1">
          <label>Cím:
-            <input type="text" name="cim" id="name"></input>
+            <input type="text" name="cim" id="name" required></input>
          </label>
          <label>Közzétevés dátuma:
-            <input type="date" name="kozetevesdatuma" id="age"></input>
+            <input type="date" name="kozetevesdatuma" id="age" required></input>
             <input type="hidden" name="megtekintesekszama" value="0"></input>
             <label>Fontos-e:
                <input type="checkbox" name="fontose"></input>
                <label>Forrás:
-                  <input type="text" name="forras"></input>
+                  <input type="text" name="forras" required></input>
                   <input type="submit" value="Submit" class="btn-sm btn-dark details"></input>
       </form>
    </div>
