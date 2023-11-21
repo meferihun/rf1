@@ -8,6 +8,14 @@ public class Comment {
     private Hir hir;
     public Comment(){}
 
+    public Comment(int id, String content, String authorName, Hir hir, String date){
+        this.id = id;
+        this.content = content;
+        this.authorName = authorName;
+        this.hir = hir;
+        this.date = date;
+    }
+
     public int getId() {
         return id;
     }
