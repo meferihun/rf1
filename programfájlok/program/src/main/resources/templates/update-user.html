@@ -5,11 +5,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
-<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+  <link href="style.css" th:href="@{/style.css}" rel="stylesheet" />
+  <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+  <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
 </head>
 
 
@@ -47,7 +47,7 @@
 </header>
 
 <div id="editprofile">
-<h2>Profil szerkesztése</h2>
+  <h2>Profil szerkesztése</h2>
   <form action="#" th:action="@{/frissit/{email}(email=${user.email})}" method="get">
     <input type="hidden" name="name" id="name" th:value="${user.email}" disabled></input>
     <label>Név:
@@ -98,9 +98,32 @@
       </div>
     </div>
     <input type="submit" value="Módosítás" class="btn-sm btn-dark details"></input>
-
   </form>
 
+  <hr/>
+  <div th:if="${param.error}">
+    <div class="alert alert-danger">
+      <span th:text="#{modifypwd.error}"></span>
+    </div>
+  </div>
+  <div th:if="${param.success}">
+    <div class="alert alert-danger">
+      <span th:text="#{sikeresmodositas.success}"></span>
+    </div>
+  </div>
+  <h3>Jelszó módosítása</h3>
+  <form action="#" th:action="@{/jelszomodositas}" method="post">
+    <input type="hidden" name="email2" id="email2" th:value="${user.email}" readonly></input>
+    <label>Jelszó:
+      <input type="password" name="jelszo" id="jelszo"></input>
+    </label>
+    <label>Jelszó újra:
+      <input type="password" name="jelszoUjra" id="jelszoUjra"></input>
+    </label>
+    <input type="submit" value="Módosítás" class="btn-sm btn-dark details"></input>
+  </form>
+  <hr/>
+  <h3>Profil törlése</h3>
   <form th:action="@{/torles/{username}/{currentuser}(username=${user.felhasznalonev},currentuser=${current_user.getFelhasznalonev()})}" method="post">
     <button class="btn-sm btn-dark details" type="submit" value="delete">Törlés</button></a>
   </form>

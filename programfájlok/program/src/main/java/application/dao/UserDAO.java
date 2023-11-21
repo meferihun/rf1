@@ -112,22 +112,28 @@ public class UserDAO extends JdbcDaoSupport {
             "SELECT count(*) FROM kedvenckategoriak WHERE email=? AND kategoria=?", Integer.class, email, kategoria);
     return cnt != null && cnt > 0;
   }
-    public List<User> listUsers () {
-      String sql = "SELECT * FROM felhasznalok";
-      List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
-      SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-      List<User> result = new ArrayList<User>();
-      for (Map<String, Object> row : rows) {
-        User user = new User();
-        user.setFelhasznalonev((String) row.get("nev"));
-        user.setEmail((String) row.get("email"));
-        user.setSzulDatum((Date) row.get("szuldatum"));
-        user.setTiltallapot((Boolean) row.get("tiltallapot"));
-        user.setJogosultsag((String) row.get("jogosultsag"));
+  public List<User> listUsers () {
+    String sql = "SELECT * FROM felhasznalok";
+    List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    List<User> result = new ArrayList<User>();
+    for (Map<String, Object> row : rows) {
+      User user = new User();
+      user.setFelhasznalonev((String) row.get("nev"));
+      user.setEmail((String) row.get("email"));
+      user.setSzulDatum((Date) row.get("szuldatum"));
+      user.setTiltallapot((Boolean) row.get("tiltallapot"));
+      user.setJogosultsag((String) row.get("jogosultsag"));
 
-        result.add(user);
-      }
-
-      return result;
+      result.add(user);
     }
+
+    return result;
   }
+
+  public void modifyPassword(String email, String jelszo) {
+    String jelszoHashelt = passwordEncoder.encode(jelszo);
+    String sql = "UPDATE felhasznalok SET jelszo='" + jelszoHashelt + "' WHERE email='" + email + "'";
+    getJdbcTemplate().update(sql);
+  }
+}
