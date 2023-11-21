@@ -47,7 +47,6 @@ public class UserController {
   public String editUser(@PathVariable("email") String email, Model model) {
     User user = userDAO.getUserByEmail(email);
     model.addAttribute("user", user);
-<<<<<<< HEAD
     model.addAttribute("flag1",userDAO.kategoriaLetezik(email,"Belföld"));
     model.addAttribute("flag2",userDAO.kategoriaLetezik(email,"Külföld"));
     model.addAttribute("flag3",userDAO.kategoriaLetezik(email,"Gazdaság"));
@@ -56,7 +55,6 @@ public class UserController {
     model.addAttribute("flag6",userDAO.kategoriaLetezik(email,"Bulvár"));
     model.addAttribute("flag7",userDAO.kategoriaLetezik(email,"Életmód"));
     model.addAttribute("flag8",userDAO.kategoriaLetezik(email,"Autó"));
-=======
 
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     if (authentication.getName().equals("anonymousUser")) {
@@ -65,7 +63,6 @@ public class UserController {
       model.addAttribute("current_user", userDAO.getUserByEmail(authentication.getName()));
     }
 
->>>>>>> 3ac810a4c3b3089dc479bf72406c1f8faae1fa01
     return "update-user";
   }
 

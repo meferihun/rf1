@@ -30,12 +30,12 @@ public class UserDAO extends JdbcDaoSupport {
   public boolean insertUser(User user) {
     String sql = "INSERT INTO felhasznalok(nev, email, jelszo, szuldatum, tiltallapot, jogosultsag) VALUES (?, ?, ?, ?, ?, ?)";
     if (user.getJelszo().equals(user.getJelszoUjra())) {
-      int res = getJdbcTemplate().update(sql, new Object[] {
+      int res = getJdbcTemplate().update(sql, new Object[]{
               user.getFelhasznalonev(), user.getEmail(), passwordEncoder.encode(user.getPassword()), user.getSzulDatum(), user.isTiltallapot(), user.getJogosultsag()
       });
-      if(res == 1){
-          return true;
-      } else{
+      if (res == 1) {
+        return true;
+      } else {
         return false;
       }
     }
@@ -50,10 +50,10 @@ public class UserDAO extends JdbcDaoSupport {
 
   public User getUserByUsername(String felhasznalonev) {
     String sql = "SELECT * FROM felhasznalok WHERE nev=?";
-    List < Map < String, Object >> rows = getJdbcTemplate().queryForList(sql, felhasznalonev);
+    List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql, felhasznalonev);
 
-    List < User > result = new ArrayList < User > ();
-    for (Map < String, Object > row: rows) {
+    List<User> result = new ArrayList<User>();
+    for (Map<String, Object> row : rows) {
       User user = new User();
       user.setFelhasznalonev((String) row.get("nev"));
       user.setEmail((String) row.get("email"));
@@ -69,10 +69,10 @@ public class UserDAO extends JdbcDaoSupport {
 
   public User getUserByEmail(String email) {
     String sql = "SELECT * FROM felhasznalok WHERE email=?";
-    List < Map < String, Object >> rows = getJdbcTemplate().queryForList(sql, email);
+    List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql, email);
 
-    List < User > result = new ArrayList < User > ();
-    for (Map < String, Object > row: rows) {
+    List<User> result = new ArrayList<User>();
+    for (Map<String, Object> row : rows) {
       User user = new User();
       user.setFelhasznalonev((String) row.get("nev"));
       user.setEmail((String) row.get("email"));
@@ -92,46 +92,42 @@ public class UserDAO extends JdbcDaoSupport {
     getJdbcTemplate().update(sql);
 
 
-    for(int i = 0; i < kategoriak.size(); i++) {
+    for (int i = 0; i < kategoriak.size(); i++) {
       if (!kategoriak.get(i).contains("false")) {
         sql = "INSERT INTO kedvenckategoriak (email, kategoria) VALUES (?,?) ON CONFLICT (email,kategoria) DO UPDATE SET email='" + email + "', kategoria ='" + kategoriak.get(i) + "'";
         getJdbcTemplate().update(sql, new Object[]{
                 email, kategoriak.get(i)
         });
-      }
-      else{
+      } else {
         String[] tmp = kategoriak.get(i).split(" ");
-        sql = "DELETE FROM kedvenckategoriak WHERE email='" + email + "' AND kategoria='" + tmp[1] +"'";
+        sql = "DELETE FROM kedvenckategoriak WHERE email='" + email + "' AND kategoria='" + tmp[1] + "'";
         getJdbcTemplate().update(sql);
       }
     }
 
   }
 
-<<<<<<< HEAD
-  public boolean kategoriaLetezik(String email, String kategoria){
+  public boolean kategoriaLetezik(String email, String kategoria) {
     Integer cnt = getJdbcTemplate().queryForObject(
             "SELECT count(*) FROM kedvenckategoriak WHERE email=? AND kategoria=?", Integer.class, email, kategoria);
     return cnt != null && cnt > 0;
-=======
-  public List <User> listUsers() {
-    String sql = "SELECT * FROM felhasznalok";
-    List < Map < String, Object >> rows = getJdbcTemplate().queryForList(sql);
-    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-    List <User> result = new ArrayList <User> ();
-    for (Map < String, Object > row: rows) {
-      User user = new User();
-      user.setFelhasznalonev((String) row.get("nev"));
-      user.setEmail((String) row.get("email"));
-      user.setSzulDatum((Date) row.get("szuldatum"));
-      user.setTiltallapot((Boolean) row.get("tiltallapot"));
-      user.setJogosultsag((String) row.get("jogosultsag"));
-
-      result.add(user);
-    }
-
-    return result;
->>>>>>> 3ac810a4c3b3089dc479bf72406c1f8faae1fa01
   }
+    public List<User> listUsers () {
+      String sql = "SELECT * FROM felhasznalok";
+      List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
+      SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+      List<User> result = new ArrayList<User>();
+      for (Map<String, Object> row : rows) {
+        User user = new User();
+        user.setFelhasznalonev((String) row.get("nev"));
+        user.setEmail((String) row.get("email"));
+        user.setSzulDatum((Date) row.get("szuldatum"));
+        user.setTiltallapot((Boolean) row.get("tiltallapot"));
+        user.setJogosultsag((String) row.get("jogosultsag"));
 
-}
+        result.add(user);
+      }
+
+      return result;
+    }
+  }
