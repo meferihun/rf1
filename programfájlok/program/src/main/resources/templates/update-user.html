@@ -101,34 +101,10 @@
 
   </form>
 
-  <td ><button data-toggle="modal" data-target="#modal-toTrash"
-                                                         th:attr="data-target='#modal-toTrash'+${user.felhasznalonev}" class="btn-sm btn-dark details">Törlés
-    <span class="glyphicon glyphicon-trash" data-toggle="tooltip"
-          data-placement="top" title="Sent to Trash Box"></span></button>
-  </td>
-  <div class="modal modal-toTrash" th:id="modal-toTrash+${user.felhasznalonev}">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"
-                  aria-hidden="true">×
-          </button>
-        </div>
-        <div class="modal-body">
-          <p class="error-text"><strong>Biztos ki szeretnéd törölni?</strong></p>
-        </div>
-        <div class="modal-footer">
-          <button class="btn-sm btn-dark details" data-dismiss="modal" aria-hidden="true">
-            Bezárás
-          </button>
-          <!--a th:href="@{/delete/{id}(id=${dog.id})}"-->
-          <form th:action="@{/torles/{username}(username=${user.felhasznalonev})}" method="post">
-            <button class="btn-sm btn-dark details" type="submit" value="delete">Igen</button></a>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+  <form th:action="@{/torles/{username}/{currentuser}(username=${user.felhasznalonev},currentuser=${current_user.getFelhasznalonev()})}" method="post">
+    <button class="btn-sm btn-dark details" type="submit" value="delete">Törlés</button></a>
+  </form>
+
 </div>
 </body>
 </html>

@@ -2,6 +2,7 @@ package application.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,6 +47,7 @@ public class UserController {
   public String editUser(@PathVariable("email") String email, Model model) {
     User user = userDAO.getUserByEmail(email);
     model.addAttribute("user", user);
+<<<<<<< HEAD
     model.addAttribute("flag1",userDAO.kategoriaLetezik(email,"Belföld"));
     model.addAttribute("flag2",userDAO.kategoriaLetezik(email,"Külföld"));
     model.addAttribute("flag3",userDAO.kategoriaLetezik(email,"Gazdaság"));
@@ -54,6 +56,16 @@ public class UserController {
     model.addAttribute("flag6",userDAO.kategoriaLetezik(email,"Bulvár"));
     model.addAttribute("flag7",userDAO.kategoriaLetezik(email,"Életmód"));
     model.addAttribute("flag8",userDAO.kategoriaLetezik(email,"Autó"));
+=======
+
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    if (authentication.getName().equals("anonymousUser")) {
+      model.addAttribute("current_user", new User());
+    } else {
+      model.addAttribute("current_user", userDAO.getUserByEmail(authentication.getName()));
+    }
+
+>>>>>>> 3ac810a4c3b3089dc479bf72406c1f8faae1fa01
     return "update-user";
   }
 
@@ -84,11 +96,13 @@ public class UserController {
     return "redirect:/";
   }
 
-  @PostMapping(value = "/torles/{username}")
-  public String deleteUser(@PathVariable("username") String username, HttpServletRequest request, HttpServletResponse response) {
+  @PostMapping(value = "/torles/{username}/{currentuser}")
+  public String deleteUser(@PathVariable("username") String username, @PathVariable("currentuser") String currentuser, HttpServletRequest request, HttpServletResponse response) {
     userDAO.deleteUser(username);
-    SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
-    logoutHandler.logout(request, response, SecurityContextHolder.getContext().getAuthentication());
+    if(currentuser.equals(username)) {
+      SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+      logoutHandler.logout(request, response, SecurityContextHolder.getContext().getAuthentication());
+    }
     return "redirect:/";
   }
 

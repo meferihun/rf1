@@ -1,5 +1,6 @@
 package application.dao;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -107,10 +108,30 @@ public class UserDAO extends JdbcDaoSupport {
 
   }
 
+<<<<<<< HEAD
   public boolean kategoriaLetezik(String email, String kategoria){
     Integer cnt = getJdbcTemplate().queryForObject(
             "SELECT count(*) FROM kedvenckategoriak WHERE email=? AND kategoria=?", Integer.class, email, kategoria);
     return cnt != null && cnt > 0;
+=======
+  public List <User> listUsers() {
+    String sql = "SELECT * FROM felhasznalok";
+    List < Map < String, Object >> rows = getJdbcTemplate().queryForList(sql);
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    List <User> result = new ArrayList <User> ();
+    for (Map < String, Object > row: rows) {
+      User user = new User();
+      user.setFelhasznalonev((String) row.get("nev"));
+      user.setEmail((String) row.get("email"));
+      user.setSzulDatum((Date) row.get("szuldatum"));
+      user.setTiltallapot((Boolean) row.get("tiltallapot"));
+      user.setJogosultsag((String) row.get("jogosultsag"));
+
+      result.add(user);
+    }
+
+    return result;
+>>>>>>> 3ac810a4c3b3089dc479bf72406c1f8faae1fa01
   }
 
 }
