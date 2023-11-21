@@ -36,7 +36,7 @@ public class CommentController {
     @Autowired
     private CommentDAO commentDAO;
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/list")
     public String listComments(Model model){
         List < String > user_mails = new ArrayList < String > ();
         List <Comment> commentList = commentDAO.getAll();
@@ -56,7 +56,7 @@ public class CommentController {
         return "index";
     }
 
-    @PostMapping(value = "/add")
+    @PostMapping(value = "/addcomment")
     public String addComment(@RequestParam("content") String content, @RequestParam("authorName") String authorName, @RequestParam("hir") Hir hir, @RequestParam("date") String date) throws ParseException{
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
@@ -69,7 +69,7 @@ public class CommentController {
         return "redirect:/";
     }
 
-    @PostMapping(value = "/delete/{kommentid}")
+    @PostMapping(value = "/deletecomment/{kommentid}")
     public String deleteComment(@PathVariable("kommentid") int kommentid){
         commentDAO.delete(kommentid);
         return "redirect:/";
