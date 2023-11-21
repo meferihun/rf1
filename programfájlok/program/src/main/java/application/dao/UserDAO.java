@@ -1,5 +1,6 @@
 package application.dao;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -93,4 +94,24 @@ public class UserDAO extends JdbcDaoSupport {
     String sql = "UPDATE felhasznalok SET nev='" + name + "', tiltallapot = '" + tiltallapot + "', szuldatum='" + parse + "' WHERE email='" + email + "'";
     getJdbcTemplate().update(sql);
   }
+
+  public List <User> listUsers() {
+    String sql = "SELECT * FROM felhasznalok";
+    List < Map < String, Object >> rows = getJdbcTemplate().queryForList(sql);
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    List <User> result = new ArrayList <User> ();
+    for (Map < String, Object > row: rows) {
+      User user = new User();
+      user.setFelhasznalonev((String) row.get("nev"));
+      user.setEmail((String) row.get("email"));
+      user.setSzulDatum((Date) row.get("szuldatum"));
+      user.setTiltallapot((Boolean) row.get("tiltallapot"));
+      user.setJogosultsag((String) row.get("jogosultsag"));
+
+      result.add(user);
+    }
+
+    return result;
+  }
+
 }

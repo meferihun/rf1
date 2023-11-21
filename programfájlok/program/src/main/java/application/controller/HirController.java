@@ -51,6 +51,26 @@ public class HirController {
     return "index";
   }
 
+  @GetMapping(value = "/admin")
+  public String listHirFelhasznalok(Model model) {
+    List < String > user_mails = new ArrayList < String > ();
+    List <Hir> hirList = hirDAO.listHirek();
+    model.addAttribute("hirek", hirList);
+
+
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    if (authentication.getName().equals("anonymousUser")) {
+      model.addAttribute("current_user", new User());
+    } else {
+      model.addAttribute("current_user", userDAO.getUserByEmail(authentication.getName()));
+    }
+
+    List <User> userList = userDAO.listUsers();
+    model.addAttribute("felhasznalok", userList);
+
+    return "admin";
+  }
+
   @GetMapping("/incrementViewCount/{hirid}")
   public String incrementViewCount(@PathVariable("hirid") int hirid) {
     hirDAO.incrementViewCount(hirid);

@@ -154,5 +154,33 @@ h1 {
 }
 
 
+.listazas {
+    border-collapse: collapse;
+    width: 100%;
+    color: black;
+    border: 1px solid black;
+}
 
+.listazas th, .listazas td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+.listazas th {
+    background-color: black;
+    font-weight: bold;
+    color:white;
+}
+
+.listazas tr{
+    background-color: white;
+}
+
+
+.listazas tr:nth-child(even) {
+    background-color: #9c9c9c;
+}
+
+.listazas  a { color: #0078d4; text-decoration: none; }
 
