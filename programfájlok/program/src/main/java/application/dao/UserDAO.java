@@ -1,10 +1,7 @@
 package application.dao;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
@@ -89,8 +86,31 @@ public class UserDAO extends JdbcDaoSupport {
   }
 
 
-  public void updateUser(String email, String name, Boolean tiltallapot, Date parse) {
+  public void updateUser(String email, String name, Boolean tiltallapot, Date parse, ArrayList<String> kategoriak) {
     String sql = "UPDATE felhasznalok SET nev='" + name + "', tiltallapot = '" + tiltallapot + "', szuldatum='" + parse + "' WHERE email='" + email + "'";
     getJdbcTemplate().update(sql);
+
+
+    for(int i = 0; i < kategoriak.size(); i++) {
+      if (!kategoriak.get(i).contains("false")) {
+        sql = "INSERT INTO kedvenckategoriak (email, kategoria) VALUES (?,?) ON CONFLICT (email,kategoria) DO UPDATE SET email='" + email + "', kategoria ='" + kategoriak.get(i) + "'";
+        getJdbcTemplate().update(sql, new Object[]{
+                email, kategoriak.get(i)
+        });
+      }
+      else{
+        String[] tmp = kategoriak.get(i).split(" ");
+        sql = "DELETE FROM kedvenckategoriak WHERE email='" + email + "' AND kategoria='" + tmp[1] +"'";
+        getJdbcTemplate().update(sql);
+      }
+    }
+
   }
+
+  public boolean kategoriaLetezik(String email, String kategoria){
+    Integer cnt = getJdbcTemplate().queryForObject(
+            "SELECT count(*) FROM kedvenckategoriak WHERE email=? AND kategoria=?", Integer.class, email, kategoria);
+    return cnt != null && cnt > 0;
+  }
+
 }
