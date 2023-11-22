@@ -38,7 +38,7 @@ public class UserController {
     User user = new User(felhasznalonev, email, jelszo, jelszoUjra, new SimpleDateFormat("yyyy-MM-dd").parse(szulDatum), jogosultsag);
     boolean res = userDAO.insertUser(user);
     if(res){
-      return "redirect:/";
+      return "redirect:/register?success=true";
     }
     return "redirect:/register?error=true";
   }
@@ -90,8 +90,9 @@ public class UserController {
     kategoriak.add(auto);
     userDAO.updateUser(email, name, tiltallapot, new SimpleDateFormat("yyyy-MM-dd").parse(szulDatum), kategoriak);
 
-    return "redirect:/";
+    return "redirect:/profil/" + email;
   }
+
 
   @PostMapping(value = "/jelszomodositas")
   public String jelszoModositas(@RequestParam("email2") String email, @RequestParam("jelszo") String jelszo, @RequestParam("jelszoUjra") String jelszoUjra){

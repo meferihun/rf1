@@ -47,6 +47,11 @@
 </header>
 
 <div id="editprofile">
+  <div th:if="${param.success2}">
+    <div class="success">
+      <span th:text="#{modositas.success2}"></span>
+    </div>
+  </div>
   <h2>Profil szerkesztése</h2>
   <form action="#" th:action="@{/frissit/{email}(email=${user.email})}" method="get">
     <input type="hidden" name="name" id="name" th:value="${user.email}" disabled></input>
@@ -107,7 +112,7 @@
     </div>
   </div>
   <div th:if="${param.success}">
-    <div class="alert alert-danger">
+    <div class="success">
       <span th:text="#{sikeresmodositas.success}"></span>
     </div>
   </div>
