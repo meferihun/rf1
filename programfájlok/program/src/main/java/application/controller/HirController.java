@@ -133,7 +133,7 @@ public class HirController {
       case "eletmod":
         rovatcime = "Életmód";
         break;
-      case "gazdaság":
+      case "gazdasag":
         rovatcime = "Gazdaság";
         break;
       case "kulfold":
