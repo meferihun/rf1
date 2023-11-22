@@ -40,33 +40,83 @@
                </li>
                <h2>Rovatok</h2>
                <li class="nav-item">
-                  <a class="nav-link text-dark" href="/belfold">Belföld</a>
+                  <a class="nav-link text-dark" href="/rovat/belfold">Belföld</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link text-dark" href="/kulfold">Külföld</a>
+                  <a class="nav-link text-dark" href="/rovat/kulfold">Külföld</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link text-dark" href="/gazdasag">Gazdaság</a>
+                  <a class="nav-link text-dark" href="/rovat/gazdasag">Gazdaság</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link text-dark" href="/sport">Sport</a>
+                  <a class="nav-link text-dark" href="/rovat/sport">Sport</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link text-dark" href="/tech">Tech</a>
+                  <a class="nav-link text-dark" href="/rovat/tech">Tech</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link text-dark" href="/bulvar">Bulvár</a>
+                  <a class="nav-link text-dark" href="/rovat/bulvar">Bulvár</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link text-dark" href="/eletmod">Életmód</a>
+                  <a class="nav-link text-dark" href="/rovat/eletmod">Életmód</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link text-dark" href="/auto">Autó</a>
+                  <a class="nav-link text-dark" href="/rovat/auto">Autó</a>
                </li>
             </ul>
          </div>
       </div>
-   </nav>
+   </nav> <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+   <div class="container">
+      <div class="navbar-collapse collapse">
+         <ul class="navbar-nav">
+            <li class="nav-item">
+               <a class="nav-link text-dark" href="/">Főoldal</a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item">
+               <a class="nav-link text-dark" href="/profil">Profil</a>
+            </li>
+            <li sec:authorize="!isAuthenticated()" class="nav-item">
+               <a class="nav-link text-dark" href="/login">Bejelentkezés</a>
+            </li>
+            <li sec:authorize="!isAuthenticated()" class="nav-item">
+               <a class="nav-link text-dark" href="/register">Regisztráció</a>
+            </li>
+            <li sec:authorize="hasAuthority('ROLE_ADMIN') or hasAuthority('ROLE_EDITOR')">
+               <a class="nav-link text-dark" href="/admin">ADMIN</a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item">
+               <a class="nav-link text-dark" href="/logout">Kijelentkezés</a>
+            </li>
+            <h2>Rovatok</h2>
+            <li class="nav-item">
+               <a class="nav-link text-dark" href="/rovat/belfold">Belföld</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link text-dark" href="/rovat/kulfold">Külföld</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link text-dark" href="/rovat/gazdasag">Gazdaság</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link text-dark" href="/rovat/sport">Sport</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link text-dark" href="/rovat/tech">Tech</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link text-dark" href="/rovat/bulvar">Bulvár</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link text-dark" href="/rovat/eletmod">Életmód</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link text-dark" href="/rovat/auto">Autó</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+</nav>
 
 </header>
 

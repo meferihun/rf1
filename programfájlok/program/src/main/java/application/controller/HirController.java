@@ -113,4 +113,51 @@ public class HirController {
     return "redirect:/admin";
   }
 
+  @GetMapping("/rovat/{cim}")
+  public String sportRovat(@PathVariable("cim") String cim, Model model) {
+    List < String > user_mails = new ArrayList < String > ();
+    List <Hir> hirList = hirDAO.listHirekRovat(cim);
+    model.addAttribute("rovathirek", hirList);
+
+    String rovatcime = "";
+    switch (cim) {
+      case "auto":
+        rovatcime = "Autó";
+        break;
+      case "belfold":
+        rovatcime = "Belföld";
+        break;
+      case "bulvar":
+        rovatcime = "Bulvár";
+        break;
+      case "eletmod":
+        rovatcime = "Életmód";
+        break;
+      case "gazdaság":
+        rovatcime = "Gazdaság";
+        break;
+      case "kulfold":
+        rovatcime = "Külföld";
+        break;
+      case "sport":
+        rovatcime = "Sport";
+        break;
+      case "tech":
+        rovatcime = "Tech";
+        break;
+    }
+
+    model.addAttribute("rovatcim", rovatcime);
+
+
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    if (authentication.getName().equals("anonymousUser")) {
+      model.addAttribute("current_user", new User());
+    } else {
+      model.addAttribute("current_user", userDAO.getUserByEmail(authentication.getName()));
+    }
+
+     return "rovat-hirek";
+  }
+
 }
