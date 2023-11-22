@@ -89,7 +89,7 @@ public class HirController {
     Hir hir = new Hir(0, cim, kozetevesdatuma, megtekintesekszama, fontose, forras, honnan, kategoria);
     hirDAO.insertHir(hir);
 
-    return "redirect:/";
+    return "redirect:/admin";
   }
 
   @PostMapping(value = "/delete/{hirid}")
@@ -110,7 +110,7 @@ public class HirController {
   public String updateHir(@PathVariable("hirid") int hirid, @RequestParam("cim") String cim, @RequestParam("kozetevesdatuma") String kozetevesdatuma, @RequestParam("megtekintesekszama") int megtekintesekszama, @RequestParam(value = "fontose", defaultValue = "false") boolean fontose, @RequestParam("forras") String forras, @RequestParam("honnan") String honnan, @RequestParam("kategoria") String kategoria) {
     hirDAO.updateHir(hirid, cim, kozetevesdatuma, megtekintesekszama, fontose, forras, honnan, kategoria);
 
-    return "redirect:/";
+    return "redirect:/admin";
   }
 
 }

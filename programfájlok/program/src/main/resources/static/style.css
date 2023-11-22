@@ -61,7 +61,7 @@ a.navbar-brand {
      padding: 1px;
 }
 
-#register, #login, #editprofile, #hirhozzadas {
+#register, #login, #editprofile, #hirhozzadas, #editnews {
     width: 400px;
     margin: 0 auto;
     border: 2px solid #ccc;
@@ -74,12 +74,12 @@ a.navbar-brand {
     color: #333;
 }
 
-#register label, #login label, #editprofile label, #hirhozzadas label {
+#register label, #login label, #editprofile label, #hirhozzadas label, #editnews label {
     display: block;
     margin: 10px 0;
 }
 
-#register input, #login input, #editprofile input, #hirhozzadas input {
+#register input, #login input, #editprofile input, #hirhozzadas input, #editnews input {
     width: 100%;
     padding: 5px;
     border: 1px solid #999;
@@ -97,14 +97,14 @@ a.navbar-brand {
     height: 20px;
 }
 
-#register select, #hirhozzadas select {
+#register select, #hirhozzadas select, #editnews select {
     width: 100%;
     padding: 5px;
     border: 1px solid #999;
     border-radius: 5px;
 }
 
-#register .btn-sm, #login .btn-sm, #editprofile .btn-sm, #hirhozzadas .btn-sm {
+#register .btn-sm, #login .btn-sm, #editprofile .btn-sm, #hirhozzadas .btn-sm, #editnews .btn-sm {
     width: 150px;
     margin: 10px auto;
     display: block;

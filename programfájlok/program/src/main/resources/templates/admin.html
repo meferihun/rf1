@@ -70,18 +70,53 @@
 
 </header>
 
-<main sec:authorize="hasAuthority('ROLE_ADMIN')">
+<main>
+  <div sec:authorize="hasAuthority('ROLE_ADMIN') or hasAuthority('ROLE_EDITOR')">
+    <h2>Hír hozzáadása</h2>
+    <form th:action="@{/add}" method="post" id="hirhozzadas">
+      <input type="hidden" name="hirid" value="1">
+      <label>Cím:
+        <input type="text" name="cim" id="name" required></input>
+      </label>
+      <label>Közzétevés dátuma:
+        <input type="date" name="kozetevesdatuma" id="age" required></input>
+      </label>
+      <input type="hidden" name="megtekintesekszama" value="0"></input>
+      <label>Fontos-e:
+        <input type="checkbox" name="fontose"></input>
+      </label>
+      <label>Forrás:
+        <input type="text" name="forras" required></input>
+      </label>
+      <label>Honnan:
+        <input type="text" name="honnan" required></input>
+      </label>
+      <label>Válassz kategóriát
+        <select name="kategoria" required>
+          <option value="Autó">Autó</option>
+          <option value="Belföld">Belföld</option>
+          <option value="Bulvár">Bulvár</option>
+          <option value="Életmód">Életmód</option>
+          <option value="Gazdaság">Gazdaság</option>
+          <option value="Külföld">Külföld</option>
+          <option value="Sport">Sport</option>
+          <option value="Tech">Tech</option>
+        </select>
+      </label>
+      <input type="submit" value="Cikk beküldése" class="btn-sm btn-dark details"></input>
+    </form>
+  </div>
 
   <div>
     <h2>Összes hír</h2>
     <table class="listazas">
       <thead>
       <tr>
-        <th>Hír ID</th>
+        <th>ID</th>
         <th>Cím</th>
         <th>Kategória</th>
         <th>Közzétéve</th>
-        <th>Megtekintések száma</th>
+        <th>Megtekintések</th>
         <th>Fontos-e</th>
         <th>Forrás</th>
         <th>Honnan</th>
@@ -106,7 +141,7 @@
       </tbody>
     </table>
   </div>
-  <div sec:authorize="isAuthenticated()">
+  <div sec:authorize="hasAuthority('ROLE_ADMIN')">
     <h2>Felhasználók</h2>
     <table class="listazas">
       <thead>
