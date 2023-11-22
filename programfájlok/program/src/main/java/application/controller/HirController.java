@@ -92,7 +92,7 @@ public class HirController {
     return "redirect:/admin";
   }
 
-  @PostMapping(value = "/delete/{hirid}")
+  @GetMapping(value = "/delete/{hirid}")
   public String deleteHir(@PathVariable("hirid") int hirid) {
     hirDAO.deleteHir(hirid);
     return "redirect:/";

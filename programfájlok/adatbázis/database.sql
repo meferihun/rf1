@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE felhasznalok (
 	nev VARCHAR(40) NOT NULL UNIQUE,
-	email VARCHAR(30) NOT NULL UNIQUE PRIMARY KEY,
+	email VARCHAR(90) NOT NULL UNIQUE PRIMARY KEY,
 	jelszo VARCHAR(100) NOT NULL,
 	szuldatum DATE NOT NULL,
 	tiltallapot BOOLEAN NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE felhasznalok (
 DROP TABLE IF EXISTS kedvenckategoriak;
 
 CREATE TABLE kedvenckategoriak (
-	email VARCHAR(30) NOT NULL REFERENCES felhasznalok(email) ON DELETE CASCADE ON UPDATE CASCADE,
+	email VARCHAR(90) NOT NULL REFERENCES felhasznalok(email) ON DELETE CASCADE ON UPDATE CASCADE,
 	kategoria VARCHAR(30) NOT NULL,
 	PRIMARY KEY(email, kategoria)
 ); 

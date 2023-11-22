@@ -33,7 +33,7 @@
                   <li sec:authorize="!isAuthenticated()" class="nav-item">
                      <a class="nav-link text-dark" href="/register">Regisztráció</a>
                   </li>
-                  <li sec:authorize="hasAuthority('ROLE_ADMIN')">
+                  <li sec:authorize="hasAuthority('ROLE_ADMIN') or hasAuthority('ROLE_EDITOR')">
                      <a class="nav-link text-dark" href="/admin">ADMIN</a>
                   </li>
                   <li sec:authorize="isAuthenticated()" class="nav-item">
@@ -87,7 +87,7 @@
                <input type="text" name="felhasznalonev" id="felhasznalonev" required></input>
             </label>
             <label>E-Mail:
-            <input type="text" name="email" id="email" required></input>
+            <input type="email" name="email" id="email" required></input>
             </label>
             <label>Jelszó:
             <input type="password" name="jelszo" id="jelszo" required></input>
