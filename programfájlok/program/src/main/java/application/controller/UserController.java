@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.Authentication;
@@ -23,6 +24,9 @@ public class UserController {
   @Autowired
   private UserDAO userDAO;
 
+  @Autowired
+  EmailService emailService;
+
   @GetMapping("/register")
   public String register() {
     return "register";
@@ -38,6 +42,7 @@ public class UserController {
     User user = new User(felhasznalonev, email, jelszo, jelszoUjra, new SimpleDateFormat("yyyy-MM-dd").parse(szulDatum), jogosultsag);
     boolean res = userDAO.insertUser(user);
     if(res){
+      //emailService.sendWelcomeMessage(email,felhasznalonev);
       return "redirect:/register?success=true";
     }
     return "redirect:/register?error=true";
@@ -108,6 +113,8 @@ public class UserController {
   @PostMapping(value = "/torles/{username}/{currentuser}")
   public String deleteUser(@PathVariable("username") String username, @PathVariable("currentuser") String currentuser, HttpServletRequest request, HttpServletResponse response) {
     userDAO.deleteUser(username);
+    //Principal principal = request.getUserPrincipal();
+    //emailService.sendGoodbyeMessage(principal.getName(),username);
     if(currentuser.equals(username)) {
       SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
       logoutHandler.logout(request, response, SecurityContextHolder.getContext().getAuthentication());

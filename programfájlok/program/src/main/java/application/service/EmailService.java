@@ -26,4 +26,14 @@ public class EmailService {
         message.setText("Kedves " + felhasznalonev + "! \n \n Köszönjük, hogy regisztráltál az oldalunkra!");
         javaMailSender.send(message);
     }
+
+    public void sendGoodbyeMessage(String email, String felhasznalonev) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message = new SimpleMailMessage();
+        message.setFrom(MESSAGE_FROM);
+        message.setTo(email);
+        message.setSubject("Sikeres fiók törlés");
+        message.setText("Kedves " + felhasznalonev + "! \n \n Reméljük hogy minél hamarabb visszatérsz az oldalunkra ! :c");
+        javaMailSender.send(message);
+    }
 }
