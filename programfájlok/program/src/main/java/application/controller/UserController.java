@@ -52,14 +52,14 @@ public class UserController {
   public String editUser(@PathVariable("email") String email, Model model) {
     User user = userDAO.getUserByEmail(email);
     model.addAttribute("user", user);
-    model.addAttribute("flag1",userDAO.kategoriaLetezik(email,"Belföld"));
-    model.addAttribute("flag2",userDAO.kategoriaLetezik(email,"Külföld"));
-    model.addAttribute("flag3",userDAO.kategoriaLetezik(email,"Gazdaság"));
+    model.addAttribute("flag1",userDAO.kategoriaLetezik(email,"Belfold"));
+    model.addAttribute("flag2",userDAO.kategoriaLetezik(email,"Kulfold"));
+    model.addAttribute("flag3",userDAO.kategoriaLetezik(email,"Gazdasag"));
     model.addAttribute("flag4",userDAO.kategoriaLetezik(email,"Sport"));
     model.addAttribute("flag5",userDAO.kategoriaLetezik(email,"Tech"));
-    model.addAttribute("flag6",userDAO.kategoriaLetezik(email,"Bulvár"));
-    model.addAttribute("flag7",userDAO.kategoriaLetezik(email,"Életmód"));
-    model.addAttribute("flag8",userDAO.kategoriaLetezik(email,"Autó"));
+    model.addAttribute("flag6",userDAO.kategoriaLetezik(email,"Bulvar"));
+    model.addAttribute("flag7",userDAO.kategoriaLetezik(email,"Eletmod"));
+    model.addAttribute("flag8",userDAO.kategoriaLetezik(email,"Auto"));
 
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     if (authentication.getName().equals("anonymousUser")) {
@@ -73,11 +73,11 @@ public class UserController {
 
   @GetMapping (value = "/frissit/{name}")
   public String updateUser(@PathVariable("name") String email, @RequestParam("email") String name, @RequestParam(required = false) Boolean tiltallapot,
-                           @RequestParam("szulDatum") String szulDatum, @RequestParam(value = "belfold", defaultValue = "false Belföld") String belfold,
-                           @RequestParam(value = "kulfold", defaultValue = "false Külföld") String kulfold,
-                           @RequestParam(value = "gazdasag", defaultValue = "false Gazdaság") String gazdasag, @RequestParam(value = "sport", defaultValue = "false Sport") String sport,
-                           @RequestParam(value = "tech", defaultValue = "false Tech") String tech, @RequestParam(value = "bulvar", defaultValue = "false Bulvár") String bulvar,
-                           @RequestParam(value = "eletmod", defaultValue = "false Életmód") String eletmod, @RequestParam(value = "auto",defaultValue = "false Autó") String auto,
+                           @RequestParam("szulDatum") String szulDatum, @RequestParam(value = "belfold", defaultValue = "false Belfold") String belfold,
+                           @RequestParam(value = "kulfold", defaultValue = "false Kulfold") String kulfold,
+                           @RequestParam(value = "gazdasag", defaultValue = "false Gazdasag") String gazdasag, @RequestParam(value = "sport", defaultValue = "false Sport") String sport,
+                           @RequestParam(value = "tech", defaultValue = "false Tech") String tech, @RequestParam(value = "bulvar", defaultValue = "false Bulvar") String bulvar,
+                           @RequestParam(value = "eletmod", defaultValue = "false Eletmod") String eletmod, @RequestParam(value = "auto",defaultValue = "false Auto") String auto,
                            Model model) throws ParseException {
 
 

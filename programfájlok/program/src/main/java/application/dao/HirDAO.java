@@ -171,22 +171,22 @@ public class HirDAO extends JdbcDaoSupport {
     String rovatcime = "";
     switch (cim) {
       case "auto":
-        rovatcime = "Autó";
+        rovatcime = "Auto";
         break;
       case "belfold":
-        rovatcime = "Belföld";
+        rovatcime = "Belfold";
         break;
       case "bulvar":
-        rovatcime = "Bulvár";
+        rovatcime = "Bulvar";
         break;
       case "eletmod":
-        rovatcime = "Életmód";
+        rovatcime = "Eletmod";
         break;
       case "gazdasag":
-        rovatcime = "Gazdaság";
+        rovatcime = "Gazdasag";
         break;
       case "kulfold":
-        rovatcime = "Külföld";
+        rovatcime = "Kulfold";
         break;
       case "sport":
         rovatcime = "Sport";
