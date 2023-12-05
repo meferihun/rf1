@@ -1,0 +1,13 @@
+application\model\Hir.class
+application\model\Comment.class
+application\controller\HirController.class
+application\dao\HirDAO.class
+application\controller\CommentController.class
+application\dao\UserDAO.class
+application\Application.class
+application\controller\UserController.class
+application\service\EmailService.class
+application\model\User.class
+application\config\WebSecurityConfig.class
+application\service\CustomUserDetailsService.class
+application\dao\CommentDAO.class
