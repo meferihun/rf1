@@ -16,6 +16,8 @@
 <h1>Hírkereső</h1>
 
 <header>
+  <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
+  <label for="menu-toggle" class="menu-icon">&#9776; Menü</label>
   <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container">
       <div class="navbar-collapse collapse">
@@ -73,19 +75,114 @@
 <main>
 
   <div>
-    <h2 th:text="${rovatcim + ' témájú hírek'}"></h2>
-    <table id="cikkek">
+<!--    <h2 th:text="${'Friss ' + rovatcim + ' témájú hírek'}"></h2>-->
+<!--    <table id="cikkek">-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      &lt;!&ndash;span th:each="task,iter : ${foo.tasks}"&ndash;&gt;-->
+<!--      <tr th:each="hir : ${frisshirek}">-->
+<!--        <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.cim}"></a></td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+
+    <h2 th:text="${'Friss ' + rovatcim + ' témájú hírek'}"></h2>
+    <table class="cikkek">
       <thead>
       <tr>
       </tr>
       </thead>
       <tbody>
       <!--span th:each="task,iter : ${foo.tasks}"-->
-      <tr th:each="hir : ${rovathirek}">
-        <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.cim}"></a></td>
+      <tr th:each="hir : ${frisshirek}">
+        <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.cim}"></a><a th:href="@{/cikk/{hirid}(hirid=${hir.hirid})}"> (☁)</a></td>
+        <td th:text="${hir.getHonnan()}" class="datum"></td>
+        <td th:text="${hir.getKozetevesdatuma()}" class="datum"></td>
       </tr>
       </tbody>
     </table>
+
+
+    <h2 th:text="${'Top ' + rovatcim + ' hírek'}"></h2>
+    <table class="cikkek">
+      <thead>
+      <tr>
+      </tr>
+      </thead>
+      <tbody>
+      <!--span th:each="task,iter : ${foo.tasks}"-->
+      <tr th:each="hir : ${tophirek}">
+        <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.cim}"></a><a th:href="@{/cikk/{hirid}(hirid=${hir.hirid})}"> (☁)</a></td>
+        <td th:text="${hir.getHonnan()}" class="datum"></td>
+        <td th:text="${hir.getKozetevesdatuma()}" class="datum"></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h2>Telex</h2>
+    <table class="cikkek">
+      <thead>
+      <tr>
+      </tr>
+      </thead>
+      <tbody>
+      <!--span th:each="task,iter : ${foo.tasks}"-->
+      <tr th:each="hir : ${Telex}">
+        <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.cim}"></a><a th:href="@{/cikk/{hirid}(hirid=${hir.hirid})}"> (☁)</a></td>
+        <td th:text="${hir.getKozetevesdatuma()}" class="datum"></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h2>HVG</h2>
+    <table class="cikkek">
+      <thead>
+      <tr>
+      </tr>
+      </thead>
+      <tbody>
+      <!--span th:each="task,iter : ${foo.tasks}"-->
+      <tr th:each="hir : ${HVG}">
+        <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.cim}"></a><a th:href="@{/cikk/{hirid}(hirid=${hir.hirid})}"> (☁)</a></td>
+        <td th:text="${hir.getKozetevesdatuma()}" class="datum"></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h2>444</h2>
+    <table class="cikkek">
+      <thead>
+      <tr>
+      </tr>
+      </thead>
+      <tbody>
+      <!--span th:each="task,iter : ${foo.tasks}"-->
+      <tr th:each="hir : ${Telex}">
+        <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.cim}"></a><a th:href="@{/cikk/{hirid}(hirid=${hir.hirid})}"> (☁)</a></td>
+        <td th:text="${hir.getKozetevesdatuma()}" class="datum"></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h2>Egyéb, még nem hitelesített oldalak hírei</h2>
+    <table class="cikkek">
+      <thead>
+      <tr>
+      </tr>
+      </thead>
+      <tbody>
+      <!--span th:each="task,iter : ${foo.tasks}"-->
+      <tr th:each="hir : ${Egyeb}">
+        <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.cim}"></a><a th:href="@{/cikk/{hirid}(hirid=${hir.hirid})}"> (☁)</a></td>
+        <td th:text="${hir.getHonnan()}" class="datum"></td>
+        <td th:text="${hir.getKozetevesdatuma()}" class="datum"></td>
+      </tr>
+      </tbody>
+    </table>
+
   </div>
 </main>
 </body>
