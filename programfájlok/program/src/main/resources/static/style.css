@@ -139,8 +139,7 @@ li a:hover {
 }
 
 main{
-    float:left;
-    padding-left: 20px;
+    padding-left: 210px;
 }
 
 label {
@@ -164,8 +163,9 @@ h1 {
 }
 
 .listazas {
+    text-align: center;
     border-collapse: collapse;
-    width: 100%;
+    width: 98%;
     color: black;
     border: 1px solid black;
 }
@@ -193,7 +193,7 @@ h1 {
 
 .listazas  a { color: #0078d4; text-decoration: none; }
 
-#cikkek{
+.cikkek{
     width: 100%;
     background: antiquewhite;
     font-size:20px;
@@ -201,12 +201,12 @@ h1 {
     padding:10px;
 }
 
-#cikkek td{
+.cikkek td{
     border:0px;
     border-bottom: 1px solid black !important;
 }
 
-#cikkek a{
+.cikkek a{
     text-decoration: none;
     color:black;
 }
@@ -223,4 +223,68 @@ h1 {
     color: white;
     padding: 10px;
     font-weight: bold;
+}
+
+.break{
+    word-break: break-all;
+}
+
+#keres{
+    color: black;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: khaki;
+    text-align: center;
+    padding: 18px;
+}
+
+
+#keres input{
+    display:block;
+    padding: 8px;
+    margin-left:auto;
+    margin-right:auto;
+    width: 60%;
+    margin-bottom: 8px;
+}
+
+#keres .btn-sm{
+    width:30%;
+}
+
+.cimke{
+    font-size:1.5em;
+}
+
+.menu-icon, #menu-toggle{
+    display: none;
+}
+
+#menu-toggle:checked ~ nav .navbar-collapse {
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        color: white;
+    }
+
+    .navbar-collapse {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        display: none;
+    }
+
+    #menu-toggle:checked ~ .navbar-collapse {
+        display: block;
+    }
+
+}
+
+.datum{
+    color: black;
 }

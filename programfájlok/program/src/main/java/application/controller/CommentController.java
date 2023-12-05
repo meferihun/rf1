@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 @Controller
 public class CommentController {
@@ -57,26 +58,32 @@ public class CommentController {
     }
 
     @PostMapping(value = "/addcomment")
-    public String addComment(@RequestParam("content") String content, @RequestParam("authorName") String authorName, @RequestParam("hir") Hir hir, @RequestParam("date") String date) throws ParseException{
+    public String addComment(@RequestParam("content") String content, @RequestParam("hirid") int hirid) throws ParseException{
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userDAO.getUserByEmail(currentPrincipalName);
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
         String kozetevesdatumaDate = formatter.format(date);
-        Comment comment = new Comment(0,content, authorName,hir,kozetevesdatumaDate);
+        Hir hir=hirDAO.getHirById(hirid);
+        Comment comment = new Comment(0,content, user.getUsername(),hir,kozetevesdatumaDate);
         commentDAO.create(comment);
 
-        return "redirect:/";
+        return "redirect:/cikk/"+Integer.toString(hirid);
     }
 
     @PostMapping(value = "/deletecomment/{kommentid}")
     public String deleteComment(@PathVariable("kommentid") int kommentid){
-        commentDAO.delete(kommentid);
-        return "redirect:/";
+        int hirid=commentDAO.getOne(kommentid).getHir().getHirid();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        if(commentDAO.getOne(kommentid).getAuthorName().equals(currentPrincipalName)||userDAO.getUserByEmail(currentPrincipalName).getJogosultsag().equals("ROLE_ADMIN")){
+            commentDAO.delete(kommentid);
+        }
+        return "redirect:/cikk/"+Integer.toString(hirid);
     }
 
     public String updateComment(String content, String authorName, Hir hir){
         return "redirect:/";
     }
-
 }

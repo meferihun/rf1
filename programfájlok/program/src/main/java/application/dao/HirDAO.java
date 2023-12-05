@@ -235,4 +235,436 @@ public class HirDAO extends JdbcDaoSupport {
     return result2;
 
   }
+
+  public List<Hir> listFrissHirek(String cim) {
+    String rovatcime = "";
+    switch (cim) {
+      case "auto":
+        rovatcime = "Auto";
+        break;
+      case "belfold":
+        rovatcime = "Belfold";
+        break;
+      case "bulvar":
+        rovatcime = "Bulvar";
+        break;
+      case "eletmod":
+        rovatcime = "Eletmod";
+        break;
+      case "gazdasag":
+        rovatcime = "Gazdasag";
+        break;
+      case "kulfold":
+        rovatcime = "Kulfold";
+        break;
+      case "sport":
+        rovatcime = "Sport";
+        break;
+      case "tech":
+        rovatcime = "Tech";
+        break;
+    }
+
+    List<Hir> result = new ArrayList<Hir>();
+    String sql2 = "";
+    if(!cim.equals("")){
+      sql2 = "SELECT hirek.hirid, cim, kozetevesdatuma, megtekintesekszama, fontose, forras, honnan FROM hirek,hirkategoriak WHERE hirek.hirid = hirkategoriak.hirid " +
+              "AND hirkategoriak.kategoria='"+ rovatcime +"' ORDER BY kozetevesdatuma DESC LIMIT 5";
+    }
+    else{
+      sql2 = "SELECT hirek.hirid, cim, kozetevesdatuma, megtekintesekszama, fontose, forras, honnan FROM hirek,hirkategoriak WHERE hirek.hirid = hirkategoriak.hirid " +
+              "ORDER BY kozetevesdatuma DESC LIMIT 10";
+    }
+
+    List<Map<String, Object>> rows2 = getJdbcTemplate().queryForList(sql2);
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    for (Map<String, Object> row : rows2) {
+      Hir hir = new Hir();
+      hir.setHirid((Integer) row.get("hirid"));
+      hir.setCim((String) row.get("cim"));
+      Object kozetevesdatumaValue = row.get("kozetevesdatuma");
+      if (kozetevesdatumaValue != null) {
+        String kozetevesdatumaStr = formatter.format((java.sql.Date) kozetevesdatumaValue);
+        hir.setKozetevesdatuma(kozetevesdatumaStr);
+      } else {
+        hir.setKozetevesdatuma("");
+      }
+      hir.setMegtekintesekszama((Integer) row.get("megtekintesekszama"));
+      hir.setFontose((Boolean) row.get("fontose"));
+      hir.setForras((String) row.get("forras"));
+      hir.setHonnan((String) row.get("honnan"));
+
+      hir.setKategoria(getCategoryById(hir.getHirid()));
+
+      result.add(hir);
+
+
+    }
+    return result;
+
+  }
+
+  public List<Hir> listTopHirek(String cim) {
+    String rovatcime = "";
+    switch (cim) {
+      case "auto":
+        rovatcime = "Auto";
+        break;
+      case "belfold":
+        rovatcime = "Belfold";
+        break;
+      case "bulvar":
+        rovatcime = "Bulvar";
+        break;
+      case "eletmod":
+        rovatcime = "Eletmod";
+        break;
+      case "gazdasag":
+        rovatcime = "Gazdasag";
+        break;
+      case "kulfold":
+        rovatcime = "Kulfold";
+        break;
+      case "sport":
+        rovatcime = "Sport";
+        break;
+      case "tech":
+        rovatcime = "Tech";
+        break;
+    }
+
+    List<Hir> result = new ArrayList<Hir>();
+
+    String sql2 = "SELECT hirek.hirid, cim, kozetevesdatuma, megtekintesekszama, fontose, forras, honnan FROM hirek,hirkategoriak WHERE hirek.hirid = hirkategoriak.hirid " +
+              "AND hirkategoriak.kategoria='"+ rovatcime +"' ORDER BY megtekintesekszama DESC LIMIT 5";
+
+    List<Map<String, Object>> rows2 = getJdbcTemplate().queryForList(sql2);
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    for (Map<String, Object> row : rows2) {
+      Hir hir = new Hir();
+      hir.setHirid((Integer) row.get("hirid"));
+      hir.setCim((String) row.get("cim"));
+      Object kozetevesdatumaValue = row.get("kozetevesdatuma");
+      if (kozetevesdatumaValue != null) {
+        String kozetevesdatumaStr = formatter.format((java.sql.Date) kozetevesdatumaValue);
+        hir.setKozetevesdatuma(kozetevesdatumaStr);
+      } else {
+        hir.setKozetevesdatuma("");
+      }
+      hir.setMegtekintesekszama((Integer) row.get("megtekintesekszama"));
+      hir.setFontose((Boolean) row.get("fontose"));
+      hir.setForras((String) row.get("forras"));
+      hir.setHonnan((String) row.get("honnan"));
+
+      hir.setKategoria(getCategoryById(hir.getHirid()));
+
+      result.add(hir);
+
+
+    }
+    return result;
+
+  }
+
+  public List<Hir> listFontosHirek() {
+
+
+    List<Hir> result = new ArrayList<Hir>();
+
+    String sql2 = "SELECT hirek.hirid, cim, kozetevesdatuma, megtekintesekszama, fontose, forras, honnan FROM hirek,hirkategoriak WHERE hirek.hirid = hirkategoriak.hirid " +
+            "AND hirek.fontose = true ORDER BY kozetevesdatuma DESC LIMIT 10";
+
+    List<Map<String, Object>> rows2 = getJdbcTemplate().queryForList(sql2);
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    for (Map<String, Object> row : rows2) {
+      Hir hir = new Hir();
+      hir.setHirid((Integer) row.get("hirid"));
+      hir.setCim((String) row.get("cim"));
+      Object kozetevesdatumaValue = row.get("kozetevesdatuma");
+      if (kozetevesdatumaValue != null) {
+        String kozetevesdatumaStr = formatter.format((java.sql.Date) kozetevesdatumaValue);
+        hir.setKozetevesdatuma(kozetevesdatumaStr);
+      } else {
+        hir.setKozetevesdatuma("");
+      }
+      hir.setMegtekintesekszama((Integer) row.get("megtekintesekszama"));
+      hir.setFontose((Boolean) row.get("fontose"));
+      hir.setForras((String) row.get("forras"));
+      hir.setHonnan((String) row.get("honnan"));
+
+      hir.setKategoria(getCategoryById(hir.getHirid()));
+
+      result.add(hir);
+
+
+    }
+    return result;
+
+  }
+
+  public List<Hir> listOldalHir(String cim, String honnan) {
+    String rovatcime = "";
+    switch (cim) {
+      case "auto":
+        rovatcime = "Auto";
+        break;
+      case "belfold":
+        rovatcime = "Belfold";
+        break;
+      case "bulvar":
+        rovatcime = "Bulvar";
+        break;
+      case "eletmod":
+        rovatcime = "Eletmod";
+        break;
+      case "gazdasag":
+        rovatcime = "Gazdasag";
+        break;
+      case "kulfold":
+        rovatcime = "Kulfold";
+        break;
+      case "sport":
+        rovatcime = "Sport";
+        break;
+      case "tech":
+        rovatcime = "Tech";
+        break;
+    }
+
+    List<Hir> result = new ArrayList<Hir>();
+
+    String sql2 = "SELECT hirek.hirid, cim, kozetevesdatuma, megtekintesekszama, fontose, forras, honnan FROM hirek,hirkategoriak WHERE hirek.hirid = hirkategoriak.hirid " +
+            "AND hirkategoriak.kategoria='"+ rovatcime +"' AND hirek.honnan='"+ honnan +"' ORDER BY kozetevesdatuma DESC";
+
+    List<Map<String, Object>> rows2 = getJdbcTemplate().queryForList(sql2);
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    for (Map<String, Object> row : rows2) {
+      Hir hir = new Hir();
+      hir.setHirid((Integer) row.get("hirid"));
+      hir.setCim((String) row.get("cim"));
+      Object kozetevesdatumaValue = row.get("kozetevesdatuma");
+      if (kozetevesdatumaValue != null) {
+        String kozetevesdatumaStr = formatter.format((java.sql.Date) kozetevesdatumaValue);
+        hir.setKozetevesdatuma(kozetevesdatumaStr);
+      } else {
+        hir.setKozetevesdatuma("");
+      }
+      hir.setMegtekintesekszama((Integer) row.get("megtekintesekszama"));
+      hir.setFontose((Boolean) row.get("fontose"));
+      hir.setForras((String) row.get("forras"));
+      hir.setHonnan((String) row.get("honnan"));
+
+      hir.setKategoria(getCategoryById(hir.getHirid()));
+
+      result.add(hir);
+
+
+    }
+    return result;
+
+  }
+
+  public List<Hir> listEgyebHir(String cim) {
+    String rovatcime = "";
+    switch (cim) {
+      case "auto":
+        rovatcime = "Auto";
+        break;
+      case "belfold":
+        rovatcime = "Belfold";
+        break;
+      case "bulvar":
+        rovatcime = "Bulvar";
+        break;
+      case "eletmod":
+        rovatcime = "Eletmod";
+        break;
+      case "gazdasag":
+        rovatcime = "Gazdasag";
+        break;
+      case "kulfold":
+        rovatcime = "Kulfold";
+        break;
+      case "sport":
+        rovatcime = "Sport";
+        break;
+      case "tech":
+        rovatcime = "Tech";
+        break;
+    }
+
+    List<Hir> result = new ArrayList<Hir>();
+
+    String sql2 = "SELECT hirek.hirid, cim, kozetevesdatuma, megtekintesekszama, fontose, forras, honnan FROM hirek,hirkategoriak WHERE hirek.hirid = hirkategoriak.hirid " +
+            "AND hirkategoriak.kategoria='"+ rovatcime +"' AND hirek.honnan NOT IN ('Telex','HVG','444') ORDER BY kozetevesdatuma DESC";
+
+    List<Map<String, Object>> rows2 = getJdbcTemplate().queryForList(sql2);
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    for (Map<String, Object> row : rows2) {
+      Hir hir = new Hir();
+      hir.setHirid((Integer) row.get("hirid"));
+      hir.setCim((String) row.get("cim"));
+      Object kozetevesdatumaValue = row.get("kozetevesdatuma");
+      if (kozetevesdatumaValue != null) {
+        String kozetevesdatumaStr = formatter.format((java.sql.Date) kozetevesdatumaValue);
+        hir.setKozetevesdatuma(kozetevesdatumaStr);
+      } else {
+        hir.setKozetevesdatuma("");
+      }
+      hir.setMegtekintesekszama((Integer) row.get("megtekintesekszama"));
+      hir.setFontose((Boolean) row.get("fontose"));
+      hir.setForras((String) row.get("forras"));
+      hir.setHonnan((String) row.get("honnan"));
+
+      hir.setKategoria(getCategoryById(hir.getHirid()));
+
+      result.add(hir);
+
+
+    }
+    return result;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  public List<Hir> keresKulcsszo(String kulcsszo) {
+    String sql = "SELECT * FROM hirek WHERE lower(cim) LIKE '%" + kulcsszo.toLowerCase() + "%'";
+    List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    List<Hir> result = new ArrayList<Hir>();
+    for (Map<String, Object> row : rows) {
+      Hir hir = new Hir();
+      hir.setHirid((Integer) row.get("hirid"));
+      hir.setCim((String) row.get("cim"));
+      Object kozetevesdatumaValue = row.get("kozetevesdatuma");
+      if (kozetevesdatumaValue != null) {
+        String kozetevesdatumaStr = formatter.format((java.sql.Date) kozetevesdatumaValue);
+        hir.setKozetevesdatuma(kozetevesdatumaStr);
+      } else {
+        hir.setKozetevesdatuma("");
+      }
+      hir.setMegtekintesekszama((Integer) row.get("megtekintesekszama"));
+      hir.setFontose((Boolean) row.get("fontose"));
+      hir.setForras((String) row.get("forras"));
+      hir.setHonnan((String) row.get("honnan"));
+
+      hir.setKategoria(getCategoryById(hir.getHirid()));
+
+      result.add(hir);
+    }
+
+    return result;
+  }
+
+  public List<Hir> keresKulcsszoDatum(String kulcsszo, Date kezdodatum, Date vegdatum) {
+    String sql = "SELECT * FROM hirek WHERE lower(cim) LIKE '%" + kulcsszo.toLowerCase() + "%' AND kozetevesdatuma BETWEEN '" + kezdodatum + "' AND '" + vegdatum + "'";
+    List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    List<Hir> result = new ArrayList<Hir>();
+    for (Map<String, Object> row : rows) {
+      Hir hir = new Hir();
+      hir.setHirid((Integer) row.get("hirid"));
+      hir.setCim((String) row.get("cim"));
+      Object kozetevesdatumaValue = row.get("kozetevesdatuma");
+      if (kozetevesdatumaValue != null) {
+        String kozetevesdatumaStr = formatter.format((java.sql.Date) kozetevesdatumaValue);
+        hir.setKozetevesdatuma(kozetevesdatumaStr);
+      } else {
+        hir.setKozetevesdatuma("");
+      }
+      hir.setMegtekintesekszama((Integer) row.get("megtekintesekszama"));
+      hir.setFontose((Boolean) row.get("fontose"));
+      hir.setForras((String) row.get("forras"));
+      hir.setHonnan((String) row.get("honnan"));
+
+      hir.setKategoria(getCategoryById(hir.getHirid()));
+
+      result.add(hir);
+    }
+
+    return result;
+  }
 }

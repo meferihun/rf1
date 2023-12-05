@@ -16,6 +16,8 @@
 <h1>Hírkereső</h1>
 
 <header>
+  <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
+  <label for="menu-toggle" class="menu-icon">&#9776; Menü</label>
   <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container">
       <div class="navbar-collapse collapse">
@@ -127,12 +129,12 @@
       <!--span th:each="task,iter : ${foo.tasks}"-->
       <tr th:each="hir : ${hirek}">
         <td th:text="${hir.hirid}"></td>
-        <td th:text="${hir.cim}"></td>
+        <td th:text="${hir.cim}" ></td>
         <td th:text="${hir.kategoria}"></td>
         <td th:text="${hir.kozetevesdatuma}"></td>
         <td th:text="${hir.megtekintesekszama}"></td>
         <td th:text="${hir.fontose} ? 'Igen' : 'Nem'"></td>
-        <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.forras}"></a></td>
+        <td><a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.forras}" class="break"></a></td>
         <td th:text="${hir.honnan}"></td>
         <td sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/edit/{hirid}(hirid=${hir.hirid})}">Szerkesztés</a></td>
         <td sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/delete/{hirid}(hirid=${hir.hirid})}">Törlés</a></td>

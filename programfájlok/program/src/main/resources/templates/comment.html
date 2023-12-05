@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Bejelentkezés</title>
+    <title>Hozzászólások</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel='stylesheet' href='style.css'>
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <link href="style.css" th:href="@{/style.css}" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
-
 <body>
-
 <h1>Hírkereső</h1>
 
 <header>
@@ -73,22 +71,44 @@
     </nav>
 </header>
 
-<div id="login">
-    <div th:if="${param.error}">
-        <div class="alert alert-danger">
-            <span th:text="#{login.error}"></span>
-        </div>
+<main>
+
+    <div>
+        <h2 th:text="${hir.getCim()}"></h2>
+        <a th:href="@{/incrementViewCount/{hirid}(hirid=${hir.hirid})}" target="_blank" th:text="${hir.cim}"></a>
     </div>
-    <h2>Belépés</h2>
-    <form action="#" th:action="@{/login}" method="post">
-        <label>Email cím:
-            <input type="email" name="username" id="felhasznalonev"></input>
-        </label>
-        <label>Jelszó:
-            <input type="password" name="password" id="jelszo"></input>
-        </label>
-        <input type="submit" value="Belépés" class="btn-sm btn-dark details"></input>
-    </form>
-</div>
+    <div>
+        <h2>Kommentek</h2>
+        <table class="listazas">
+            <thead>
+            <tr>
+                <th>Közzétevő</th>
+                <th>Komment</th>
+                <th>Közzétevés dátuma</th>
+                <th >Kezelés</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--span th:each="task,iter : ${foo.tasks}"-->
+            <tr th:each="komment : ${kommentek}">
+                <td th:text="${komment.getAuthorName()}"></td>
+                <td th:text="${komment.getContent()}" ></td>
+                <td th:text="${komment.getDate()}"></td>
+                <td sec:authorize="isAuthenticated()"><a th:href="@{/deletecomment/{kommentid}(kommentid=${komment.getId()})}">Törlés</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        <h2>Komment hozzáadása</h2>
+        <form th:action="@{/addcomment}" method="post" id="hirhozzadas">
+            <input type="hidden" name="hirid" th:value="${hir.getHirid()}">
+            <label>Komment:
+                <input type="text" name="content" id="content" required></input>
+            </label>
+            <input type="submit" value="Komment feltöltése" class="btn-sm btn-dark details"></input>
+        </form>
+    </div>
+</main>
 </body>
 </html>

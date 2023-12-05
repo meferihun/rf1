@@ -33,10 +33,10 @@ public class CommentDAO extends JdbcDaoSupport {
     }
 
     public void create(Comment comment){
-        String sql = "INSERT INTO kommentek(kommentid, kozetevesdatuma, tartalom, kozzetevo, hirid) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO kommentek(kozetevesdatuma, tartalom, kozzetevo, hirid) VALUES (?, ?, ?, ?)";
 
         getJdbcTemplate().update(sql, new Object[] {
-                comment.getId(), new SqlParameterValue(Types.DATE, comment.getDate()), comment.getContent(), comment.getAuthorName(), comment.getHir().getHirid()
+                new SqlParameterValue(Types.DATE, comment.getDate()), comment.getContent(), comment.getAuthorName(), comment.getHir().getHirid()
         });
     }
 
@@ -124,8 +124,8 @@ public class CommentDAO extends JdbcDaoSupport {
         return result;
     }
 
-    public List<Comment> getByNews(Hir news){
-        String sql = "SELECT * FROM kommentek WHERE hirid=" + news.getHirid();
+    public List<Comment> getByNews(int hirid){
+        String sql = "SELECT * FROM kommentek WHERE hirid=" + hirid;
         List < Map < String, Object >> rows = getJdbcTemplate().queryForList(sql);
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         List <Comment> result = new ArrayList<Comment>();

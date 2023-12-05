@@ -3,6 +3,8 @@ package application.controller;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+
+import application.model.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import application.dao.UserDAO;
 import application.dao.HirDAO;
+import application.dao.CommentDAO;
 import application.model.Hir;
 import application.model.User;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -30,12 +33,34 @@ public class HirController {
   @Autowired
   private UserDAO userDAO;
 
+  @Autowired
+  private CommentDAO commentDAO;
 
   @GetMapping(value = "/")
   public String listHir(Model model) {
     List < String > user_mails = new ArrayList < String > ();
-    List <Hir> hirList = hirDAO.listHirek();
-    model.addAttribute("hirek", hirList);
+    List <Hir> hirList = hirDAO.listFrissHirek("");
+    List <Hir> hirList2 = hirDAO.listFontosHirek();
+
+    List <Hir> hirList3 = hirDAO.listTopHirek("auto");
+    List <Hir> hirList4 = hirDAO.listTopHirek("belfold");
+    List <Hir> hirList5 = hirDAO.listTopHirek("bulvar");
+    List <Hir> hirList6 = hirDAO.listTopHirek("eletmod");
+    List <Hir> hirList7 = hirDAO.listTopHirek("gazdasag");
+    List <Hir> hirList8 = hirDAO.listTopHirek("kulfold");
+    List <Hir> hirList9 = hirDAO.listTopHirek("sport");
+    List <Hir> hirList10 = hirDAO.listTopHirek("tech");
+    model.addAttribute("frisshirek", hirList);
+    model.addAttribute("fontoshirek", hirList2);
+
+    model.addAttribute("Auto", hirList3);
+    model.addAttribute("Belfold", hirList4);
+    model.addAttribute("Bulvar", hirList5);
+    model.addAttribute("Eletmod", hirList6);
+    model.addAttribute("Gazdasag", hirList7);
+    model.addAttribute("Kulfold", hirList8);
+    model.addAttribute("Sport", hirList9);
+    model.addAttribute("Tech", hirList10);
     for (Hir hir: hirList) {
       // user_mails.add(userDAO.getUserByUsername(hir.getOwner_id()).getEmail());
     }
@@ -78,6 +103,16 @@ public class HirController {
     return "redirect:" + hir.getForras();
   }
 
+  @GetMapping("/cikk/{hirid}")
+  public String cikkMegtekites(@PathVariable("hirid") int hirid, Model model) {
+    Hir hir = hirDAO.getHirById(hirid);
+    List <Comment> commentList = commentDAO.getByNews(hirid);
+    model.addAttribute("kommentek", commentList);
+    model.addAttribute("hir", hir);
+
+    return "comment";
+  }
+
   @PostMapping(value = "/add")
   public String addHir(@RequestParam("cim") String cim, @RequestParam("kozetevesdatuma") String kozetevesdatuma, @RequestParam("megtekintesekszama") int megtekintesekszama, @RequestParam(value = "fontose", defaultValue = "false") boolean fontose, @RequestParam("forras") String forras, @RequestParam("honnan") String honnan, @RequestParam("kategoria") String kategoria) throws ParseException {
 
@@ -113,11 +148,41 @@ public class HirController {
     return "redirect:/admin";
   }
 
+  @GetMapping(value = "/keres")
+  public String keresHir(@RequestParam("kulcsszo") String kulcsszo, @RequestParam("kezdodatum") String kezdodatum, @RequestParam("vegdatum") String vegdatum, Model model) throws ParseException {
+    List<Hir> lista = new ArrayList<>();
+    if(!kezdodatum.isEmpty() && !vegdatum.isEmpty()) {
+      SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+      Date kezdodatum2 = formatter.parse(kezdodatum);
+      Date vegdatum2 = formatter.parse(vegdatum);
+      lista = hirDAO.keresKulcsszoDatum(kulcsszo, kezdodatum2, vegdatum2);
+      model.addAttribute("kezdodatum", formatter.format(kezdodatum2));
+      model.addAttribute("vegdatum", formatter.format(vegdatum2));
+    } else{
+      lista = hirDAO.keresKulcsszo(kulcsszo);
+    }
+    model.addAttribute("hirek", lista);
+    model.addAttribute("kulcsszo", kulcsszo);
+    return "search";
+  }
+
+
   @GetMapping("/rovat/{cim}")
   public String sportRovat(@PathVariable("cim") String cim, Model model) {
     List < String > user_mails = new ArrayList < String > ();
-    List <Hir> hirList = hirDAO.listHirekRovat(cim);
-    model.addAttribute("rovathirek", hirList);
+    //List <Hir> hirList = hirDAO.listHirekRovat(cim);
+    List <Hir> hirList = hirDAO.listFrissHirek(cim);
+    List <Hir> hirList2 = hirDAO.listTopHirek(cim);
+    List <Hir> hirList3 = hirDAO.listOldalHir(cim,"Telex");
+    List <Hir> hirList4 = hirDAO.listOldalHir(cim,"HVG");
+    List <Hir> hirList5 = hirDAO.listOldalHir(cim,"444");
+    List <Hir> hirList6 = hirDAO.listEgyebHir(cim);
+    model.addAttribute("frisshirek", hirList);
+    model.addAttribute("tophirek", hirList2);
+    model.addAttribute("Telex", hirList3);
+    model.addAttribute("HVG", hirList4);
+    model.addAttribute("444", hirList5);
+    model.addAttribute("Egyeb", hirList6);
 
     String rovatcime = "";
     switch (cim) {
