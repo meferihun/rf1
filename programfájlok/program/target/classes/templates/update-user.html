@@ -15,8 +15,6 @@
 
 <body>
 
-<h1>Hírkereső</h1>
-
 <header>
   <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
   <label for="menu-toggle" class="menu-icon">&#9776; Menü</label>
@@ -72,8 +70,10 @@
     </div>
   </nav>
 </header>
-
+<h1>Hírkereső</h1>
 <div id="editprofile">
+
+
   <div th:if="${param.success2}">
     <div class="success">
       <span th:text="#{modositas.success2}"></span>
@@ -83,10 +83,10 @@
   <form action="#" th:action="@{/frissit/{email}(email=${user.email})}" method="get">
     <input type="hidden" name="name" id="name" th:value="${user.email}" disabled></input>
     <label>Név:
-      <input type="text" name="email" id="email" th:value="${user.felhasznalonev}"></input>
+      <input type="text" name="email" id="email" th:value="${user.felhasznalonev}" required></input>
     </label>
     <label>Születési dátum:
-      <input type="date" name="szulDatum" id="szulDatum" th:value="${user.szulDatum}"></input>
+      <input type="date" name="szulDatum" id="szulDatum" th:value="${user.szulDatum}" required></input>
     </label>
     <label sec:authorize="hasAuthority('ROLE_ADMIN')" id="tiltallapot">
       <input type="checkbox" name="tiltallapot" id="tiltallapotinput" th:checked="${user.tiltallapot ? 1 : 0}"/>A felhasználó ki van-e tiltva?</td>

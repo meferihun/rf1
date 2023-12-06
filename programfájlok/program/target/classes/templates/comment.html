@@ -13,8 +13,6 @@
 </head>
 
 <body>
-<h1>Hírkereső</h1>
-
 <header>
     <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
     <label for="menu-toggle" class="menu-icon">&#9776; Menü</label>
@@ -72,6 +70,7 @@
 </header>
 
 <main>
+    <h1>Hírkereső</h1>
 
     <div>
         <h2 th:text="${hir.getCim()}"></h2>
@@ -85,16 +84,16 @@
                 <th>Közzétevő</th>
                 <th>Komment</th>
                 <th>Közzétevés dátuma</th>
-                <th >Kezelés</th>
+                <th sec:authorize="isAuthenticated()">Kezelés</th>
             </tr>
             </thead>
             <tbody>
             <!--span th:each="task,iter : ${foo.tasks}"-->
             <tr th:each="komment : ${kommentek}">
                 <td th:text="${komment.getAuthorName()}"></td>
-                <td th:text="${komment.getContent()}" ></td>
+                <td th:text="${komment.getContent()}"></td>
                 <td th:text="${komment.getDate()}"></td>
-                <td sec:authorize="isAuthenticated()"><a th:href="@{/deletecomment/{kommentid}(kommentid=${komment.getId()})}">Törlés</a></td>
+                <td sec:authorize="isAuthenticated()"><a th:if="${komment.getAuthorName()} == ${current_user.email} or ${current_user.jogosultsag} == 'ROLE_ADMIN'" th:href="@{/deletecomment/{kommentid}(kommentid=${komment.getId()})}">Törlés</a></td>
             </tr>
             </tbody>
         </table>

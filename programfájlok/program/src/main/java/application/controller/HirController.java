@@ -109,6 +109,12 @@ public class HirController {
     List <Comment> commentList = commentDAO.getByNews(hirid);
     model.addAttribute("kommentek", commentList);
     model.addAttribute("hir", hir);
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    if (authentication.getName().equals("anonymousUser")) {
+      model.addAttribute("current_user", new User());
+    } else {
+      model.addAttribute("current_user", userDAO.getUserByEmail(authentication.getName()));
+    }
 
     return "comment";
   }
@@ -222,7 +228,7 @@ public class HirController {
       model.addAttribute("current_user", userDAO.getUserByEmail(authentication.getName()));
     }
 
-     return "rovat-hirek";
+    return "rovat-hirek";
   }
 
 }

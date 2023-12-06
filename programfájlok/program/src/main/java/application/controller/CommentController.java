@@ -72,18 +72,15 @@ public class CommentController {
         return "redirect:/cikk/"+Integer.toString(hirid);
     }
 
-    @PostMapping(value = "/deletecomment/{kommentid}")
-    public String deleteComment(@PathVariable("kommentid") int kommentid){
-        int hirid=commentDAO.getOne(kommentid).getHir().getHirid();
+    @GetMapping(value = "/deletecomment/{kommentid}")
+    public String deleteComment(@PathVariable("kommentid") String kommentid){
+        int kommentid2=Integer.parseInt(kommentid);
+        int hirid=commentDAO.getOne(kommentid2).getHir().getHirid();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
-        if(commentDAO.getOne(kommentid).getAuthorName().equals(currentPrincipalName)||userDAO.getUserByEmail(currentPrincipalName).getJogosultsag().equals("ROLE_ADMIN")){
-            commentDAO.delete(kommentid);
+        if(commentDAO.getOne(kommentid2).getAuthorName().equals(currentPrincipalName)||userDAO.getUserByEmail(currentPrincipalName).getJogosultsag().equals("ROLE_ADMIN")){
+            commentDAO.delete(kommentid2);
         }
         return "redirect:/cikk/"+Integer.toString(hirid);
-    }
-
-    public String updateComment(String content, String authorName, Hir hir){
-        return "redirect:/";
     }
 }

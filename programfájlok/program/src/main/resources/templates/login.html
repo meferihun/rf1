@@ -15,8 +15,6 @@
 
 <body>
 
-<h1>Hírkereső</h1>
-
 <header>
     <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
     <label for="menu-toggle" class="menu-icon">&#9776; Menü</label>
@@ -72,8 +70,10 @@
         </div>
     </nav>
 </header>
+<h1>Hírkereső</h1>
 
 <div id="login">
+
     <div th:if="${param.error}">
         <div class="alert alert-danger">
             <span th:text="#{login.error}"></span>

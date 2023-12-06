@@ -14,7 +14,6 @@
 
    <body>
 
-   <h1>Hírkereső</h1>
 
    <header>
       <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
@@ -71,8 +70,10 @@
          </div>
       </nav>
    </header>
+   <h1>Hírkereső</h1>
 
       <div id="register">
+
          <div th:if="${param.error}">
             <div class="alert">
                <span th:text="#{register.error}"></span>

@@ -248,7 +248,9 @@ h1 {
     width: 60%;
     margin-bottom: 8px;
 }
-
+.hirkozep{
+    text-align: center;
+}
 #keres .btn-sm{
     width:30%;
 }

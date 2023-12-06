@@ -15,8 +15,6 @@
 
 <body>
 
-<h1>Hírkereső</h1>
-
 <header>
    <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
    <label for="menu-toggle" class="menu-icon">&#9776; Menü</label>
@@ -72,12 +70,13 @@
       </div>
    </nav>
 </header>
+<h1>Hírkereső</h1>
 
 <div sec:authorize="hasAuthority('ROLE_ADMIN')">
-   <h2>Hír módosítása</h2>
+   <h2 class="hirkozep">Hír módosítása</h2>
    <form action="#" th:action="@{/update/{hirid}(hirid=${hir.hirid})}" method="post" id="editnews">
       <label>Új cím:
-         <input type="text" name="cim" id="name" th:value="${hir.cim}"></input>
+         <input type="text" name="cim" id="name" th:value="${hir.cim}" required></input>
       </label>
       <input type="hidden" name="kozetevesdatuma" id="age" th:value="${hir.kozetevesdatuma}"></input>
       <input type="hidden" name="megtekintesekszama" th:value="${hir.megtekintesekszama}"></input>
@@ -85,10 +84,10 @@
          <input type="checkbox" name="fontose" th:checked="${hir.fontose}"></input>
       </label>
       <label>Forrás URL módosítása:
-         <input type="text" name="forras" th:value="${hir.forras}"></input>
+         <input type="text" name="forras" th:value="${hir.forras}" required></input>
       </label>
       <label>Forrás oldal nevének módosítása:
-         <input type="text" name="honnan" th:value="${hir.honnan}"></input>
+         <input type="text" name="honnan" th:value="${hir.honnan}" required></input>
       </label>
       <label>Válassz kategóriát
          <select name="kategoria" required>

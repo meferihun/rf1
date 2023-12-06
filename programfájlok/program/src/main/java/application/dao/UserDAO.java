@@ -145,4 +145,41 @@ public class UserDAO extends JdbcDaoSupport {
         String sql = "UPDATE felhasznalok SET jelszo='" + jelszoHashelt + "' WHERE email='" + email + "'";
         getJdbcTemplate().update(sql);
     }
+
+    public List<String> listEmail(){
+
+        List<String> result = new ArrayList<String>();
+
+        String sql = "SELECT kedvenckategoriak.email FROM kedvenckategoriak";
+
+        List<Map<String, Object>> rows2 = getJdbcTemplate().queryForList(sql);
+        for (Map<String, Object> row : rows2) {
+            String email;
+            email = (String) row.get("email");
+
+            result.add(email);
+
+
+        }
+        return result;
+
+
+    }
+
+    public List<String> listKategoria(String email) {
+        List<String> result = new ArrayList<String>();
+
+        String sql = "SELECT kedvenckategoriak.kategoria FROM kedvenckategoriak WHERE kedvenckategoriak.email = '"+ email +"'";
+
+        List<Map<String, Object>> rows2 = getJdbcTemplate().queryForList(sql);
+        for (Map<String, Object> row : rows2) {
+            String kategoria;
+            kategoria = (String) row.get("kategoria");
+
+            result.add(kategoria);
+
+
+        }
+        return result;
+    }
 }

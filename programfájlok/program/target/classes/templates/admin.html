@@ -13,7 +13,6 @@
 </head>
 
 <body>
-<h1>Hírkereső</h1>
 
 <header>
   <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
@@ -73,6 +72,8 @@
 </header>
 
 <main>
+  <h1>Hírkereső</h1>
+
   <div sec:authorize="hasAuthority('ROLE_ADMIN') or hasAuthority('ROLE_EDITOR')">
     <h2>Hír hozzáadása</h2>
     <form th:action="@{/add}" method="post" id="hirhozzadas">
