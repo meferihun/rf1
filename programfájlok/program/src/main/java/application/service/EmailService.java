@@ -53,7 +53,7 @@ public class EmailService {
     }
 
 
-    @Scheduled(cron = "* 50 * * * *")
+    @Scheduled(cron = "10 * * * * *")
     public void hirlevelKuldes(){
 
         List<String> emailek = userDAO.listEmail();
