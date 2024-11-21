@@ -1,4 +1,4 @@
-### Összefoglaló az `2.` mérföldkőben végzett munkáról
+### Összefoglaló az `3.` mérföldkőben végzett munkáról
 
 ### Projekt tag: `Juhász Márk`
 

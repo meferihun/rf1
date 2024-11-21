@@ -138,6 +138,19 @@ A munkát `Megyesi Ferenc` koordinálja. `Fő feladata, hogy folyamatosan egyezt
 - `Résztvevők: Bialkó Ádám Csaba, György József, Juhász Márk, Szalai István, Tóth-Andor Kristóf, Somogyi László`
 - `Érintett témák: Harmadik mérföldkő feladatainak átbeszélése, kiosztása, félreértések tárgyalása, projektterv pontosítása. Megismerkedés a PostgreSQL-vel, adatbázis csatlakoztatása a projekthez...`
 
+
+`4. megbeszélés:`
+- `Időpont: 2023. 11. 21.`
+- `Hely: Online, Discord`
+- `Résztvevők: Megyesi Ferenc, Bialkó Ádám Csaba, György József, Juhász Márk, Szalai István, Tóth-Andor Kristóf, Somogyi László`
+- `Érintett témák: Alkalmazás funkciói, éles környezetbe való kitelepítés`
+
+`5. megbeszélés:`
+- `Időpont: 2023. 11. 28.`
+- `Hely: Online, Discord`
+- `Résztvevők: Bialkó Ádám Csaba, György József, Juhász Márk, Szalai István, Tóth-Andor Kristóf`
+- `Érintett témák: Alkalmazás jelenlegi állapota, éles környezetbe való kitelepítés`
+
 ### 6.3. Minőségbiztosítás
 
 Az elkészült terveket a terveken nem dolgozó csapattársak közül átnézik, hogy megfelel-e a specifikációnak és az egyes diagramtípusok összhangban vannak-e egymással. A meglévő rendszerünk helyes működését a prototípusok bemutatása előtt a tesztelési dokumentumban leírtak végrehajtása alapján ellenőrizzük és összevetjük a specifikációval, hogy az elvárt eredményt kapjuk-e. További tesztelési lehetőségek: unit tesztek írása az egyes modulokhoz vagy a kód közös átnézése (code review) egy, a vizsgált modul programozásában nem résztvevő csapattaggal. Szoftverünk minőségét a végső leadás előtt javítani kell a rendszerünkre lefuttatott kódelemzés során kapott metrikaértékek és szabálysértések figyelembevételével.
